@@ -8,7 +8,6 @@
   - [Respostas possíveis do servidor HTTP](#respostas-possíveis-do-servidor-http)
   - [Conteúdos enviados pelos servidores](#conteúdos-enviados-pelos-servidores)
 
-
 A web—World Wide **Web**—é um sistema complexo de computadores interligados que permite a comunicação e a partilha de informações através de uma rede global. Cada computador funciona como um nó na rede, e a comunicação entre eles é facilitada por protocolos específicos.
 
 Aquilo a que chamamos de “web” é, na verdade, uma rede de computadores que se comunicam entre si utilizando um protocolo específico (HTTP) e que partilham informações através de documentos interligados ([HTML](https://html.spec.whatwg.org/)). A web é uma parte fundamental da Internet, mas não é a única forma de comunicação online. Existem outras redes e protocolos que também permitem a troca de informações, como e-mail, FTP (File Transfer Protocol) e muitos outros.
@@ -24,6 +23,7 @@ A internet por sua vez é a rede que suporta a web, tendo os primeiros nós sido
 ## Estrutura Básica da Web
 
 A web é composta por dois componentes principais:
+
 1. **Clientes**: Dispositivos que solicitam informações, como computadores, smartphones e tablets.
 2. **Servidores**: Computadores que armazenam e fornecem informações, como sites e aplicações web.
 
@@ -57,6 +57,7 @@ O URL pode ser algo como `https://www.exemplo.com/pagina.html?id=123`, onde:
 O DNS é um sistema que traduz nomes de domínio legíveis por humanos (como `www.exemplo.com`) em endereços IP numéricos (como `192.134.1.4`). Isso permite que os clientes acedam aos servidores usando nomes amigáveis, em vez de ter que memorizar números complexos.
 
 O processo de resolução de nomes envolve várias etapas:
+
 1. O cliente envia uma consulta DNS para um servidor DNS.
 2. O servidor DNS verifica se tem o endereço IP correspondente ao nome de domínio solicitado.
 3. Se não tiver, ele encaminha a consulta para outros servidores DNS até encontrar o endereço IP correto.
@@ -64,7 +65,7 @@ O processo de resolução de nomes envolve várias etapas:
 
 > **APRENDER MAIS** no artigo [DNS](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_domain_name) na MDN.
 
-## Respostas possíveis do servidor HTTP 
+## Respostas possíveis do servidor HTTP
 
 As respostas do servidor HTTP são categorizadas por códigos de estado, que indicam o resultado do pedido. Alguns códigos mais comuns incluem:
 
@@ -76,7 +77,6 @@ As respostas do servidor HTTP são categorizadas por códigos de estado, que ind
 - **400 Bad Request**: A solicitação do cliente é inválida ou está mal construída.
 - **500 Internal Server Error**: Ocorreu um erro no servidor ao processar o pedido.
 
-
 > **APRENDER MAIS** no artigo [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) na MDN.
 
 ## Conteúdos enviados pelos servidores
@@ -87,10 +87,9 @@ Os servidores web enviam diferentes tipos de conteúdos para os clientes, depend
 - **CSS**: Folhas de estilo que definem a aparência visual da página.
 - **JavaScript**: Scripts que adicionam interatividade e funcionalidades dinâmicas à página.
 - **Imagens**: Arquivos de imagem (como JPEG, PNG, GIF) que são exibidos na página.
-- **Vídeos e Áudio**: Conteúdos multimédia que podem ser incorporados na página para melhorar a experiência do utilizador. 
+- **Vídeos e Áudio**: Conteúdos multimédia que podem ser incorporados na página para melhorar a experiência do utilizador.
 - **JSON**: Formato de dados usado para troca de informações entre o cliente e o servidor, especialmente em aplicações web dinâmicas.
 - **XML**: Outro formato de dados usado para troca de informações, embora menos comum que o JSON em aplicações web modernas.
 - **Arquivos de fontes**: Tipos de letra personalizados que podem ser usados na página para melhorar a tipografia.
 
 > **NOTA**: A maioria dos sites modernos utiliza uma combinação desses tipos de conteúdo para criar experiências ricas e interativas. O **HTML** define a estrutura, o **CSS** estiliza a aparência e o **JavaScript** adiciona funcionalidades dinâmicas.
-

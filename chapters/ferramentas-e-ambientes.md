@@ -1,5 +1,5 @@
 # Ferramentas e Ambientes de Desenvolvimento
- 
+
 - [Ferramentas e Ambientes de Desenvolvimento](#ferramentas-e-ambientes-de-desenvolvimento)
   - [Editores de Código](#editores-de-código)
   - [Browser Moderno](#browser-moderno)
@@ -7,13 +7,12 @@
   - [Ferramentas de Desenvolvimento (DevTools)](#ferramentas-de-desenvolvimento-devtools)
   - [Servidor Web Local](#servidor-web-local)
 
-
 Neste capítulo, vamos explorar as ferramentas e ambientes de desenvolvimento mais comuns usados na criação de websites. Estas ferramentas ajudam os autores a escrever, testar e depurar o código de forma eficiente e rápida. Uma boa configuração de ambiente é essencial para o sucesso de qualquer projeto web.
- 
+
 ## Editores de Código
- 
+
 Os editores de código são ferramentas essenciais para escrever e editar código-fonte. Alguns dos editores mais populares incluem:
- 
+
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Um editor leve e extensível com suporte a várias linguagens de programação.
 - **[Sublime Text](https://www.sublimetext.com/)**: Um editor rápido e poderoso com uma interface minimalista.
 - **[Notepad](https://notepad-plus-plus.org/)++**: Um editor simples e eficaz para Windows.
@@ -31,7 +30,6 @@ Os editores de código são ferramentas essenciais para escrever e editar códig
 - **[Safari](https://www.apple.com/safari/)**: O browser padrão do macOS e iOS, com bom suporte a padrões web.
 
 > A recomendação é usar o **Google Chrome** ou o **Mozilla Firefox**, pois ambos possuem ferramentas de desenvolvimento robustas que facilitam a depuração e o teste de websites.
-
 
 ### Browser Mobile
 
@@ -58,7 +56,6 @@ Para testar websites localmente, é útil configurar um servidor web local. Isso
 
 ![Extensão Live Server](ferramentas-e-ambientes-assets/live-server-extension-vscode.png)
 
-A melhor forma de correr um servidor web local para testar o seu website é usar o **[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)**, uma extensão do Visual Studio Code que permite iniciar um servidor local com um clique. 
+A melhor forma de correr um servidor web local para testar o seu website é usar o **[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)**, uma extensão do Visual Studio Code que permite iniciar um servidor local com um clique.
 
 Para instalar, basta procurar por “Live Server” na loja de extensões do Visual Studio Code e clicar em “Instalar”. Depois de instalado, pode iniciar o servidor clicando com o botão direito do rato no ficheiro HTML e selecionando “Open with Live Server”.
-
