@@ -1,36 +1,34 @@
 ---
-title: Curso de HTML, CSS e JS para Designers
+title: Sebenta de HTML, CSS e JS para Designers
 lang: pt-pt
 description: Um currículo abrangente para ensinar HTML e CSS a alunos de Design, cobrindo desde a introdução até a publicação de websites.
 author: David Sousa-Rodrigues
 email: david.s.rodrigues@ipleiria.pt
+institution: Instituto Politécnico de Leiria
+year: 2025
+version: 1.0
+license: CC BY-NC-SA 4.0
 date: 2025
 keywords: HTML, CSS, JavaScript, Design, Web Development, Currículo, Ensino
 geometry: margin=3cm
 ---
 
-# Curso de HTML, CSS e JS para Designers
+<base target="_blank">
+
+# Sebenta de HTML, CSS e JS para Designers
 
 ## Tópicos abordados
 
-### Introdução ao HTML e CSS
+### Introdução às Tecnologias Web
 
 - [Como funciona a web](chapters/como-funciona-a-web.md)
-- Introdução ao HTML e CSS
-- História e evolução do HTML e CSS
 - [Estrutura de um website](chapters/estrutura-de-um-website.md)
-- Diferenças entre HTML e CSS
 - [Ferramentas e ambientes de desenvolvimento](chapters/ferramentas-e-ambientes.md)
-- Gestão de versões com Git e GitHub
-- Estrutura básica de um documento HTML
 
 ### Introdução ao HTML
 
-- Introdução ao HTML
-  - <https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software>
-- Sintaxe e estrutura do HTML
-- Document Type Declaration (DOCTYPE)
-- head e body
+- [Introdução ao HTML](chapters/introducao-ao-html.md)
+- [Anatomia de um documento HTML](chapters/anatomia-documento-html.md)
 - Elementos e Tags HTML para o head
 - Meta tags
 - Elementos e Tags HTML para o body
@@ -45,6 +43,7 @@ geometry: margin=3cm
 
 - Introdução ao CSS
 - Seletores e propriedades CSS
+- [Especificidade e herança de regras CSS](chapters/especificidade-e-heranca.md)
 - Estilos com CSS
 - Layouts para Designs responsivos
   - Media Queries
@@ -57,6 +56,7 @@ geometry: margin=3cm
 - Boas práticas de acessibilidade
 - Introdução ao Flexbox e Grid
 - Formulários e validação
+- [Exercícios práticos de CSS](chapters/exercicios-css.md)
 
 ### Introdução ao JavaScript
 

@@ -1,0 +1,931 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Sebenta de HTML, CSS e JS para Designers</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Sebenta de HTML, CSS e JS para Designers do curso TESP de DMD">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sebenta de HTML, CSS e JS para Designers</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sixhat/Aprende_WEB" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="como-funciona-a-web"><a class="header" href="#como-funciona-a-web">Como funciona a Web?</a></h1>
+<ul>
+<li><a href="como-funciona-a-web.html#como-funciona-a-web">Como funciona a Web?</a>
+<ul>
+<li><a href="como-funciona-a-web.html#estrutura-b%C3%A1sica-da-web">Estrutura Básica da Web</a></li>
+<li><a href="como-funciona-a-web.html#arquitetura-cliente-servidor">Arquitetura Cliente-Servidor</a></li>
+<li><a href="como-funciona-a-web.html#endere%C3%A7os-web-e-urls">Endereços Web e URLs</a></li>
+<li><a href="como-funciona-a-web.html#dns-domain-name-system">DNS (Domain Name System)</a></li>
+<li><a href="como-funciona-a-web.html#respostas-poss%C3%ADveis-do-servidor-http">Respostas possíveis do servidor HTTP</a></li>
+<li><a href="como-funciona-a-web.html#conte%C3%BAdos-enviados-pelos-servidores">Conteúdos enviados pelos servidores</a></li>
+</ul>
+</li>
+</ul>
+<p>A web—World Wide <strong>Web</strong>—é um sistema complexo de computadores interligados que permite a comunicação e a partilha de informações através de uma rede global. Cada computador funciona como um nó na rede, e a comunicação entre eles é facilitada por protocolos específicos.</p>
+<p>Aquilo a que chamamos de “web” é, na verdade, uma rede de computadores que se comunicam entre si utilizando um protocolo específico (HTTP) e que partilham informações através de documentos interligados (<a href="https://html.spec.whatwg.org/">HTML</a>). A web é uma parte fundamental da Internet, mas não é a única forma de comunicação online. Existem outras redes e protocolos que também permitem a troca de informações, como e-mail, FTP (File Transfer Protocol) e muitos outros.</p>
+<p>A Web foi proposta em 1989 por <a href="https://pt.wikipedia.org/wiki/Tim_Berners-Lee">Tim Berners-Lee</a>, um cientista da computação britânico, enquanto trabalhava no CERN (Organização Europeia para a Pesquisa Nuclear). A ideia era criar um sistema que permitisse aos investigadores partilhar informações de forma fácil e rápida. Desde então, a Web evoluiu significativamente, tornando-se uma plataforma global para comunicação, comércio, entretenimento e muito mais.</p>
+<blockquote>
+<p><strong>APRENDER MAIS</strong> no artigo <a href="https://pt.wikipedia.org/wiki/World_Wide_Web">World Wide Web</a> na Wikipedia.</p>
+</blockquote>
+<p>A internet por sua vez é a rede que suporta a web, tendo os primeiros nós sido estabelecidos em 29 de Outubro de 1969 (<em>e o sistema crashou ao fim do envio de 2 carateres</em>). A internet é uma rede de redes, composta por milhões de computadores interligados que comunicam entre si através de protocolos padronizados. A web é apenas uma das muitas aplicações que utilizam a infraestrutura da internet.</p>
+<blockquote>
+<p><strong>APRENDER MAIS</strong> no artigo <a href="https://pt.wikipedia.org/wiki/Internet">Internet</a> na Wikipedia.</p>
+</blockquote>
+<h2 id="estrutura-básica-da-web"><a class="header" href="#estrutura-básica-da-web">Estrutura Básica da Web</a></h2>
+<p>A web é composta por dois componentes principais:</p>
+<ol>
+<li><strong>Clientes</strong>: Dispositivos que solicitam informações, como computadores, smartphones e tablets.</li>
+<li><strong>Servidores</strong>: Computadores que armazenam e fornecem informações, como sites e aplicações web.</li>
+</ol>
+<h2 id="arquitetura-cliente-servidor"><a class="header" href="#arquitetura-cliente-servidor">Arquitetura Cliente-Servidor</a></h2>
+<p>A comunicação entre clientes e servidores é feita através de um protocolo chamado HTTP (Hypertext Transfer Protocol). Quando um cliente solicita uma página web, o servidor responde enviando os dados necessários para exibir a página. Este processo envolve várias etapas ilustradas na figura:</p>
+<p><img src="como-funciona-a-web-assets/arq-client-servidor.png" alt="Arquitetura Cliente Servidor" /></p>
+<ol>
+<li>O cliente envia um pedido HTTP para o servidor.</li>
+<li>O servidor processa o pedido e organiza os dados necessários (pode aceder a uma base de dados ou processar um arquivo HTML, CSS, JavaScript ou outros recursos multimedia).</li>
+<li>O servidor envia uma resposta HTTP de volta ao cliente, contendo os dados solicitados.</li>
+<li>O cliente recebe a resposta e renderiza a página web no browser.</li>
+<li>Outros exemplos incluem o envio de formulários. Por exemplo quando fazemos login num site, o cliente envia os dados do formulário para o servidor, que processa a informação (regista na Base de Dados) e responde com uma página de confirmação ou redirecionamento.</li>
+</ol>
+<h2 id="endereços-web-e-urls"><a class="header" href="#endereços-web-e-urls">Endereços Web e URLs</a></h2>
+<p>Os endereços web, conhecidos como URLs (Uniform Resource Locators), são usados para identificar recursos na web.</p>
+<p>O URL pode ser algo como <code>https://www.exemplo.com/pagina.html?id=123</code>, onde:</p>
+<ul>
+<li><strong>Protocolo</strong>: Indica o protocolo usado (por exemplo, <code>http://</code> ou <code>https://</code>).</li>
+<li><strong>Domínio</strong>: O nome do site (por exemplo, <code>www.exemplo.com</code>).</li>
+<li><strong>Caminho</strong>: O caminho para o recurso específico (por exemplo, <code>/pagina.html</code>).</li>
+<li><strong>Parâmetros</strong>: Informações adicionais que podem ser passadas na URL (por exemplo, <code>?id=123</code>).</li>
+</ul>
+<blockquote>
+<p>Mas como é que o browser sabe onde encontrar o servidor associado a um domínio? É aqui que entra o DNS.</p>
+</blockquote>
+<h2 id="dns-domain-name-system"><a class="header" href="#dns-domain-name-system">DNS (Domain Name System)</a></h2>
+<p>O DNS é um sistema que traduz nomes de domínio legíveis por humanos (como <code>www.exemplo.com</code>) em endereços IP numéricos (como <code>192.134.1.4</code>). Isso permite que os clientes acedam aos servidores usando nomes amigáveis, em vez de ter que memorizar números complexos.</p>
+<p>O processo de resolução de nomes envolve várias etapas:</p>
+<ol>
+<li>O cliente envia uma consulta DNS para um servidor DNS.</li>
+<li>O servidor DNS verifica se tem o endereço IP correspondente ao nome de domínio solicitado.</li>
+<li>Se não tiver, ele encaminha a consulta para outros servidores DNS até encontrar o endereço IP correto.</li>
+<li>O servidor DNS retorna o endereço IP ao cliente, que pode então estabelecer uma conexão com o servidor.</li>
+</ol>
+<blockquote>
+<p><strong>APRENDER MAIS</strong> no artigo <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_domain_name">DNS</a> na MDN.</p>
+</blockquote>
+<h2 id="respostas-possíveis-do-servidor-http"><a class="header" href="#respostas-possíveis-do-servidor-http">Respostas possíveis do servidor HTTP</a></h2>
+<p>As respostas do servidor HTTP são categorizadas por códigos de estado, que indicam o resultado do pedido. Alguns códigos mais comuns incluem:</p>
+<ul>
+<li><strong>200 OK</strong>: O pedido foi bem-sucedido e o servidor retornou os dados solicitados.</li>
+<li><strong>301 Moved Permanently</strong>: O recurso foi movido permanentemente para outro URL.</li>
+<li><strong>302 Found</strong>: O recurso foi encontrado, mas está temporariamente noutro URL.</li>
+<li><strong>403 Forbidden</strong>: O cliente não tem permissão para aceder ao recurso solicitado.</li>
+<li><strong>404 Not Found</strong>: O recurso solicitado não foi encontrado no servidor.</li>
+<li><strong>400 Bad Request</strong>: A solicitação do cliente é inválida ou está mal construída.</li>
+<li><strong>500 Internal Server Error</strong>: Ocorreu um erro no servidor ao processar o pedido.</li>
+</ul>
+<blockquote>
+<p><strong>APRENDER MAIS</strong> no artigo <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">HTTP Status Codes</a> na MDN.</p>
+</blockquote>
+<h2 id="conteúdos-enviados-pelos-servidores"><a class="header" href="#conteúdos-enviados-pelos-servidores">Conteúdos enviados pelos servidores</a></h2>
+<p>Os servidores web enviam diferentes tipos de conteúdos para os clientes, dependendo do tipo de recurso solicitado. Os tipos mais comuns incluem:</p>
+<ul>
+<li><strong>HTML</strong>: O conteúdo principal de uma página web, que define a estrutura e o layout.</li>
+<li><strong>CSS</strong>: Folhas de estilo que definem a aparência visual da página.</li>
+<li><strong>JavaScript</strong>: Scripts que adicionam interatividade e funcionalidades dinâmicas à página.</li>
+<li><strong>Imagens</strong>: Arquivos de imagem (como JPEG, PNG, GIF) que são exibidos na página.</li>
+<li><strong>Vídeos e Áudio</strong>: Conteúdos multimédia que podem ser incorporados na página para melhorar a experiência do utilizador.</li>
+<li><strong>JSON</strong>: Formato de dados usado para troca de informações entre o cliente e o servidor, especialmente em aplicações web dinâmicas.</li>
+<li><strong>XML</strong>: Outro formato de dados usado para troca de informações, embora menos comum que o JSON em aplicações web modernas.</li>
+<li><strong>Arquivos de fontes</strong>: Tipos de letra personalizados que podem ser usados na página para melhorar a tipografia.</li>
+</ul>
+<blockquote>
+<p><strong>NOTA</strong>: A maioria dos sites modernos utiliza uma combinação desses tipos de conteúdo para criar experiências ricas e interativas. O <strong>HTML</strong> define a estrutura, o <strong>CSS</strong> estiliza a aparência e o <strong>JavaScript</strong> adiciona funcionalidades dinâmicas.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="estrutura-de-um-website"><a class="header" href="#estrutura-de-um-website">Estrutura de um Website</a></h1>
+<ul>
+<li><a href="estrutura-de-um-website.html#estrutura-de-um-website">Estrutura de um Website</a>
+<ul>
+<li><a href="estrutura-de-um-website.html#boas-pr%C3%A1ticas-na-estrutura-de-um-website">Boas práticas na estrutura de um website</a></li>
+<li><a href="estrutura-de-um-website.html#estrutura-t%C3%ADpica-de-um-website">Estrutura típica de um website</a></li>
+</ul>
+</li>
+</ul>
+<p>O que é um website?</p>
+<p>Um website é um conjunto de páginas web interligadas, acessíveis através da internet, que podem conter texto, imagens, vídeos e outros tipos de conteúdo.</p>
+<p>Cada página é escrita em HTML (HyperText Markup Language), pode ser estilizada com CSS (Cascading Style Sheets) para melhorar a apresentação visual, e pode incluir interatividade através de JavaScript.</p>
+<p>As páginas web podem ainda incluir elementos multimédia, como vídeos e áudio.</p>
+<h2 id="boas-práticas-na-estrutura-de-um-website"><a class="header" href="#boas-práticas-na-estrutura-de-um-website">Boas práticas na estrutura de um website</a></h2>
+<p>Embora estas três tecnologias possam ser codificadas todas no mesmo ficheiro (por exemplo num pequeno tutorial, ou pequena ilustração), é uma boa prática separá-las em ficheiros distintos para facilitar a manutenção e a legibilidade do código, principalmente em projetos maiores.</p>
+<p>Para além disso a separação de ficheiros permite que diferentes pessoas trabalhem em diferentes partes do projeto sem conflitos, e também possibilita a reutilização de código em diferentes páginas ou até diferentes projetos.</p>
+<p>Assim é normal organizar um website em três tipos de ficheiros, colocando-os em pastas distintas:</p>
+<ul>
+<li><strong>HTML</strong>: Os ficheiros com a extensão <code>.html</code> que contêm a estrutura e o conteúdo das páginas web devem ser colocados na raiz do projeto ou subpastas específicas conforme a organização do site.</li>
+<li><strong>CSS</strong>: Ficheiros com a extensão <code>.css</code> que definem o estilo e a apresentação visual das páginas devem ser colocados numa pasta chamada <code>css</code>, <code>stylesheets</code> ou <code>styles</code>, para manter a organização e facilitar a manutenção do código.</li>
+<li><strong>JavaScript</strong>: Ficheiros com a extensão <code>.js</code> que adicionam interatividade e funcionalidades dinâmicas às páginas web devem ser colocados numa pasta chamada <code>js</code>, <code>scripts</code> ou <code>javascript</code>.</li>
+</ul>
+<h2 id="estrutura-típica-de-um-website"><a class="header" href="#estrutura-típica-de-um-website">Estrutura típica de um website</a></h2>
+<p>Um estrutura típica de um website pode ser organizada da seguinte forma:</p>
+<pre><code class="language-website/">├── index.html
+├── about.html
+├── contact.html
+├── stylesheets/
+│   ├── styles.css
+│   └── responsive.css
+├── javascripts/
+│   ├── main.js
+│   └── utils.js
+└── images/
+    ├── logo.png
+    └── banner.jpg
+</code></pre>
+<p>O ponto de entrada principal do website é geralmente o ficheiro <code>index.html</code>, que é carregado por defeito quando se acede ao domínio do site. Por exemplo, se o website estiver hospedado em <code>www.exemplo.com</code>, o servidor irá automaticamente procurar por <code>index.html</code> na raiz do projeto.</p>
+<p>Por vezes certos servidores web podem ter configurações diferentes utilizando <code>default.html</code>, ou <code>Iisstart.htm</code>, mas <code>index.html</code> é o padrão mais comum e deve ser o vosso ponto de partida ao criar um website.</p>
+<p><img src="estrutura-de-um-website-assets/image.png" alt="Explorador de projetos mostrando a estrutura de pastas e ficheiros" /></p>
+<p>Os editores de código modernos, como Visual Studio Code, permitem criar e organizar facilmente os ficheiros e pastas do projeto. Normalmente possuem uma interface gráfica que mostra a árvore da pasta onde se situa o projeto o que facilita a criação de novas pastas e ficheiros, bem como a navegação entre eles.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ferramentas-e-ambientes-de-desenvolvimento"><a class="header" href="#ferramentas-e-ambientes-de-desenvolvimento">Ferramentas e Ambientes de Desenvolvimento</a></h1>
+<ul>
+<li><a href="ferramentas-e-ambientes.html#ferramentas-e-ambientes-de-desenvolvimento">Ferramentas e Ambientes de Desenvolvimento</a>
+<ul>
+<li><a href="ferramentas-e-ambientes.html#editores-de-c%C3%B3digo">Editores de Código</a></li>
+<li><a href="ferramentas-e-ambientes.html#browser-moderno">Browser Moderno</a>
+<ul>
+<li><a href="ferramentas-e-ambientes.html#browser-mobile">Browser Mobile</a></li>
+</ul>
+</li>
+<li><a href="ferramentas-e-ambientes.html#ferramentas-de-desenvolvimento-devtools">Ferramentas de Desenvolvimento (DevTools)</a></li>
+<li><a href="ferramentas-e-ambientes.html#servidor-web-local">Servidor Web Local</a></li>
+<li><a href="ferramentas-e-ambientes.html#gest%C3%A3o-de-vers%C3%B5es-com-git-e-github">Gestão de Versões com Git e GitHub</a>
+<ul>
+<li><a href="ferramentas-e-ambientes.html#o-que-%C3%A9-git">O que é Git?</a></li>
+<li><a href="ferramentas-e-ambientes.html#o-que-%C3%A9-github">O que é GitHub?</a></li>
+<li><a href="ferramentas-e-ambientes.html#benef%C3%ADcios-de-um-sistema-de-controlo-de-vers%C3%A3o">Benefícios de um Sistema de controlo de Versão</a></li>
+<li><a href="ferramentas-e-ambientes.html#diferen%C3%A7as-entre-trabalho-local-e-controlo-de-vers%C3%A3o">Diferenças Entre Trabalho Local e Controlo de Versão</a></li>
+<li><a href="ferramentas-e-ambientes.html#exemplo-um-projeto-de-design">Exemplo: Um Projeto de Design</a></li>
+<li><a href="ferramentas-e-ambientes.html#github-pages">Github pages</a></li>
+<li><a href="ferramentas-e-ambientes.html#fluxo-de-trabalho-b%C3%A1sico-do-git">Fluxo de trabalho Básico do Git</a></li>
+<li><a href="ferramentas-e-ambientes.html#comandos-git-para-tarefas-comuns">Comandos git para tarefas comuns</a></li>
+<li><a href="ferramentas-e-ambientes.html#criar-um-reposit%C3%B3rio">Criar um repositório</a></li>
+<li><a href="ferramentas-e-ambientes.html#ver-o-estado-do-reposit%C3%B3rio">Ver o estado do repositório</a></li>
+<li><a href="ferramentas-e-ambientes.html#estados-poss%C3%ADveis-de-um-ficheiro">Estados possíveis de um ficheiro</a></li>
+<li><a href="ferramentas-e-ambientes.html#fazer-altera%C3%A7%C3%B5es">Fazer alterações</a></li>
+<li><a href="ferramentas-e-ambientes.html#utilizando-o-github-desktop">Utilizando o Github Desktop</a></li>
+<li><a href="ferramentas-e-ambientes.html#github-desktop">Github Desktop</a></li>
+<li><a href="ferramentas-e-ambientes.html#exerc%C3%ADcio-para-explorar-o-git-e-o-github">Exercício para explorar o Git e o GitHub</a></li>
+</ul>
+</li>
+<li><a href="ferramentas-e-ambientes.html#refer%C3%AAncias-%C3%BAteis">Referências úteis</a></li>
+</ul>
+</li>
+</ul>
+<p>Neste capítulo, vamos explorar as ferramentas e ambientes de desenvolvimento mais comuns usados na criação de websites. Estas ferramentas ajudam os autores a escrever, testar e depurar o código de forma eficiente e rápida. Uma boa configuração de ambiente é essencial para o sucesso de qualquer projeto web.</p>
+<h2 id="editores-de-código"><a class="header" href="#editores-de-código">Editores de Código</a></h2>
+<p>Os editores de código são ferramentas essenciais para escrever e editar código-fonte. Alguns dos editores mais populares incluem:</p>
+<ul>
+<li><strong><a href="https://code.visualstudio.com/">Visual Studio Code</a></strong>: Um editor leve e extensível com suporte a várias linguagens de programação.</li>
+<li><strong><a href="https://www.sublimetext.com/">Sublime Text</a></strong>: Um editor rápido e poderoso com uma interface minimalista.</li>
+<li><strong><a href="https://notepad-plus-plus.org/">Notepad</a>++</strong>: Um editor simples e eficaz para Windows.</li>
+<li>… outros editors de código como Atom, Brackets, etc.</li>
+</ul>
+<blockquote>
+<p>A recomendação é usar o <strong>Visual Studio Code</strong>, pois é amplamente adotado e possui uma vasta gama de extensões que facilitam o desenvolvimento web. Embora os exemplos apresentados neste curso sejam feitos no Visual Studio Code, os conceitos são aplicáveis a qualquer editor de código.</p>
+</blockquote>
+<h2 id="browser-moderno"><a class="header" href="#browser-moderno">Browser Moderno</a></h2>
+<p>É importante usar um browser moderno para testar e depurar websites. Os browsers mais comuns incluem:</p>
+<ul>
+<li><strong><a href="https://www.google.com/chrome/">Google Chrome</a></strong>: Um dos browsers mais populares, com excelentes ferramentas de desenvolvimento integradas.</li>
+<li><strong><a href="https://www.mozilla.org/firefox/">Mozilla Firefox</a></strong>: Outro browser popular, conhecido por sua privacidade e extensões.</li>
+<li><strong><a href="https://www.microsoft.com/edge">Microsoft Edge</a></strong>: O browser padrão do Windows, baseado no Chromium.</li>
+<li><strong><a href="https://www.apple.com/safari/">Safari</a></strong>: O browser padrão do macOS e iOS, com bom suporte a padrões web.</li>
+</ul>
+<blockquote>
+<p>A recomendação é usar o <strong>Google Chrome</strong> ou o <strong>Mozilla Firefox</strong>, pois ambos possuem ferramentas de desenvolvimento robustas que facilitam a depuração e o teste de websites.</p>
+</blockquote>
+<h3 id="browser-mobile"><a class="header" href="#browser-mobile">Browser Mobile</a></h3>
+<p>Para testar a responsividade e o comportamento de websites em dispositivos móveis, é importante também usar um browser móvel. Os browsers móveis mais comuns incluem:</p>
+<ul>
+<li><strong><a href="https://play.google.com/store/apps/details?id=com.android.chrome">Google Chrome para Android</a></strong>: Versão móvel do Chrome, com suporte a ferramentas de desenvolvimento.</li>
+<li><strong><a href="https://play.google.com/store/apps/details?id=org.mozilla.firefox">Mozilla Firefox para Android</a></strong>: Versão móvel do Firefox, com suporte a extensões e ferramentas de desenvolvimento.</li>
+<li><strong><a href="https://www.apple.com/safari/">Safari para iOS</a></strong>: O browser padrão do iOS, com suporte a ferramentas de desenvolvimento.</li>
+<li><strong><a href="https://play.google.com/store/apps/details?id=com.microsoft.emmx">Microsoft Edge para Android</a></strong>: Versão móvel do Edge, com suporte a sincronização e ferramentas de desenvolvimento.</li>
+</ul>
+<h2 id="ferramentas-de-desenvolvimento-devtools"><a class="header" href="#ferramentas-de-desenvolvimento-devtools">Ferramentas de Desenvolvimento (DevTools)</a></h2>
+<p><img src="ferramentas-e-ambientes-assets/browser-com-painel-devtools.png" alt="Browser com o painel de desenvolvimento aberto" /></p>
+<p>É importante também instalar as <strong>Ferramentas de Desenvolvimento</strong> (DevTools) do browser, que permitem inspecionar o código HTML, CSS e JavaScript, depurar erros e otimizar o desempenho do site. Estas ferramentas estão disponíveis em todos os browsers modernos.</p>
+<p>Para abrir as DevTools, geralmente pode-se usar a tecla <code>F12</code> ou clicar com o botão direito do mouse na página e selecionar “Inspecionar” ou “Inspecionar Elemento”.</p>
+<p>No caso do Safari é necessário ativar as ferramentas de desenvolvimento nas preferências do browser. Vá a “Preferências” &gt; “Avançado” e marque a opção “Mostrar menu Develop na barra de menus” ou “Show features for web developers”. Depois disso, você pode aceder as DevTools através do menu “Develop”.</p>
+<h2 id="servidor-web-local"><a class="header" href="#servidor-web-local">Servidor Web Local</a></h2>
+<p>Para testar websites localmente, é útil configurar um servidor web local. Isso permite simular o ambiente de produção e testar recursos como requisições HTTP, APIs e interações com o servidor.</p>
+<p><img src="ferramentas-e-ambientes-assets/live-server-extension-vscode.png" alt="Extensão Live Server" /></p>
+<p>A melhor forma de correr um servidor web local para testar o seu website é usar o <strong><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></strong>, uma extensão do Visual Studio Code que permite iniciar um servidor local com um clique.</p>
+<p>Para instalar, basta procurar por “Live Server” na loja de extensões do Visual Studio Code e clicar em “Instalar”. Depois de instalado, pode iniciar o servidor clicando com o botão direito do rato no ficheiro HTML e selecionando “Open with Live Server”.</p>
+<h2 id="gestão-de-versões-com-git-e-github"><a class="header" href="#gestão-de-versões-com-git-e-github">Gestão de Versões com Git e GitHub</a></h2>
+<p>A gestão de versões é uma prática essencial no desenvolvimento de software, permitindo registar alterações no código, colaborar com outros programadores e reverter mudanças quando necessário.</p>
+<p>O Git é o sistema de controle de versão mais popular, e o GitHub é uma plataforma que hospeda repositórios Git e facilita a colaboração entre parceiros de um projeto.</p>
+<p>Para além disso o GitHub oferece funcionalidades grátis como alojamento da página web do projeto, através do <a href="https://pages.github.com/">GitHub Pages</a>, que permite publicar sites estáticos diretamente de um repositório GitHub.</p>
+<p>A forma mais fácil de começar a usar o Git e o GitHub é através do <strong><a href="https://desktop.github.com/">GitHub Desktop</a></strong>, uma aplicação que permite gerir repositórios Git de forma gráfica e intuitiva.</p>
+<blockquote>
+<p>Mas há uma diferença entre o Git e o GitHub:</p>
+</blockquote>
+<h3 id="o-que-é-git"><a class="header" href="#o-que-é-git">O que é Git?</a></h3>
+<ul>
+<li>O <a href="https://git-scm.com/">Git</a> é um dos sistemas de controlo de versão mais populares:
+<ul>
+<li><strong>Distribuído</strong>: Cada colaborador tem uma cópia completa do repositório.</li>
+<li><strong>Rápido</strong>: Opera localmente, o que significa que muitas operações não dependem da internet.</li>
+<li><strong>Flexível</strong>: Suporta workflows variados para diferentes tipos de projeto.</li>
+</ul>
+</li>
+</ul>
+<h3 id="o-que-é-github"><a class="header" href="#o-que-é-github">O que é GitHub?</a></h3>
+<ul>
+<li>O <a href="https://github.com/">GitHub</a> é uma plataforma online que utiliza Git para guardar repositórios.</li>
+<li>Tem funcionalidades como:
+<ul>
+<li><strong>Interface Gráfica</strong>: Mais amigável para iniciantes.</li>
+<li><strong>Colaboração</strong>: Ferramentas para revisão de código, issues e pull requests.</li>
+<li><strong>Portfólio</strong>: Hospedar projetos publicamente ou privadamente.</li>
+</ul>
+</li>
+</ul>
+<h3 id="benefícios-de-um-sistema-de-controlo-de-versão"><a class="header" href="#benefícios-de-um-sistema-de-controlo-de-versão">Benefícios de um Sistema de controlo de Versão</a></h3>
+<ol>
+<li><strong>Histórico de Versões</strong>
+<ul>
+<li>Aceder a versões antigas de arquivos.</li>
+<li>Saber o que mudou, quando mudou e quem fez a alteração.</li>
+</ul>
+</li>
+<li><strong>Colaboração em Equipa</strong>
+<ul>
+<li>Permite que múltiplas pessoas trabalhem no mesmo projeto sem sobrescrever o trabalho uns dos outros.</li>
+</ul>
+</li>
+<li><strong>Backup Seguro</strong>
+<ul>
+<li>Como o código está armazenado num repositório, há backup garantido.</li>
+</ul>
+</li>
+</ol>
+<h3 id="diferenças-entre-trabalho-local-e-controlo-de-versão"><a class="header" href="#diferenças-entre-trabalho-local-e-controlo-de-versão">Diferenças Entre Trabalho Local e Controlo de Versão</a></h3>
+<div class="table-wrapper"><table><thead><tr><th><strong>Trabalho Local (Sem VCS)</strong></th><th><strong>Com Controlo de Versão</strong></th></tr></thead><tbody>
+<tr><td>Arquivos duplicados (“final”, “final-final”, “v2”, etc.)</td><td>Um único repositório gerencia tudo</td></tr>
+<tr><td>Difícil de acompanhar alterações</td><td>Histórico detalhado de modificações</td></tr>
+<tr><td>Colaboração manual (e-mails, drives)</td><td>Colaboração simplificada em tempo real</td></tr>
+</tbody></table>
+</div>
+<h3 id="exemplo-um-projeto-de-design"><a class="header" href="#exemplo-um-projeto-de-design">Exemplo: Um Projeto de Design</a></h3>
+<ul>
+<li>Imagine que está a criar uma página web para um cliente.</li>
+<li>Com um VCS:
+<ul>
+<li>Pode guardar a evolução do logotipo sem criar múltiplos arquivos.</li>
+<li>Pode compartilhar com colegas, receber feedback e integrar alterações facilmente.</li>
+<li>Pode rastrear o trabalho realizado e manter um histórico de alterações.</li>
+<li>Pode colaborar com outros designers e programadores de forma eficiente.</li>
+</ul>
+</li>
+</ul>
+<h3 id="github-pages"><a class="header" href="#github-pages">Github pages</a></h3>
+<p><img src="assets/github-pages.png" alt="Github Pages" /></p>
+<h3 id="fluxo-de-trabalho-básico-do-git"><a class="header" href="#fluxo-de-trabalho-básico-do-git">Fluxo de trabalho Básico do Git</a></h3>
+<ol>
+<li><strong>Clonar ou Inicializar um Repositório</strong></li>
+<li><strong>Fazer Alterações Locais</strong></li>
+<li><strong>Guardar Alterações</strong> (Commit)</li>
+<li><strong>Sincronizar com o Repositório Remoto</strong> (Push e Pull)</li>
+<li><strong>Rever e Integrar Trabalhos em Equipa</strong> (Merge e Pull Requests)</li>
+</ol>
+<h3 id="comandos-git-para-tarefas-comuns"><a class="header" href="#comandos-git-para-tarefas-comuns">Comandos git para tarefas comuns</a></h3>
+<p><img src="assets/git-simple-diagram.png" alt="Diagrama Git" />{height=8cm}</p>
+<h3 id="criar-um-repositório"><a class="header" href="#criar-um-repositório">Criar um repositório</a></h3>
+<p>criar um repositório vazio:</p>
+<pre><code class="language-sh">git init [nome do projeto]
+</code></pre>
+<p>clonar um repositório remoto</p>
+<pre><code class="language-sh">git clone URL_DO_REPO
+</code></pre>
+<h3 id="ver-o-estado-do-repositório"><a class="header" href="#ver-o-estado-do-repositório">Ver o estado do repositório</a></h3>
+<p>listar as alterações</p>
+<pre><code class="language-sh">git status
+</code></pre>
+<p>listar o registo total</p>
+<pre><code class="language-sh">git log
+</code></pre>
+<p>listar diferenças</p>
+<pre><code class="language-sh">git diff
+</code></pre>
+<h3 id="estados-possíveis-de-um-ficheiro"><a class="header" href="#estados-possíveis-de-um-ficheiro">Estados possíveis de um ficheiro</a></h3>
+<p>Os nossos ficheiros podem estar num de 3 estados</p>
+<ol>
+<li><strong>modificado</strong>: quando acabamos de fazer uma alteração e gravamos o ficheiro.</li>
+<li><strong>preparado</strong>: quando marcamos o ficheiro para ser submetido ao histórico do repositório [em lingo do git diz-se <code>staged</code>]</li>
+<li><strong>confirmado</strong>: quando se registam os ficheiros <code>staged</code> no repositório [no lingo do git diz-se <code>commited</code>]</li>
+</ol>
+<h3 id="fazer-alterações"><a class="header" href="#fazer-alterações">Fazer alterações</a></h3>
+<p>Marcar como <strong>preparado</strong> um ficheiro para ser adicionado ao repositório:</p>
+<pre><code class="language-sh">git add [ficheiro]
+</code></pre>
+<p>marcar [stage] todos os ficheiros como preparados</p>
+<pre><code class="language-sh">git add .
+</code></pre>
+<p>submeter ficheiros preparados [commit]</p>
+<pre><code class="language-sh">git commit -m "mensagem descritiva das alterações"
+</code></pre>
+<p>unstage (voltar ao estado modificado)</p>
+<pre><code class="language-sh">git reset [ficheiro]
+</code></pre>
+<p>unstage e perder alterações</p>
+<pre><code class="language-sh">git reset --hard
+</code></pre>
+<h3 id="utilizando-o-github-desktop"><a class="header" href="#utilizando-o-github-desktop">Utilizando o Github Desktop</a></h3>
+<p>Em alternativa à utilização do <code>git</code> diretamente no terminal, é possível utilizar a aplicação <a href="https://github.com/">Github Desktop</a> que permite realizar a maioria das tarefas do <code>git</code> e que permite integrar facilmente a conta do github.com</p>
+<h3 id="github-desktop"><a class="header" href="#github-desktop">Github Desktop</a></h3>
+<p><img src="assets/github-desktop.png" alt="Github Desktop" /></p>
+<h3 id="exercício-para-explorar-o-git-e-o-github"><a class="header" href="#exercício-para-explorar-o-git-e-o-github">Exercício para explorar o Git e o GitHub</a></h3>
+<p>Vamos criar um repositório no Github e criar uma pequena página pessoal de entrada.</p>
+<ol>
+<li>Criar uma conta no Github.</li>
+<li>Criar um repositório novo e dar-lhe um nome.</li>
+<li>Criar um ficheiro chamado index.html no repositório e editar com “Olá Mundo”.</li>
+<li>Fazer commit</li>
+<li>Nos settings ir à secção Github Pages e escolher o main branch</li>
+<li>Abrir o browser em http://[username].github.io/[nome_do_repositorio]</li>
+<li>Utilizar o <a href="https://github.com/apps/desktop">Github Desktop</a> para fazer um repositório clone local no vosso computador</li>
+<li>Fazer alterações ao ficheiro no repositório local.</li>
+<li>Fazer <code>commit</code> e <code>push</code> e ver as alterações no repositório online.</li>
+</ol>
+<h2 id="referências-úteis"><a class="header" href="#referências-úteis">Referências úteis</a></h2>
+<ul>
+<li><a href="https://git-scm.com/">https://git-scm.com/</a></li>
+<li><a href="https://github.com/">https://github.com/</a></li>
+<li><a href="https://github.com/apps/desktop">https://github.com/apps/desktop</a></li>
+<li><a href="https://pages.github.com/">https://pages.github.com/</a></li>
+<li><a href="https://marklodato.github.io/visual-git-guide/index-en.html">https://marklodato.github.io/visual-git-guide/index-en.html</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introdução-ao-html"><a class="header" href="#introdução-ao-html">Introdução ao HTML</a></h1>
+<ul>
+<li><a href="introducao-ao-html.html#introdu%C3%A7%C3%A3o-ao-html">Introdução ao HTML</a>
+<ul>
+<li><a href="introducao-ao-html.html#anatomia-de-um-elemento-html">Anatomia de um Elemento HTML</a></li>
+<li><a href="introducao-ao-html.html#sugest%C3%A3o-de-exerc%C3%ADcio">Sugestão de Exercício</a></li>
+<li><a href="introducao-ao-html.html#encapsulamento-de-elementos-html">Encapsulamento de elementos HTML</a></li>
+<li><a href="introducao-ao-html.html#elementos-html-s%C3%B3-com-tags-de-abertura-ou-elementos-vazios">Elementos HTML só com TAGs de abertura ou elementos vazios</a></li>
+<li><a href="introducao-ao-html.html#atributos">Atributos</a></li>
+<li><a href="introducao-ao-html.html#exerc%C3%ADcio">Exercício</a></li>
+<li><a href="introducao-ao-html.html#atributos-booleanos">Atributos booleanos</a></li>
+<li><a href="introducao-ao-html.html#aspas-plicas-ou-nenhum-dos-dois">Aspas, Plicas ou nenhum dos dois?</a></li>
+</ul>
+</li>
+</ul>
+<p>O HTML (HyperText Markup Language) é a tecnologia que define o conteúdo e estrutura de uma página web. Quando bem escrita também define a semântica dos conteúdos numa forma estruturada e inteligivel por computadores, tornando as páginas acessíveis a pessoas com necessidades especiais, e melhorando a sua classificação para aparecer em resultados de motores de busca (SEO). Neste capítulo vamos começar por falar das estruturas principais de um documento HTML.</p>
+<p>O HTML é constituído por uma sequência de elementos que são utilizados para circunscrever (marcar) os conteúdos que pretendemos incluir na página.</p>
+<p>Por exemplo considere a seguinte frase:</p>
+<pre><code class="language-txt">O meu gato é muito velho.
+</code></pre>
+<p>Se quisermos dar-lhe o destaque de ficar num parágrafo, em HTML devemos colocá-lo dentro de um elemento <code>&lt;p&gt;</code>.</p>
+<pre><code class="language-html">&lt;p&gt;O meu gato é muito velho.&lt;/p&gt;
+</code></pre>
+<p>Este HTML normalmente reside em documentos HTML, que possuem a extensão <code>.html</code>. Os conteúdos do ficheiro são editáveis com um editor de texto e normalmente o nome do ficheiro de entrada de um website é o <code>index.html</code>.</p>
+<blockquote>
+<p><strong>NOTA</strong>: Em HTML as Tags são <strong>case-insensitive</strong>. Isto significa que tanto <code>&lt;p&gt;</code> como <code>&lt;P&gt;</code> são perfeitamente equivalentes, mas recomenda-se a adoptar um estilo coerente (todas minusculas ou todas maiusculas)</p>
+</blockquote>
+<h3 id="anatomia-de-um-elemento-html"><a class="header" href="#anatomia-de-um-elemento-html">Anatomia de um Elemento HTML</a></h3>
+<pre><code class="language-html">&lt;p&gt;O meu gato é muito velho.&lt;/p&gt;
+</code></pre>
+<p>No exemplo acima podemos ver que o elemento HTML é constituído por diversas partes:</p>
+<p><img src="introducao-ao-html-assets/elemento-html.png" alt="Estrutura de um elemento HTML" /></p>
+<ol>
+<li>Uma tag de abertura de elemento HTML <code>&lt;p&gt;</code></li>
+<li>O conteúdo do elemento HTML</li>
+<li>Uma tag de fecho do elemento HTML <code>&lt;/p&gt;</code>. As tags de fecho são iguais às Tags de abertura exceto que possuem o <code>/</code> para indicar tratarem-se de fecho de tag.</li>
+</ol>
+<h3 id="sugestão-de-exercício"><a class="header" href="#sugestão-de-exercício">Sugestão de Exercício</a></h3>
+<blockquote>
+<p>No <a href="https://developer.mozilla.org/en-US/play">playground online da
+Mozilla</a> pode experimentar
+os pequenos exercícios propostos.</p>
+</blockquote>
+<p>Experimente copiar o elemento HTML anterior para a caixa de HTML do playground e faça run.</p>
+<p>Experimente utilizar o elemento <code>&lt;strong&gt;</code> para circunscrever a palavra gato. O elemento <code>&lt;strong&gt;</code> modifica a palavra gato para ficar a <strong>negrito (bold)</strong>.</p>
+<p>Experimente também o elemento <code>&lt;em&gt;</code> (enfase), resultando num texto <em>itálico</em>.</p>
+<h3 id="encapsulamento-de-elementos-html"><a class="header" href="#encapsulamento-de-elementos-html">Encapsulamento de elementos HTML</a></h3>
+<p>Os elementos podem ser colocados dentro de outros elementos. No caso anterior podemos encasular <code>&lt;strong&gt;</code> dentro do <code>&lt;p&gt;</code>:</p>
+<pre><code class="language-html">&lt;p&gt;O meu &lt;strong&gt;gato&lt;/strong&gt; é muito velho.&lt;/p&gt;
+</code></pre>
+<p>é no entanto importante ter em atenção que o seguinte exemplo está errado:</p>
+<pre><code class="language-html">&lt;p&gt;O meu &lt;strong&gt;gato é muito velho.&lt;/p&gt;&lt;/strong&gt;
+</code></pre>
+<p>porque o encapsulamento do elemento <code>&lt;strong&gt;</code> não está dentro do <code>&lt;p&gt;</code>. A tag de fecho aparece fora do elemento pai. Todos os elementos HTML devem estar contidos dentro de outros elementos e a não observação desta regra pode levar a resultados inesperados.</p>
+<p>Os browsers na presença destes erros, tentam renderizar a página e não <em>crasham</em> como acontece com um programa de computador. Isto deve-se a razões históricas. Os browsers sempre tentam renderizar os conteúdos HTML, aplicando alguns padrões. No entanto cada browser é livre de interpretar estes erros de forma livre pelo que é importante ter particular atenção aos possíveis erros para evitar efeitos iprevisiveis.</p>
+<h3 id="elementos-html-só-com-tags-de-abertura-ou-elementos-vazios"><a class="header" href="#elementos-html-só-com-tags-de-abertura-ou-elementos-vazios">Elementos HTML só com TAGs de abertura ou elementos vazios</a></h3>
+<p>Nem todos os elementos HTML seguem o padrão <code>&lt;tag de abertura&gt;conteúdo&lt;/tag de fecho&gt;</code>. Alguns elementos consistem apenas numa única tag. São normalmente elementos que são utilizados para inserir algum elemento multimedia no documento. Um exemplo destes elementos é o elemento <code>&lt;img&gt;</code> utilizado para inserir imagens no documento HTML.</p>
+<pre><code class="language-html">&lt;img src="logo.png" alt="Logotipo da Empresa"&gt;
+</code></pre>
+<p>Neste exemplo a tag <code>&lt;img&gt;</code> tem no seu interior (entre o <code>&lt;</code> e o<code>&gt;</code>) duas propriedades extras: a propriedade <code>src="logo.png"</code> define qual o nome do ficheiro de imagem a mostrar, e a propriedade <code>alt="Logotipo da Empresa"</code> descreve a imagem para o caso de a imagem não poder ser lida, ou para o caso em que o utilizador esteja a utilizar um sistema de acessibilidade.</p>
+<blockquote>
+<p><strong>NOTA</strong>: Nos elementos HTML como o <code>&lt;img&gt;</code> em que não há tag de fecho pode ser utilizada uma <code>/</code> de fecho antes do <code>&gt;</code> final. por exemplo <code>&lt;img src="logo.png" alt="Logotipo da Empresa" /&gt;</code></p>
+</blockquote>
+<h3 id="atributos"><a class="header" href="#atributos">Atributos</a></h3>
+<p>Os elementos HTMl também podem ter atributos. Por exemplo:</p>
+<pre><code class="language-html">&lt;p class="nota-pessoal"&gt;O meu gato é muito velho.&lt;/p&gt;
+</code></pre>
+<p>Neste exemplo o elemento <code>&lt;p&gt;</code> tem um atributo <code>class="nota-pessoal"</code> que define a class deste elemento. Classes são uma forma de classificar elementos para posteriormente serem estilizados utilizando CSS.</p>
+<p>Os atributos são colocados nas tags de abertura e devem ter o nome do atributo, seguido de um igual e de valor do atributo, normalmente entre aspas (<code>"</code>) ou plicas (<code>'</code>).</p>
+<blockquote>
+<p><strong>NOTA</strong>: Não são permitidas aspas ou plicas tipográficas “ ” ou ‘ ’</p>
+</blockquote>
+<h3 id="exercício"><a class="header" href="#exercício">Exercício</a></h3>
+<p>No <a href="https://developer.mozilla.org/en-US/play">playground online da Mozilla</a> copie o seguinte código:</p>
+<pre><code class="language-html">&lt;img&gt;
+</code></pre>
+<p>Nesta imagem coloque os seguintes atributos:</p>
+<ul>
+<li><code>src</code> com o ficheiro localizado no endereço <code>https://picsum.photos/200</code> (para além de nomes de ficheiros também é possivel utilizar URLs de imagens que estejam já publicadas online)</li>
+<li><code>alt</code> uma descrição da imagem</li>
+<li><code>width</code> defina uma largura para a imagem (em pixels)</li>
+<li><code>height</code> defina uma altura para a imagem (em pixels)</li>
+</ul>
+<p>Um resultado poderá ser:</p>
+<pre><code class="language-html">&lt;img src="https://picsum.photos/200" alt="Imagem de demonstração" width="300" height="400"&gt;
+</code></pre>
+<p>Para acomodar melhor os atributos do elemento HTML é possível colocá-los em multiplas linhas para facilitar a leitura:</p>
+<pre><code class="language-html">&lt;img 
+    src="https://picsum.photos/200" 
+    alt="Imagem de demonstração" 
+    width="300" 
+    height="400"
+    &gt;
+</code></pre>
+<p>No entanto convém sempre ter atenção à legibilidade dos elementos no contexto da página html que estamos a escrever.</p>
+<h3 id="atributos-booleanos"><a class="header" href="#atributos-booleanos">Atributos booleanos</a></h3>
+<p>Por vezes vai encontrar atributos sem a atribuição de um valor. Estes atributos são booleanos. Atributos booleanos são atributos que são <em>verdadeiros</em> (existem) ou <em>falsos</em> (não existem). Por exemplo, o atributo <code>disabled</code> que informa o browser que o elemento de entrada de texto <code>input</code> está “desligado”, pode ser escrito das duas formas seguintes:</p>
+<pre><code class="language-html">&lt;input type="text" disabled="disabled" /&gt;
+</code></pre>
+<p>em que o atributo <strong>disabled</strong> é definido com a atribuição da string com o próprio nome do atributo “disabled” ou simplesmente</p>
+<pre><code class="language-html">&lt;input type="text" disabled /&gt;
+</code></pre>
+<p>em que apenas se coloca o nome do atributo que se quer ativar.</p>
+<blockquote>
+<p><strong>CURIOSIDADE</strong> Booleano vem do nome de <a href="https://pt.wikipedia.org/wiki/George_Boole">George Boole</a>, um matemático do século XIX inventor da algebra booleana.</p>
+</blockquote>
+<h3 id="aspas-plicas-ou-nenhum-dos-dois"><a class="header" href="#aspas-plicas-ou-nenhum-dos-dois">Aspas, Plicas ou nenhum dos dois?</a></h3>
+<p>Por vezes podem-se encontrar páginas web com código ligeiramente diferente daquele especificado no standard. Uma das alterações que poderá encontrar diz respeito à não utilização de aspas ou plicas. Por exemplo uma ancora <code>&lt;a&gt;</code> para fazer uma hiperligação a outra página pode aparecer sem aspas no atributo <code>href</code>:</p>
+<pre><code class="language-html">&lt;a href=http://www.example.com/&gt;Website de Exemplo&lt;/a&gt;
+</code></pre>
+<p>Embora funcione no caso do URL, uma vez que o URL não contém espaços, se começarmos a adicionar outros atributos como o <code>title</code><sup class="footnote-reference"><a href="#tit">1</a></sup></p>
+<pre><code class="language-html">&lt;a href=http://www.example.com/ title=Website para exemplo&gt;
+  Website de Exemplo
+&lt;/a&gt;
+</code></pre>
+<p>Se testarmos este código no playground verificamos que ao parar o rato em cima do link o título que aparece não é correto aparecendo apenas “Website” sendo o resto do título truncado.</p>
+<blockquote>
+<p><strong>RECOMENDAÇÃO</strong>: Utilize sempre aspas <code>"</code> ou plicas <code>'</code> para definir os atributos.</p>
+</blockquote>
+<p>Quanto à utilização de aspas <code>"</code> ou plicas <code>'</code>, a escolha é indiferente e normalmente uma escolha de estilo pessoal ou das definições da equipa com que está a trabalhar.</p>
+<p>Também não é possível delimitar um atributo misturando aspas e plicas. Por exemplo <code>"Página pessoal'</code> é errado e não vai ser aceite pelo browser dando resultados inesperados porque mistura os dois tipos de delimitadores.</p>
+<p>Acima de tudo recomenda-se consistência. O exemplo anterior deveria ser escrito numa das duas seguintes formas:</p>
+<pre><code class="language-html">&lt;a href="http://www.example.com/" title="Website para exemplo"&gt;
+  Website de Exemplo
+&lt;/a&gt;
+
+&lt;a href='http://www.example.com/' title='Website para exemplo'&gt;
+  Website de Exemplo
+&lt;/a&gt;
+</code></pre>
+<p>Quando se utiliza um tipo (aspas ou plicas), pode-se utilizar o outro tipo dentro do texto. Isto implica que se utilizar aspas como delimitador é possível usar a plica como conteúdo (útil para lingua inglesa para contrações como <em>I’m</em>, ou <em>can’t</em>). Por exemplo:</p>
+<pre><code class="language-html">&lt;a 
+  href="http://www.example.com/" 
+  title="I can't really see any content in this website"&gt;
+    Website de Exemplo
+&lt;/a&gt;
+</code></pre>
+<div class="footnote-definition" id="tit"><sup class="footnote-definition-label">1</sup>
+<p>o <code>title</code> aparece quando se para o rato sobre a hiperligação</p>
+</div>
+<p>Até agora aprendemos alguns aspetos dos elementos HTML. Está na altura de introduzir a estrutura do documento HTML na secção seguinte, onde vamos combinar os diferentes elementos para criar uma página HTML.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="anatomia-de-um-documento-html"><a class="header" href="#anatomia-de-um-documento-html">Anatomia de um documento HTML</a></h1>
+<ul>
+<li><a href="anatomia-documento-html.html#anatomia-de-um-documento-html">Anatomia de um documento HTML</a>
+<ul>
+<li><a href="anatomia-documento-html.html#exerc%C3%ADcio">Exercício</a>
+<ul>
+<li><a href="anatomia-documento-html.html#instru%C3%A7%C3%B5es">Instruções</a></li>
+</ul>
+</li>
+<li><a href="anatomia-documento-html.html#espa%C3%A7o-em-branco">Espaço em branco</a></li>
+<li><a href="anatomia-documento-html.html#carateres-especiais-em-html">Carateres especiais em HTML</a></li>
+<li><a href="anatomia-documento-html.html#coment%C3%A1rios-em-html">Comentários em HTML</a></li>
+</ul>
+</li>
+</ul>
+<p>Anteriormente vimos o que são elementos HTML e algumas das suas características. Pela combinação desses elementos é possível criar uma página HTML completa.</p>
+<p>Um documento HTML mínimo pode ser algo como:</p>
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang="en-US"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;My test page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;This is my page&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Neste documento vemos diferentes elementos HTML:</p>
+<ol>
+<li><code>&lt;!doctype html&gt;</code> o doctype é uma declaração inicial na primeira linha de um documento html que indica ao browser que tipo de documento se seguirá e que conjunto de regras é que o documento segue. Historicamente pode encontrar definições de doctpype diferentes, mas a web moderna precisa apenas desta definição simples.</li>
+<li><code>&lt;html&gt;&lt;/html&gt;</code> Este elemento engloba todo o documento. É a raiz do árvore do documento e todos os restantes elementos são interiores.</li>
+<li><code>&lt;head&gt;&lt;/head&gt;</code> Este elemento é um contentor para todo os tipos de dados que quiser incluir na página e que não são renderizados como conteúdo. Isto inclui o título da página (utilizado pelo browser), palavras chave, descrição, declaração de estilos a utilizar, entre outros.</li>
+<li><code>&lt;meta charset="utf-8" /&gt;</code> O elemento <code>&lt;meta&gt;</code> é utilizado para definir diferentes tipos de metadados que não são definidos por outros elementos. No exemplo define a codificação de caracteres como sendo UTF-8, que inclui a maioria de caracteres das linguagens humanas.</li>
+<li><code>&lt;title&gt;&lt;/title&gt;</code> este elemento define o título da página que aparecerá nos separador do browser e nos bookmarks.</li>
+<li><code>&lt;body&gt;&lt;/body&gt;</code> Este elemento é o contentor de todos os elementos HTML que são renderizados para o utilizador. No exemplo apenas inclui um parágrafo <code>&lt;p&gt;&lt;/p&gt;</code>.</li>
+</ol>
+<h2 id="exercício-1"><a class="header" href="#exercício-1">Exercício</a></h2>
+<p>Agora que o temos um documento HTMl devemos começar a utilizar um editor de texto em vez do playground online<sup class="footnote-reference"><a href="#editor_texto">1</a></sup>.</p>
+<div class="footnote-definition" id="editor_texto"><sup class="footnote-definition-label">1</sup>
+<p>Recomenda-se a utilização do <a href="https://code.visualstudio.com/">Visual Studio Code</a>, uma vez que é bastante completo e bem suportado. No entanto qualquer editor de texto permite editar HTML. Se por acaso estive num computador que não tenha nenhum editor e onde não possa instalar um, pode utilizar uma <a href="https://vscode.dev/">versão web do editor</a>. Pode também consultar uma <a href="https://github.com/collections/text-editors">lista de editores de código fonte</a> para escolher um.</p>
+</div>
+<ol>
+<li>Copie o código do documento HTML básico parar um ficheiro novo. Grave-o com o nome <code>index.html</code>. Esta será a sua página de entrada.</li>
+<li>Abra o ficheiro com o browser e verifique que a página foi renderizada corretamente antes de seguir as instruções seguintes.</li>
+</ol>
+<h4 id="instruções"><a class="header" href="#instruções">Instruções</a></h4>
+<ol>
+<li>A seguir à tag <code>&lt;body&gt;</code> adicione uma linha para colocar o cabeçalho principal do documento. O html permite definir <em>Headings</em> de diferentes níveis por ordem de importância. O título de uma página é normalmente definido pelo <em>Heading 1</em>. O elemento HTML para o definir é <code>&lt;h1&gt;&lt;/h1&gt;</code>. Experimente adicionar este elemento e coloque o texto “A minha página” entre as tags de abertura e de fecho do <em>heading 1</em></li>
+<li>Altere o texto do parágrafo para descrever algo sobre si. Por exemplo uma pequena biografia.</li>
+<li>Selecione algumas palavras importantes da sua biografia e marque-as com o elemento <code>&lt;strong&gt;</code>.</li>
+<li>Adicione uma hiperligação <code>&lt;a&gt;</code> dentro desse parágrafo para um website a seu gosto, ou para a escola.</li>
+<li>Adicione uma imagem <code>&lt;img&gt;</code> à página. Coloque-a a seguir ao parágrafo. Se a imagem for muito grande utilize <code>width=...</code> e <code>height=...</code> para a redimensionar. A imagem pode estar online ou pode ser uma imagem de um ficheiro no seu computador.</li>
+</ol>
+<p>Um exemplo de um resultado possível pode ser visto a seguir:</p>
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang="pt-PT"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;David Sousa-Rodrigues&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;A minha página pessoal&lt;/h1&gt;
+    &lt;p&gt;Sou professor na 
+        &lt;a href="https://www.ipleiria.pt/esadcr/" title="ESADcr"&gt;
+        Escola Superior de Artes e Design&lt;/a&gt; das Caldas da Rainha. 
+        Gosto de ensinar e de jogar Xadrez&lt;/p&gt;
+    &lt;img src="foto-01.jpg" 
+         alt="Foto de David Sousa-Rodrigues" 
+         width="300"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="anatomia-documento-html-assets/exemplo-pagina-exercicio.png" alt="" /></p>
+<h2 id="espaço-em-branco"><a class="header" href="#espaço-em-branco">Espaço em branco</a></h2>
+<p>No exemplo anterior pode ter reparado que há imenso espaço em branco dentro dos elementos HTML. O espaço em branco em HTML é opcional. Os dois exemplos seguintes são equivalentes.</p>
+<pre><code class="language-html">&lt;p id="noWhitespace"&gt;Dogs are silly.&lt;/p&gt;
+
+&lt;p id="whitespace"&gt;Dogs
+    are
+        silly.&lt;/p&gt;
+</code></pre>
+<p>Em HTML o espaço em branco dentro de um elemento HTML é normalmente colapsado a um espaço. Isto inclui quebras de linha, tabulações e espaços. A vantagem desta abordagem é que nos permite aumentar a legibilidade do código HTML.</p>
+<h2 id="carateres-especiais-em-html"><a class="header" href="#carateres-especiais-em-html">Carateres especiais em HTML</a></h2>
+<p>Os carateres <code>&lt;, &gt;, ", ' e &amp;</code> são especiais uma vez que fazem parte da sintaxe do HTML. Quando é necessário inserir estes carateres no próprio texto é devemos utilizar uma codificação especial para os representar. Cada caráter pode ser escrito por uma referência que começa com o caráter <code>&amp;</code> e termina com ponto e virgula <code>;</code>.</p>
+<div class="table-wrapper"><table><thead><tr><th>caráter</th><th>Referência</th></tr></thead><tbody>
+<tr><td>&lt;</td><td>&amp;lt;</td></tr>
+<tr><td>&gt;</td><td>&amp;gt;</td></tr>
+<tr><td>“</td><td>&amp;quot;</td></tr>
+<tr><td>’</td><td>&amp;apos;</td></tr>
+<tr><td>&amp;</td><td>&amp;amp;</td></tr>
+</tbody></table>
+</div>
+<p>A <a href="https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references">lista de referência de carateres</a> é extensa e pode ser consultada online. Para além da referência de nomes de carateres é também possível referenciálos pelo seu número  decimal ou hexadecimal.</p>
+<p>Por exemplo, o caráter <strong>β</strong> pode ser escrito em HTML com as referências <strong>&amp;beta;</strong> <strong>&amp;#946</strong>, ou <strong>&amp;#x3B2;</strong>. Note que as representações numéricas possuem o simbolo # seguido de um número. No caso da representação hexadecimal o número começa com um <code>x</code>. Online as representações do caráter estão normalmente no formato <strong>U+003B2</strong>, onde o <strong>U+</strong> indica tratar-se da representação em codificação Unicode e o número aparece com zeros à esquerda que podem ser incluidos ou não quando se referência o número no HTML da nossa página.</p>
+<h2 id="comentários-em-html"><a class="header" href="#comentários-em-html">Comentários em HTML</a></h2>
+<p>O HTML tem um mecanismo para definir comentários no código. Um comentário é algo que não será renderizado pelo browser e que serve apenas para incluir notas no código para facilitar o desenvolvimento da página web. Os comentários utilizam uma TAG especial <code>&lt;!-- comentário --&gt;</code>. No exemplo anterior podemos adicionar comentários que descrevam o código:</p>
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang="pt-PT"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;David Sousa-Rodrigues&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Escrever um Cabeçalho melhor, talvez mudar para o nome --&gt;
+    &lt;h1&gt;A minha página pessoal&lt;/h1&gt;
+
+    &lt;!-- 
+        Pequena Bio, não se quer muito longa. Os comentários
+        HTML podem ocupar multiplas linhas. 
+    --&gt;
+    &lt;p&gt;Sou professor na 
+        &lt;a href="https://www.ipleiria.pt/esadcr/" title="ESADcr"&gt;
+        Escola Superior de Artes e Design&lt;/a&gt; das Caldas da Rainha. 
+        Gosto de ensinar e de jogar Xadrez&lt;/p&gt;
+
+    &lt;!-- Tirar uma foto nova. Esta é muito antiga --&gt;
+    &lt;img src="foto-01.jpg" 
+         alt="Foto de David Sousa-Rodrigues" 
+         width="300"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Tudo o que estiver dentro da tag de comentário será ignorado pelo browser.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="especificidade-e-herança-de-regras-css"><a class="header" href="#especificidade-e-herança-de-regras-css">Especificidade e Herança de Regras CSS</a></h1>
+<p>Os seletores CSS são aplicados aos elementos HTML para definir estilos. No entanto, quando vários seletores podem se aplicar ao mesmo elemento, é importante entender como o navegador decide qual estilo aplicar. Isso é determinado pela <strong>especificidade</strong> e pela <strong>herança</strong>.</p>
+<h2 id="especificidade"><a class="header" href="#especificidade">Especificidade</a></h2>
+<p>A especificidade é um sistema de pontuação que o navegador usa para determinar qual regra CSS deve ser aplicada a um elemento quando várias regras se aplicam. A especificidade é calculada com base em diversos items pela ordem decrescente seguinte:</p>
+<ol>
+<li><strong>Importância</strong>: Regras marcadas com <code>!important</code> têm a maior prioridade, independentemente da especificidade. É melhor evitar seu uso, pois pode tornar o CSS difícil de manter.</li>
+<li><strong>Estilos inline no próprio elemento</strong> - Estes estilos tem máxima prioridade. São mais especificos que os ID (próximo ponto).</li>
+<li><strong>Seletores de ID</strong>: Cada seletor de ID conta como 100 pontos. Por exemplo, <code>#header</code> tem uma especificidade de 100.</li>
+<li><strong>Seletores de classe, atributos e pseudo-classes</strong>: Cada um conta como 10 pontos. Por xemplo, <code>.menu</code>, <code>[type="text"]</code>, e <code>:hover</code> têm uma especificidade de 10 cada.</li>
+<li><strong>Seletores de elementos e pseudo-elementos</strong>: Cada um conta como 1 ponto. Por exemplo, <code>div</code>, <code>p</code>, e <code>::before</code> têm uma especificidade de 1 cada.</li>
+<li><strong>Seletores universais (<code>*</code>) e negação (<code>:not()</code>)</strong>: Estes não adicionam pontos à especificidade.</li>
+<li><strong>Ordem de declaração</strong>: Se duas regras têm a mesma especificidade, a última regra declarada no CSS será aplicada.</li>
+</ol>
+<h3 id="exemplo-de-cálculo-de-especificidade"><a class="header" href="#exemplo-de-cálculo-de-especificidade">Exemplo de cálculo de especificidade:</a></h3>
+<pre><code class="language-css">/* Especificidade: 100 (ID) + 10 (classe) + 2 (2 elementos) = 112 */
+#header ul.menu li {
+  color: blue;
+}
+/* Especificidade: 10 (classe) + 2 (2 elementos ) = 12 */
+ul.menu li {
+  color: red;
+}
+</code></pre>
+<p><img src="especificidade-e-heranca-assets/calculo-espcificidade-2.png" alt="Cálculo de Especificidade para os seletores “#header ul.menu li” e “ul.menu li”" /></p>
+<p>Se aplicarmos estes estilos a um elemento HTML como:</p>
+<pre><code class="language-html">&lt;div id="header"&gt;
+  &lt;ul class="menu"&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<p>O texto dos <a href="https://codepen.io/sixhat/pen/XJbLVwX">itens da lista será azul</a>, pois a regra com ID tem uma especificidade maior (112) do que a regra com classe (12).</p>
+<h3 id="importância-de-definir-regras-com-especificidade-correta"><a class="header" href="#importância-de-definir-regras-com-especificidade-correta">Importância de definir regras com especificidade correta.</a></h3>
+<p>Num ficheiro de estilos, a especificidade deve aumentar ao longo da ficheiro. As regras menos específicas devem aparecer primeiro e as mais específicas no final do ficheiro. isto deve-se a que em caso de igualdade de especificidade as regras que aparecem posteriormente serem aquelas que são adotadas. Começando com regras com especificidade baixa permite que ao escrever regras muito específicas, estas tenham que redefinir muito poucas propriedades de estilo dos elementos HTML.</p>
+<p>Online há ferramentas onde podem <a href="https://graphmycss.com/">testar a especificidade</a> das vossas folhas de estilo. O ideal é ter especificidades baixas com os valor mais altos no final do ficheiro.</p>
+<h3 id="sugestões-para-a-definição-de-estilos"><a class="header" href="#sugestões-para-a-definição-de-estilos">Sugestões para a definição de estilos</a></h3>
+<ul>
+<li>Escolha preferencialmente seletores com baixa especificidade. Dessa forma estes serão mais portáveis.</li>
+<li>Use preferencialmente seletores de classes para definir os estilos que necessita. Classes tem especificidade relativamente baixa e podem ser aplicadas a multiplos elementos html.</li>
+<li>Um sistema baseado em classes permite definir um sistema de design desacoplado da estrutura dos conteúdos.</li>
+<li>Reduza ao mínimo estritamente necessário a utilização seletores ID. São muito especificos.</li>
+<li>Evite utilizar <code>!important</code>. Folhas de estilo com regras com este nível de especificidade normalmente significam que as folhas de estilo ficaram desorganizadas. A exceção é quando se utilizam bibliotecas externas ao nosso controlo e é necessário utilizar <code>!important</code> para sobreescrever alguma regra imposta pela biblioteca externa.</li>
+</ul>
+<blockquote>
+<p><strong>APRENDER MAIS</strong> em <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity">MDN Web Docs sobre Especificidade</a>.</p>
+</blockquote>
+<h2 id="herança"><a class="header" href="#herança">Herança</a></h2>
+<p>Em CSS, a herança é o mecanismo pelo qual certos estilos são passados de um elemento pai para seus elementos filhos. Isso significa que, se um estilo é aplicado a um elemento pai, os elementos filhos herdarão esse estilo, a menos que seja especificado de outra forma.</p>
+<p>No CSS há propriedades que são herdadas por padrão, como <code>color</code>, <code>font-family</code>, e <code>line-height</code>. Outras propriedades, como <code>margin</code>, <code>padding</code>, e <code>border</code>, não são herdadas.</p>
+<p>Para saber se uma propriedade é herdada, deve consultar a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#index">documentação do CSS</a> e verificar se a propriedade que quer utilizar é listada como <code>Inherited</code>.</p>
+<h3 id="exemplo-de-herança"><a class="header" href="#exemplo-de-herança">Exemplo de herança</a></h3>
+<pre><code class="language-css">/* Estilo aplicado ao elemento pai P */
+p {
+	font: 900 2rem sans-serif;
+  color: #b55;
+  border: 1px solid #bbb;
+	margin: 2rem;
+}
+</code></pre>
+<p>Estes estilos quando aplicados ao seguinte HTML</p>
+<pre><code class="language-html">&lt;p&gt;A ESAD é uma escola um &lt;em&gt;pouco desarrumada&lt;/em&gt;, mas bela!&lt;/p&gt;
+</code></pre>
+<p><img src="especificidade-e-heranca-assets/image.png" alt="" /></p>
+<p>A cor e a fonte utilizadas na regra vão ser herdadas pelo elemento <code>em</code>. Já a linha do rebordo não será herdada. <a href="https://codepen.io/sixhat/pen/YPXoeqa">Ver exemplo online</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercícios-práticos-de-css"><a class="header" href="#exercícios-práticos-de-css">Exercícios práticos de CSS</a></h1>
+<p>Aqui pode encontrar um conjunto de exercícios práticos para praticar os seus conhecimentos de CSS. Alguns são feitos em papel, enquanto outros são exercícios online.</p>
+<h2 id="exercícios-online"><a class="header" href="#exercícios-online">Exercícios online</a></h2>
+<ul>
+<li>
+<p><a href="https://flukeout.github.io/">CSS Diner</a>: Aprenda a usar seletores CSS de forma divertida.</p>
+</li>
+<li>
+<p><a href="https://flexboxfroggy.com/">Flexbox Froggy</a>: Aprenda Flexbox enquanto ajuda rãs a se posicionarem.</p>
+</li>
+<li>
+<p><a href="https://cssgridgarden.com/">Grid Garden</a>: Aprenda CSS Grid enquanto rega cenouras.</p>
+</li>
+<li>
+<p><a href="https://cssbattle.dev/">CSS Battle</a>: Desafios de codificação CSS onde você compete para criar o menor código possível para reproduzir um design.</p>
+</li>
+<li>
+<p><a href="https://codepen.io/pehaa/full/ROapJZ">Well Aimed</a> - Identifica se os diferentes seletores estão bem aplicados ou não.</p>
+</li>
+<li>
+<p><a href="https://codepen.io/pehaa/full/OYLwGW">Count Specifity</a> - Jogo para contar a especificidade de seletores CSS</p>
+</li>
+<li>
+<p><a href="https://codepen.io/pehaa/full/dEpvXN">Specifity Wars</a> - Jogo para aprender a especificidade de seletores CSS</p>
+</li>
+<li>
+<p><a href="https://specificity.keegan.st/">Specifity Calculator</a>: Calculadora de especificidade de seletores CSS.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
