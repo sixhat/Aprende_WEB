@@ -8,8 +8,9 @@
 
 # Introdução ao HTML
 
-- [Introdução ao HTML](./introducao-ao-html.md)
-- [Anatomia de um documento HTML](./anatomia-documento-html.md)
+- [Introdução ao HTML](210-introducao-ao-html.md)
+- [Anatomia de um documento HTML](220-anatomia-documento-html.md)
+- [Elementos HTML para o body](230-elementos-html-para-o-body.md)
 
 # Introdução ao CSS
 

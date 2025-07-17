@@ -1,4 +1,9 @@
-all: htmls pdfs sebenta
+all: 
+	@echo "Available targets:"
+	@echo "  mdbook: Generate the book using mdbook"
+	@echo "  htmls: Generate HTML files from Markdown"
+	@echo "  pdfs: Generate PDF files from Markdown"
+	@echo "  sebenta: Generate a single PDF file from the book"
 
 mdbook: clean
 	mdbook build

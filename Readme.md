@@ -27,16 +27,14 @@ geometry: margin=3cm
 
 ### Introdução ao HTML
 
-- [Introdução ao HTML](chapters/introducao-ao-html.md)
-- [Anatomia de um documento HTML](chapters/anatomia-documento-html.md)
+- [Introdução ao HTML](chapters/210-introducao-ao-html.md)
+- [Anatomia de um documento HTML](chapters/220-anatomia-documento-html.md)
 - Elementos e Tags HTML para o head
-- Meta tags
-- Elementos e Tags HTML para o body
-- Atributos HTML
-- Links e navegação
-- Listas e tabelas
-- Imagens e multimedia
-- HTML semântico
+  - Meta tags
+- [Elementos HTML para o body](chapters/230-elementos-html-para-o-body.md)
+  - Imagens e multimedia
+  - HTML semântico
+  - Layouts.
 - Acessibilidade em HTML
 
 ### Introdução ao CSS
@@ -48,13 +46,13 @@ geometry: margin=3cm
 - Layouts para Designs responsivos
   - Media Queries
   - Unidades de medida em CSS
-  - Imagens e multimídia
+  - Imagens e multimedia
   - Cores e fontes
 - Pensar a página para mobile first
 - Box Model e posicionamento
 - Motion e Animações em CSS
 - Boas práticas de acessibilidade
-- Introdução ao Flexbox e Grid
+- Introdução ao Flexb ox e Grid
 - Formulários e validação
 - [Exercícios práticos de CSS](chapters/exercicios-css.md)
 
