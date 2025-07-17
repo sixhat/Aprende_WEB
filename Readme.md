@@ -21,17 +21,16 @@ geometry: margin=3cm
 
 ### Introdução às Tecnologias Web
 
-- [Como funciona a web](chapters/como-funciona-a-web.md)
-- [Estrutura de um website](chapters/estrutura-de-um-website.md)
-- [Ferramentas e ambientes de desenvolvimento](chapters/ferramentas-e-ambientes.md)
+- [Como funciona a web](chapters/010-como-funciona-a-web.md)
+- [Estrutura de um website](chapters/020-estrutura-de-um-website.md)
+- [Ferramentas e ambientes de desenvolvimento](chapters/030-ferramentas-e-ambientes.md)
 
 ### Introdução ao HTML
 
 - [Introdução ao HTML](chapters/210-introducao-ao-html.md)
 - [Anatomia de um documento HTML](chapters/220-anatomia-documento-html.md)
-- Elementos e Tags HTML para o head
-  - Meta tags
-- [Elementos HTML para o body](chapters/230-elementos-html-para-o-body.md)
+- [Elementos HTML para o HEAD](chapters/240-elementos-para-o-head.md)
+- [Elementos HTML para o BODY](chapters/230-elementos-html-para-o-body.md)
   - Imagens e multimedia
   - HTML semântico
   - Layouts.

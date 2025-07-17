@@ -225,7 +225,7 @@ O elemento `<script>` permite incluir código JavaScript no documento.
 
 ```html
 <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/htmx.org@2.0.0/dist/htmx.min.js"></script>
 ```
 
 ### Atributos defer e async
@@ -293,27 +293,35 @@ Com esta base, uma ligação `<a href="pagina.html">` seria interpretada como `h
     <title>Receitas Tradicionais Portuguesas - Cozinha da Avó</title>
     
     <!-- Meta tags para SEO -->
-    <meta name="description" content="Descubra receitas tradicionais portuguesas com instruções passo a passo. Bacalhau, francesinha, pastéis de nata e muito mais.">
-    <meta name="keywords" content="receitas portuguesas, cozinha tradicional, bacalhau, pastéis de nata">
+    <meta name="description" content="Descubra receitas tradicionais 
+          portuguesas com instruções passo a passo. Bacalhau, francesinha, 
+          pastéis de nata e muito mais.">
+    <meta name="keywords" content="receitas portuguesas, cozinha tradicional, 
+          bacalhau, pastéis de nata">
     <meta name="author" content="Maria Santos">
     
     <!-- Meta tags para redes sociais -->
     <meta property="og:title" content="Receitas Tradicionais Portuguesas">
-    <meta property="og:description" content="Descubra receitas tradicionais portuguesas com instruções passo a passo.">
-    <meta property="og:image" content="https://cozinhadaavo.pt/images/og-image.jpg">
+    <meta property="og:description" content="Descubra receitas tradicionais 
+          portuguesas com instruções passo a passo.">
+    <meta property="og:image" 
+          content="https://cozinhadaavo.pt/images/og-image.jpg">
     <meta property="og:url" content="https://cozinhadaavo.pt">
     <meta property="og:type" content="website">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" 
+          href="/favicon-32x32.png">
     
     <!-- Folhas de estilo -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?
+          family=Merriweather:wght@300;400;700&display=swap">
     
     <!-- Preload de recursos críticos -->
-    <link rel="preload" href="fonts/logo-font.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/logo-font.woff2" as="font" 
+          type="font/woff2" crossorigin>
     
     <!-- Scripts -->
     <script src="js/analytics.js" async></script>
