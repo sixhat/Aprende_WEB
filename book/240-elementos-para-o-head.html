@@ -1,0 +1,604 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Elementos HTML para o HEAD - Sebenta de HTML, CSS e JS para Designers</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Sebenta de HTML, CSS e JS para Designers do curso TESP de DMD">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sebenta de HTML, CSS e JS para Designers</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sixhat/Aprende_WEB" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="elementos-html-para-o-head"><a class="header" href="#elementos-html-para-o-head">Elementos HTML para o Head</a></h1>
+<ul>
+<li><a href="#elementos-html-para-o-head">Elementos HTML para o Head</a>
+<ul>
+<li><a href="#o-que-%C3%A9-o-elemento-head">O que é o elemento <code>&lt;head&gt;</code>?</a></li>
+<li><a href="#estrutura-b%C3%A1sica-do-head">Estrutura básica do head</a></li>
+<li><a href="#o-elemento-title">O elemento <code>&lt;title&gt;</code></a></li>
+<li><a href="#meta-tags-fundamentais">Meta tags fundamentais</a>
+<ul>
+<li><a href="#charset---codifica%C3%A7%C3%A3o-de-caracteres">Charset - Codificação de caracteres</a></li>
+<li><a href="#viewport---responsividade">Viewport - Responsividade</a></li>
+<li><a href="#description---descri%C3%A7%C3%A3o-da-p%C3%A1gina">Description - Descrição da página</a></li>
+<li><a href="#keywords---palavras-chave">Keywords - Palavras-chave</a></li>
+<li><a href="#author---autor-da-p%C3%A1gina">Author - Autor da página</a></li>
+</ul>
+</li>
+<li><a href="#meta-tags-para-redes-sociais">Meta tags para redes sociais</a>
+<ul>
+<li><a href="#open-graph-facebook">Open Graph (Facebook)</a></li>
+<li><a href="#twitter-cards">Twitter Cards</a></li>
+</ul>
+</li>
+<li><a href="#o-elemento-link">O elemento <code>&lt;link&gt;</code></a>
+<ul>
+<li><a href="#folhas-de-estilo-css">Folhas de estilo CSS</a></li>
+<li><a href="#favicon">Favicon</a></li>
+<li><a href="#preloading-e-prefetching">Preloading e Prefetching</a></li>
+</ul>
+</li>
+<li><a href="#o-elemento-script">O elemento <code>&lt;script&gt;</code></a>
+<ul>
+<li><a href="#scripts-internos">Scripts internos</a></li>
+<li><a href="#scripts-externos">Scripts externos</a></li>
+<li><a href="#atributos-defer-e-async">Atributos defer e async</a></li>
+</ul>
+</li>
+<li><a href="#o-elemento-style">O elemento <code>&lt;style&gt;</code></a></li>
+<li><a href="#o-elemento-base">O elemento <code>&lt;base&gt;</code></a></li>
+<li><a href="#exemplo-pr%C3%A1tico-completo">Exemplo prático completo</a></li>
+<li><a href="#exerc%C3%ADcio">Exercício</a></li>
+<li><a href="#boas-pr%C3%A1ticas">Boas práticas</a></li>
+</ul>
+</li>
+</ul>
+<p>O elemento <code>&lt;head&gt;</code> é uma das partes mais importantes de um documento HTML, apesar de não ser visível aos utilizadores. Contém metadados sobre a página, informações para motores de busca, ligações para recursos externos e configurações essenciais para o funcionamento correto da página web.</p>
+<h2 id="o-que-é-o-elemento-head"><a class="header" href="#o-que-é-o-elemento-head">O que é o elemento <code>&lt;head&gt;</code>?</a></h2>
+<p>O <code>&lt;head&gt;</code> é um contentor que armazena metadados sobre o documento HTML. Estes metadados não são exibidos na página, mas são utilizados por:</p>
+<ul>
+<li><strong>Browsers</strong> - Para interpretar e renderizar a página corretamente</li>
+<li><strong>Motores de busca</strong> - Para indexar e classificar a página</li>
+<li><strong>Redes sociais</strong> - Para criar previsualizações quando a página é partilhada</li>
+<li><strong>Ferramentas de desenvolvimento</strong> - Para análise e debugging</li>
+</ul>
+<h2 id="estrutura-básica-do-head"><a class="header" href="#estrutura-básica-do-head">Estrutura básica do head</a></h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Título da Página&lt;/title&gt;
+    &lt;meta name="description" content="Descrição da página"&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Conteúdo da página --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="o-elemento-title"><a class="header" href="#o-elemento-title">O elemento <code>&lt;title&gt;</code></a></h2>
+<p>O elemento <code>&lt;title&gt;</code> define o título do documento que aparece:</p>
+<ul>
+<li>No separador/aba do browser</li>
+<li>Nos resultados de motores de busca</li>
+<li>Nos favoritos/bookmarks</li>
+<li>No histórico de navegação</li>
+</ul>
+<pre><code class="language-html">&lt;title&gt;Página Inicial - Meu Website&lt;/title&gt;
+</code></pre>
+<p><strong>Boas práticas para o título:</strong></p>
+<ul>
+<li>Máximo de 60 caracteres (para não ser truncado nos resultados de busca)</li>
+<li>Seja descritivo e específico</li>
+<li>Inclua palavras-chave relevantes</li>
+<li>Use a estrutura: “Título específico - Nome do site”</li>
+</ul>
+<pre><code class="language-html">&lt;!-- Bom exemplo --&gt;
+&lt;title&gt;Receita de Bacalhau à Brás - Cozinha Portuguesa&lt;/title&gt;
+
+&lt;!-- Exemplo menos eficaz --&gt;
+&lt;title&gt;Receita&lt;/title&gt;
+</code></pre>
+<h2 id="meta-tags-fundamentais"><a class="header" href="#meta-tags-fundamentais">Meta tags fundamentais</a></h2>
+<p>As meta tags fornecem informações sobre o documento HTML. Utilizam sempre o elemento <code>&lt;meta&gt;</code> com diferentes atributos.</p>
+<h3 id="charset---codificação-de-caracteres"><a class="header" href="#charset---codificação-de-caracteres">Charset - Codificação de caracteres</a></h3>
+<p>Define a codificação de caracteres utilizada no documento:</p>
+<pre><code class="language-html">&lt;meta charset="UTF-8"&gt;
+</code></pre>
+<blockquote>
+<p><strong>IMPORTANTE</strong>: Esta deve ser sempre a primeira meta tag no head para garantir que caracteres especiais (como acentos portugueses) sejam interpretados corretamente.</p>
+</blockquote>
+<h3 id="viewport---responsividade"><a class="header" href="#viewport---responsividade">Viewport - Responsividade</a></h3>
+<p>Essential para design responsivo e dispositivos móveis:</p>
+<pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+</code></pre>
+<p><strong>Parâmetros do viewport:</strong></p>
+<ul>
+<li><code>width=device-width</code> - Define a largura como a largura do dispositivo</li>
+<li><code>initial-scale=1.0</code> - Define o zoom inicial como 100%</li>
+<li><code>maximum-scale=1.0</code> - Limita o zoom máximo (opcional)</li>
+<li><code>user-scalable=no</code> - Desativa o zoom pelo utilizador (não recomendado)</li>
+</ul>
+<h3 id="description---descrição-da-página"><a class="header" href="#description---descrição-da-página">Description - Descrição da página</a></h3>
+<p>Fornece uma breve descrição da página para motores de busca:</p>
+<pre><code class="language-html">&lt;meta name="description" content="Aprenda a fazer bacalhau à brás com esta receita tradicional portuguesa. Ingredientes, modo de preparação e dicas de cozinha."&gt;
+</code></pre>
+<p><strong>Boas práticas:</strong></p>
+<ul>
+<li>150-160 caracteres máximo</li>
+<li>Seja conciso e descritivo</li>
+<li>Inclua palavras-chave relevantes</li>
+<li>Evite duplicar o título</li>
+</ul>
+<h3 id="keywords---palavras-chave"><a class="header" href="#keywords---palavras-chave">Keywords - Palavras-chave</a></h3>
+<p>Embora menos importante atualmente, ainda pode ser útil:</p>
+<pre><code class="language-html">&lt;meta name="keywords" content="bacalhau, receita portuguesa, cozinha tradicional, bacalhau à brás"&gt;
+</code></pre>
+<blockquote>
+<p><strong>NOTA</strong>: A maioria dos motores de busca modernos não utilizam esta meta tag para classificação, mas pode ser útil para organização interna.</p>
+</blockquote>
+<h3 id="author---autor-da-página"><a class="header" href="#author---autor-da-página">Author - Autor da página</a></h3>
+<p>Identifica o autor do conteúdo:</p>
+<pre><code class="language-html">&lt;meta name="author" content="Maria Silva"&gt;
+</code></pre>
+<h2 id="meta-tags-para-redes-sociais"><a class="header" href="#meta-tags-para-redes-sociais">Meta tags para redes sociais</a></h2>
+<h3 id="open-graph-facebook"><a class="header" href="#open-graph-facebook">Open Graph (Facebook)</a></h3>
+<p>Controla como a página aparece quando partilhada no Facebook e outras redes sociais:</p>
+<pre><code class="language-html">&lt;meta property="og:title" content="Receita de Bacalhau à Brás"&gt;
+&lt;meta property="og:description" content="Aprenda a fazer bacalhau à brás com esta receita tradicional portuguesa."&gt;
+&lt;meta property="og:image" content="https://exemplo.com/imagem-bacalhau.jpg"&gt;
+&lt;meta property="og:url" content="https://exemplo.com/receita-bacalhau"&gt;
+&lt;meta property="og:type" content="article"&gt;
+&lt;meta property="og:site_name" content="Cozinha Portuguesa"&gt;
+</code></pre>
+<h3 id="twitter-cards"><a class="header" href="#twitter-cards">Twitter Cards</a></h3>
+<p>Similares ao Open Graph, mas específicas para Twitter:</p>
+<pre><code class="language-html">&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:title" content="Receita de Bacalhau à Brás"&gt;
+&lt;meta name="twitter:description" content="Aprenda a fazer bacalhau à brás com esta receita tradicional portuguesa."&gt;
+&lt;meta name="twitter:image" content="https://exemplo.com/imagem-bacalhau.jpg"&gt;
+</code></pre>
+<h2 id="o-elemento-link"><a class="header" href="#o-elemento-link">O elemento <code>&lt;link&gt;</code></a></h2>
+<p>O elemento <code>&lt;link&gt;</code> estabelece ligações entre o documento atual e recursos externos.</p>
+<h3 id="folhas-de-estilo-css"><a class="header" href="#folhas-de-estilo-css">Folhas de estilo CSS</a></h3>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap"&gt;
+</code></pre>
+<h3 id="favicon"><a class="header" href="#favicon">Favicon</a></h3>
+<p>O favicon é o pequeno ícone que aparece no separador do browser:</p>
+<pre><code class="language-html">&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+</code></pre>
+<h3 id="preloading-e-prefetching"><a class="header" href="#preloading-e-prefetching">Preloading e Prefetching</a></h3>
+<p>Para otimizar o carregamento da página:</p>
+<pre><code class="language-html">&lt;!-- Preload: carrega recursos críticos imediatamente --&gt;
+&lt;link rel="preload" href="fonts/main-font.woff2" as="font" type="font/woff2" crossorigin&gt;
+&lt;link rel="preload" href="critical.css" as="style"&gt;
+
+&lt;!-- Prefetch: carrega recursos que podem ser necessários --&gt;
+&lt;link rel="prefetch" href="next-page.html"&gt;
+&lt;link rel="prefetch" href="images/hero-image.jpg"&gt;
+</code></pre>
+<h2 id="o-elemento-script"><a class="header" href="#o-elemento-script">O elemento <code>&lt;script&gt;</code></a></h2>
+<p>O elemento <code>&lt;script&gt;</code> permite incluir código JavaScript no documento.</p>
+<h3 id="scripts-internos"><a class="header" href="#scripts-internos">Scripts internos</a></h3>
+<pre><code class="language-html">&lt;script&gt;
+    console.log("Este script é executado quando a página carrega");
+    
+    // Função para alterar o título da página
+    function alterarTitulo() {
+        document.title = "Novo Título";
+    }
+&lt;/script&gt;
+</code></pre>
+<h3 id="scripts-externos"><a class="header" href="#scripts-externos">Scripts externos</a></h3>
+<pre><code class="language-html">&lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="atributos-defer-e-async"><a class="header" href="#atributos-defer-e-async">Atributos defer e async</a></h3>
+<p>Controlam quando o script é executado:</p>
+<pre><code class="language-html">&lt;!-- defer: executa após o HTML ser parseado --&gt;
+&lt;script src="script.js" defer&gt;&lt;/script&gt;
+
+&lt;!-- async: executa assim que for carregado --&gt;
+&lt;script src="analytics.js" async&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Diferenças:</strong></p>
+<ul>
+<li><strong>defer</strong>: Mantém a ordem de execução, espera pelo parsing do HTML</li>
+<li><strong>async</strong>: Executa imediatamente, pode não manter a ordem</li>
+</ul>
+<h2 id="o-elemento-style"><a class="header" href="#o-elemento-style">O elemento <code>&lt;style&gt;</code></a></h2>
+<p>Permite incluir CSS diretamente no documento:</p>
+<pre><code class="language-html">&lt;style&gt;
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+&lt;/style&gt;
+</code></pre>
+<blockquote>
+<p><strong>RECOMENDAÇÃO</strong>: Para projetos maiores, prefira CSS externo usando <code>&lt;link&gt;</code>.</p>
+</blockquote>
+<h2 id="o-elemento-base"><a class="header" href="#o-elemento-base">O elemento <code>&lt;base&gt;</code></a></h2>
+<p>Define a URL base para todas as URLs relativas no documento:</p>
+<pre><code class="language-html">&lt;base href="https://exemplo.com/pasta/"&gt;
+</code></pre>
+<p>Com esta base, uma ligação <code>&lt;a href="pagina.html"&gt;</code> seria interpretada como <code>https://exemplo.com/pasta/pagina.html</code>.</p>
+<blockquote>
+<p><strong>CUIDADO</strong>: O elemento <code>&lt;base&gt;</code> afeta todas as URLs relativas no documento, incluindo âncoras (<code>#secao</code>) e JavaScript.</p>
+</blockquote>
+<h2 id="exemplo-prático-completo"><a class="header" href="#exemplo-prático-completo">Exemplo prático completo</a></h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt"&gt;
+&lt;head&gt;
+    &lt;!-- Codificação de caracteres - deve ser sempre primeiro --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    
+    &lt;!-- Viewport para responsividade --&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    
+    &lt;!-- Título da página --&gt;
+    &lt;title&gt;Receitas Tradicionais Portuguesas - Cozinha da Avó&lt;/title&gt;
+    
+    &lt;!-- Meta tags para SEO --&gt;
+    &lt;meta name="description" content="Descubra receitas tradicionais portuguesas com instruções passo a passo. Bacalhau, francesinha, pastéis de nata e muito mais."&gt;
+    &lt;meta name="keywords" content="receitas portuguesas, cozinha tradicional, bacalhau, pastéis de nata"&gt;
+    &lt;meta name="author" content="Maria Santos"&gt;
+    
+    &lt;!-- Meta tags para redes sociais --&gt;
+    &lt;meta property="og:title" content="Receitas Tradicionais Portuguesas"&gt;
+    &lt;meta property="og:description" content="Descubra receitas tradicionais portuguesas com instruções passo a passo."&gt;
+    &lt;meta property="og:image" content="https://cozinhadaavo.pt/images/og-image.jpg"&gt;
+    &lt;meta property="og:url" content="https://cozinhadaavo.pt"&gt;
+    &lt;meta property="og:type" content="website"&gt;
+    
+    &lt;!-- Favicon --&gt;
+    &lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+    
+    &lt;!-- Folhas de estilo --&gt;
+    &lt;link rel="stylesheet" href="styles/main.css"&gt;
+    &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&amp;display=swap"&gt;
+    
+    &lt;!-- Preload de recursos críticos --&gt;
+    &lt;link rel="preload" href="fonts/logo-font.woff2" as="font" type="font/woff2" crossorigin&gt;
+    
+    &lt;!-- Scripts --&gt;
+    &lt;script src="js/analytics.js" async&gt;&lt;/script&gt;
+    &lt;script src="js/main.js" defer&gt;&lt;/script&gt;
+    
+    &lt;!-- Estilos críticos inline --&gt;
+    &lt;style&gt;
+        /* CSS crítico para evitar flash of unstyled content */
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Conteúdo da página --&gt;
+    &lt;header class="header"&gt;
+        &lt;h1&gt;Cozinha da Avó&lt;/h1&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;p&gt;Bem-vindo ao nosso site de receitas tradicionais portuguesas!&lt;/p&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="exercício"><a class="header" href="#exercício">Exercício</a></h2>
+<p>Crie um documento HTML com o seguinte head completo:</p>
+<ol>
+<li>
+<p><strong>Informações básicas:</strong></p>
+<ul>
+<li>Charset UTF-8</li>
+<li>Viewport responsivo</li>
+<li>Título: “Loja de Livros Online - Livraria Central”</li>
+<li>Descrição: “Encontre os melhores livros online com entrega rápida. Romance, ficção científica, história e muito mais.”</li>
+</ul>
+</li>
+<li>
+<p><strong>Meta tags para redes sociais:</strong></p>
+<ul>
+<li>Open Graph com título, descrição e imagem</li>
+<li>Twitter Cards</li>
+</ul>
+</li>
+<li>
+<p><strong>Recursos:</strong></p>
+<ul>
+<li>Favicon</li>
+<li>Ligação para uma folha de estilo externa</li>
+<li>Fonte do Google Fonts (escolha uma)</li>
+<li>Script externo com defer</li>
+</ul>
+</li>
+<li>
+<p><strong>Teste o resultado</strong> no <a href="https://developer.mozilla.org/en-US/play">playground da Mozilla</a></p>
+</li>
+</ol>
+<p><strong>Exemplo de estrutura:</strong></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt"&gt;
+&lt;head&gt;
+    &lt;!-- Complete com as meta tags e links necessários --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Livraria Central&lt;/h1&gt;
+    &lt;p&gt;A sua livraria online de confiança&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="boas-práticas"><a class="header" href="#boas-práticas">Boas práticas</a></h2>
+<ol>
+<li>
+<p><strong>Ordem dos elementos:</strong></p>
+<ul>
+<li><code>&lt;meta charset&gt;</code> sempre primeiro</li>
+<li><code>&lt;title&gt;</code> e meta tags de SEO</li>
+<li><code>&lt;link&gt;</code> para CSS</li>
+<li><code>&lt;script&gt;</code> no final (ou com defer/async)</li>
+</ul>
+</li>
+<li>
+<p><strong>Performance:</strong></p>
+<ul>
+<li>Minimize o número de recursos externos</li>
+<li>Use preload para recursos críticos</li>
+<li>Prefira async/defer para scripts não críticos</li>
+</ul>
+</li>
+<li>
+<p><strong>SEO:</strong></p>
+<ul>
+<li>Título único e descritivo para cada página</li>
+<li>Meta description relevante e concisa</li>
+<li>Open Graph para melhor partilha social</li>
+</ul>
+</li>
+<li>
+<p><strong>Acessibilidade:</strong></p>
+<ul>
+<li>Sempre defina o <code>lang</code> no elemento <code>&lt;html&gt;</code></li>
+<li>Use títulos descritivos</li>
+<li>Inclua meta tags appropriadas</li>
+</ul>
+</li>
+<li>
+<p><strong>Segurança:</strong></p>
+<ul>
+<li>Valide sempre recursos externos</li>
+<li>Use HTTPS para todos os recursos</li>
+<li>Considere Content Security Policy (CSP)</li>
+</ul>
+</li>
+</ol>
+<p>O domínio dos elementos do head é fundamental para criar websites profissionais, otimizados para motores de busca e com boa experiência de utilizador. Estes elementos, embora invisíveis, são a base técnica de qualquer projeto web bem-sucedido.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="230-elementos-html-para-o-body.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="300-introducao-ao-css.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="230-elementos-html-para-o-body.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="300-introducao-ao-css.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

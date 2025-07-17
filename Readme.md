@@ -39,11 +39,11 @@ geometry: margin=3cm
 
 ### Introdução ao CSS
 
-- Introdução ao CSS
+- [Introdução ao CSS](chapters/300-introducao-ao-css.md)
 - Seletores e propriedades CSS
 - [Especificidade e herança de regras CSS](chapters/especificidade-e-heranca.md)
 - Estilos com CSS
-- Layouts para Designs responsivos
+- Layouts para Designs Responsivos
   - Media Queries
   - Unidades de medida em CSS
   - Imagens e multimedia

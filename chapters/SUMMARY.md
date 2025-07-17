@@ -11,9 +11,11 @@
 - [Introdução ao HTML](210-introducao-ao-html.md)
 - [Anatomia de um documento HTML](220-anatomia-documento-html.md)
 - [Elementos HTML para o body](230-elementos-html-para-o-body.md)
+- [Elementos HTML para o HEAD](240-elementos-para-o-head.md)
 
 # Introdução ao CSS
 
+- [Introdução ao CSS](./300-introducao-ao-css.md)
 - [Especificidade e herança de regras CSS](./especificidade-e-heranca.md)
 - [Exercícios práticos de CSS](./exercicios-css.md)
 
