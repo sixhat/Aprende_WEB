@@ -1,0 +1,556 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Elementos HTML para o body - Sebenta de HTML, CSS e JS para Designers</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Sebenta de HTML, CSS e JS para Designers do curso TESP de DMD">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Sebenta de HTML, CSS e JS para Designers</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sixhat/Aprende_WEB" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="elementos-html-para-o-body"><a class="header" href="#elementos-html-para-o-body">Elementos HTML para o Body</a></h1>
+<style>
+    img {
+        padding: 2px;
+        background: #999;
+    }
+</style>
+<p>O objetivo do HTML é estruturar o documento que vai ser mostrado ao utilizador.
+Vamos explorar aqui os principais elementos disponíveis para estruturar diferentes tipos de informação.</p>
+<ul>
+<li><a href="#elementos-html-para-o-body">Elementos HTML para o Body</a>
+<ul>
+<li><a href="#cabe%C3%A7alhos-e-par%C3%A1grafos">Cabeçalhos e parágrafos</a>
+<ul>
+<li><a href="#par%C3%A1grafos">Parágrafos</a></li>
+<li><a href="#cabe%C3%A7alhos">Cabeçalhos</a>
+<ul>
+<li><a href="#implementando-uma-hierarquia">Implementando uma hierarquia</a></li>
+</ul>
+</li>
+<li><a href="#porque-%C3%A9-importante-a-estrutura">Porque é importante a estrutura?</a></li>
+</ul>
+</li>
+<li><a href="#porque-%C3%A9-importante-a-sem%C3%A2ntica">Porque é importante a semântica?</a></li>
+<li><a href="#hiperliga%C3%A7%C3%B5es-e-navega%C3%A7%C3%A3o">Hiperligações e navegação</a>
+<ul>
+<li><a href="#anatomia-de-uma-hiperliga%C3%A7%C3%A3o">Anatomia de uma hiperligação</a></li>
+<li><a href="#hiperliga%C3%A7%C3%B5es-de-outros-elementos-html">Hiperligações de outros elementos HTML</a></li>
+<li><a href="#hiperliga%C3%A7%C3%B5es-de-imagens">Hiperligações de imagens</a></li>
+<li><a href="#atributos-extra-das-hiperliga%C3%A7%C3%B5es">Atributos extra das hiperligações</a></li>
+<li><a href="#hiperliga%C3%A7%C3%B5es-e-caminhos-de-ficheiros">Hiperligações e caminhos de ficheiros</a></li>
+<li><a href="#hiperliga%C3%A7%C3%B5es-para-fragmentos-do-documento">Hiperligações para fragmentos do documento</a></li>
+<li><a href="#melhores-pr%C3%A1ticas">Melhores práticas</a></li>
+</ul>
+</li>
+<li><a href="#listas">Listas</a></li>
+<li><a href="#listas-hierarquicas">Listas hierarquicas</a></li>
+<li><a href="#listas-de-defini%C3%A7%C3%B5es">Listas de definições</a></li>
+<li><a href="#exerc%C3%ADcio-pr%C3%A1tico">Exercício prático</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="cabeçalhos-e-parágrafos"><a class="header" href="#cabeçalhos-e-parágrafos">Cabeçalhos e parágrafos</a></h2>
+<p><img src="230-elementos-html-para-o-body-assets/image.png" alt="alt text" /></p>
+<p>a Maioria do texto estruturado consiste em cabeçalhos e parágrafos, seja em livros, jornais ou revistas entre outros. Esta estruturação dos conteúdos facilita a legibilidade e a transmissão da mensagem.</p>
+<h3 id="parágrafos"><a class="header" href="#parágrafos">Parágrafos</a></h3>
+<p>Em HTML, cada parágrafo é definido pelo elemento HTML <code>&lt;p&gt;</code>. Por exemplo:</p>
+<pre><code class="language-html">&lt;!-- O parágrafo é o principal elemento para 
+     estruturar o corpo de texto --&gt;
+&lt;p&gt;A Escola conta com cerca de 1600 alunos e 130 professores&lt;/p&gt;
+</code></pre>
+<p>Os textos dos parágrafos podem ainda conter palavras ou partes que sejam de particular importância. Desde o início que o HTML inclui alguns elementos que permitem destacar partes de uma frase. Por exemplo para dar enfase podemos utilizar a tag <code>&lt;em&gt;</code> (de <em>empahsis</em>). Por exemplo:</p>
+<pre><code class="language-html">&lt;p&gt;— Ontem estavas bem &lt;em&gt;acompanhado&lt;/em&gt;&lt;/p&gt;
+</code></pre>
+<p><img src="230-elementos-html-para-o-body-assets/image-5.png" alt="utilização de enfase &lt;em&gt;" /></p>
+<p>Os browsers normalmente renderizam o elemento <code>&lt;em&gt;</code> como itálico, embora o objetivo não deva ser apenas de o estilizar como itálico, uma vez que os dispositivos de leitura assistida vão interpretar o elemento de outra forma, por exemplo mudando o tom de voz.</p>
+<p>Também está disponível a tag <code>&lt;strong&gt;</code> quando queremos destacar uma palavra.</p>
+<pre><code class="language-html">&lt;p&gt;— &lt;strong&gt;Não&lt;/strong&gt; te vou dizer nada&lt;/p&gt;
+</code></pre>
+<p><img src="230-elementos-html-para-o-body-assets/image-6.png" alt="utilização de &lt;strong&gt;" /></p>
+<p>Neste caso a palavra <strong>Não</strong> foi destacada pelo browser com negrito.</p>
+<p>Quer o elemento <code>&lt;em&gt;</code> quer o <code>&lt;strong&gt;</code> tem significado semântico definido e são interpretados pelos diferentes dispositivos de leitura de acordo. No entanto há alguns elementos mais antigos que não são tão claros quanto ao seu valor semântico.</p>
+<p>Os elementos <code>&lt;b&gt;, &lt;i&gt; e &lt;u&gt;</code> originalmente foram implementados para dar estilos de itálico, negrito e sublinhado numa altura em que os estilos CSS não existiam. Assim acabaram por ser só elementos HTML de apresentação sem possuirem associados um valor semântico. Devem ser evitados em favor de <code>&lt;em&gt;</code> e <code>&lt;strong&gt;</code>.</p>
+<p>Quanto à utilização do sublinhado convém notar que na Web o sublinhado é entendido como uma hiperligação, pelo que quando for necessário utilizar uma marca que cumpra o papel do sublinhado, pondere substituí-lo por outro elemento como por exemplo <code>&lt;mark&gt;</code> ou então redefinir o estilo em CSS para não incluir o sublinhado que se possa confundir com a hiperligação.</p>
+<h3 id="cabeçalhos"><a class="header" href="#cabeçalhos">Cabeçalhos</a></h3>
+<p>Os cabeçalhos permitem destacar os títulos, dando destaque a diversas mensagens. O HTML fornece 6 níveis de cabeçalhos. Os elementos HTML para definir cada um desses níveis são <code>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;</code>. Por exemplo:</p>
+<pre><code class="language-html">&lt;!-- Título de nível de importância mais elevado --&gt;
+&lt;h1&gt;ESADcr - Escola de artes e design&lt;/h1&gt;
+</code></pre>
+<h4 id="implementando-uma-hierarquia"><a class="header" href="#implementando-uma-hierarquia">Implementando uma hierarquia</a></h4>
+<p>Dadas as importâncias relativas de cada tipo de elemento HTML é normal (e importante) estruturar o documento de forma hierarquica de forma a que a estrutura seja portadora de sentido semântico.</p>
+<p>Assim é normal definir para cada página um título principal <code>&lt;h1&gt;</code> que representa o título da página<sup class="footnote-reference"><a href="#h1">1</a></sup>, sendo que o nível <code>&lt;h2&gt;</code> é utilizado para o título de cada secção/capítulo, e o elemento <code>&lt;h3&gt;</code> representa normalmente as subsecções do documento.</p>
+<p>Um pequeno exemplo da utilização de cabeçalhos com parágrafos:</p>
+<pre><code class="language-html">&lt;h1&gt;O Furo Esmagador&lt;/h1&gt;
+
+&lt;p&gt;Por Chris Mills&lt;/p&gt;
+
+&lt;h2&gt;Capítulo 1: A noite escura&lt;/h2&gt;
+
+&lt;p&gt;
+ Era uma noite escura. Algures, uma coruja piava. 
+ A chuva caía sobre o...&lt;/p&gt;
+
+&lt;h2&gt;Capítulo 2: O silêncio eterno&lt;/h2&gt;
+
+&lt;p&gt;O nosso protagonista não conseguiu arrancar 
+    nem um sussurro da figura sombria...&lt;/p&gt;
+
+&lt;h3&gt;O espetro fala&lt;/h3&gt;
+
+&lt;p&gt;
+ Passaram-se mais algumas horas quando, de repente, 
+ o espetro se sentou na vertical e exclamou: 
+ "Por favor, tem piedade da minha alma!"
+&lt;/p&gt;
+</code></pre>
+<p>O resultado pode ser observado online no exemplo de <a href="https://codepen.io/sixhat/full/vENYdBK">Cabeçalhos e Parágrafos</a> e na figura seguinte:</p>
+<p><img src="230-elementos-html-para-o-body-assets/image-2.png" alt="exemplo de utilização de headings e parágrafos" /></p>
+<h3 id="porque-é-importante-a-estrutura"><a class="header" href="#porque-é-importante-a-estrutura">Porque é importante a estrutura?</a></h3>
+<p>Há várias razões para que um documento HTML tem uma estrutura hierarquizada:</p>
+<ul>
+<li>Os utilizadores ao abrir uma página tendem a fazer uma observação rápida para encontrar pontes de referência visual, ou para ler apenas os cabeçalhos. O tempo que cada utilizador gasta a ler uma página é muito reduzido, pelo a estrutura tem que ajudar o utilizador a obter a informação importante.</li>
+<li>Os motores de pesquisa indexam a página e tem em consideração os conteúdos dos cabeçalhos para definir a importância de palavras-chave. Sem cabeçalhos a página vai ser incapaz de ficar bem classificada nos resultados dos motores de pesquisa.</li>
+<li>Utilizadores com dificuldades visuais (amblíopes) normalmente não leem a página, mas antes ouvem uma leitura sintetizada por um <a href="https://en.wikipedia.org/wiki/Screen_reader">leitor de ecrã</a>. Uma das características deste tipo de software é que fornecem ao utilizador um sistema de navegação baseado nos cabeçalhos. Se os cabeçalhos não existirem isto obriga o utilizador a ouvir a totalidade do documento até encontrar o que procura.</li>
+</ul>
+<p>No exemplo anterior, se retirassemos toda a estrutura (retirar os elementos HTML), o resultado não representaria a intenção original do autor.</p>
+<pre><code class="language-html">O Furo Esmagador
+
+Por Chris Mills
+
+Capítulo 1: A noite escura
+
+
+ Era uma noite escura. Algures, uma coruja piava. 
+ A chuva caía sobre o...
+
+Capítulo 2: O silêncio eterno
+
+O nosso protagonista não conseguiu arrancar 
+    nem um sussurro da figura sombria...
+
+O espetro fala
+
+
+ Passaram-se mais algumas horas quando, de repente, 
+ o espetro se sentou na vertical e exclamou: 
+ "Por favor, tem piedade da minha alma!"
+</code></pre>
+<p><img src="230-elementos-html-para-o-body-assets/image-3.png" alt="documento html sem hierarquia e sem marcação" /></p>
+<h2 id="porque-é-importante-a-semântica"><a class="header" href="#porque-é-importante-a-semântica">Porque é importante a semântica?</a></h2>
+<blockquote>
+<p><strong>Semântica</strong>: Parte da linguística que estuda o significado das palavras. Que está relacionado com o significado dos objetos ou termos.</p>
+</blockquote>
+<p>Nos dia a dia a semântica está em toda a parte—Utilizamos a nossa experiência para saber qual a função de cada objeto que encontramos; Quando vemos algo sabemos qual a sua função. Uma luz vermelha num semáforo significa “PARAR” e verde significa “AVANÇAR”. Se a conexão semântica entre objeto e significado não existisse podem imaginar o caos que seria atravessar uma rua.</p>
+<p>Da mesma forma, no HTML diferentes elementos HTML possuem valores semânticas—vimos o caso do parágrafo e dos cabeçalhos. Os browsers normalmente atribuem valores semânticos a estes elemento, renderizando por exemplo o <code>&lt;h1&gt;</code> como um tamanho maior que o <code>&lt;h2&gt;</code> e assim sucessivamente.</p>
+<p>Também há elementos sem valor semântico. Por exemplo o elemento HTML <code>&lt;span&gt;</code> serve apenas para circunscrever conteúdos para posterior estilização com CSS, não tendo em si mesmo nenhum significado particular.</p>
+<h2 id="hiperligações-e-navegação"><a class="header" href="#hiperligações-e-navegação">Hiperligações e navegação</a></h2>
+<p>A invenção da hiperligação permitiu que a Web fosse mais do que um conjunto de documentos isolados, mas antes um sistema de páginas interconetadas por ligações entre si. A ideia de uma hiperligação é a de que um documento pode ter uma âncora que permite ao utilizador visitar outras páginas, recursos ou outras partes do mesmo documento, bastando clicar nessa pequena âncora. Qualquer conteúdo web pode ser convertido numa hiperligação através da atribuição de um URL (Uniform Resource Locator).</p>
+<h3 id="anatomia-de-uma-hiperligação"><a class="header" href="#anatomia-de-uma-hiperligação">Anatomia de uma hiperligação</a></h3>
+<p>A hiperligação é criada circunscrevendo o texto ou outro conteúdo dentro do elemento <code>&lt;a&gt;</code> (Âncora). O elemento âncora necessita ainda de saber qual o URL para onde deve apontar, pelo que é necessário incluir o atributo <code>href</code>. Por exemplo:</p>
+<pre><code class="language-html">&lt;p&gt;Este parágrafo contém uma ligação 
+    para a &lt;a href="https://www.ipleiria.pt/esadcr/"&gt;ESAD&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="hiperligações-de-outros-elementos-html"><a class="header" href="#hiperligações-de-outros-elementos-html">Hiperligações de outros elementos HTML</a></h3>
+<p>No exemplo a palavra ESAD foi transformada numa hiperligação. No entanto quase todos os tipos de conteudos podem ser convertidos numa hiperligação. Por exemplo se quisermos converter o cabeçalho de uma página numa hiperligação podemos circunscrevê-lo com o elemento <code>&lt;a&gt;</code>:</p>
+<pre><code class="language-html">&lt;a href="https://ead.ipleiria.pt/"&gt; 
+    &lt;h1&gt;Moodle do Laboratório Web&lt;/h1&gt;
+&lt;/a&gt;
+&lt;p&gt;Página da disciplina de Laboratório Web 
+    onde ficam os materiais de estudo&lt;/p&gt;
+</code></pre>
+<p><img src="230-elementos-html-para-o-body-assets/image-4.png" alt="exemplo de um cabeçalho com hiperligação" /></p>
+<h3 id="hiperligações-de-imagens"><a class="header" href="#hiperligações-de-imagens">Hiperligações de imagens</a></h3>
+<p>É possível transformar uma imagem numa hiperligação circunscrevendo o elemento <code>&lt;img&gt;</code> com o elemento <code>&lt;a&gt;</code>.</p>
+<pre><code class="language-html">&lt;a href="https://www.ipleiria.pt/esadcr/"&gt;
+  &lt;img src="https://www.example.com/image.png" alt="Imagem Exemplo"&gt;
+&lt;/a&gt;
+</code></pre>
+<h3 id="atributos-extra-das-hiperligações"><a class="header" href="#atributos-extra-das-hiperligações">Atributos extra das hiperligações</a></h3>
+<p>Para além do atributo <strong>href</strong> que indica à âncora qual o URL para o qual vai apontar, é importante também definir o atributo <strong>title</strong> que descreve o URL de destino. Para além disso os Browsers mostram esta descrição quando o rato é parado por algum tempo em cima da hiperligação<sup class="footnote-reference"><a href="#a">2</a></sup>:</p>
+<pre><code class="language-html">&lt;a href="https://www.ipleiria.pt/esadcr/" 
+   title="A melhor escola de Design do país"&gt;ESAD.cr&lt;/a&gt;
+</code></pre>
+<p><img src="230-elementos-html-para-o-body-assets/utilizando-title.png" alt="Utilização de um título" /></p>
+<p>O elemento âncora permite definir a janela onde a hiperligação vai surgir. Para que a hiperligação apareça numa nova janela deve-se utilizar o atributo <strong>target</strong> com a propriedade <strong>_blank</strong></p>
+<pre><code class="language-html">&lt;a href="https://www.ipleiria.pt/esadcr/" 
+   title="A melhor escola de Design do país"
+   target="_blank"&gt;ESAD.cr&lt;/a&gt;
+</code></pre>
+<h3 id="hiperligações-e-caminhos-de-ficheiros"><a class="header" href="#hiperligações-e-caminhos-de-ficheiros">Hiperligações e caminhos de ficheiros</a></h3>
+<p>Os URLs das âncoras utilizam o texto do atributo <strong>href</strong> para determinar que ficheiro enviar ao utilizador. Estas páginas podem estar em diferentes pastas do servidor.</p>
+<p>Por exemplo, a página <code>contactos.html</code> será procurada na mesma pasta da página que contém o link seguinte.</p>
+<pre><code class="language-html">&lt;a href="contactos.html"&gt;Contactos&lt;/a&gt;
+</code></pre>
+<p>No exemplo seguinte, a página <code>contactos.html</code> será procurada numa subpasta <code>pessoas</code> em relação à página que contém o link seguinte.</p>
+<pre><code class="language-html">&lt;a href="pessoas/contactos.html"&gt;Contactos&lt;/a&gt;
+</code></pre>
+<p>No exemplo seguinte, a página <code>contactos.html</code> será procurada numa pasta pai em relação à página que contém o link seguinte.</p>
+<pre><code class="language-html">&lt;a href="../contactos.html"&gt;Contactos&lt;/a&gt;
+</code></pre>
+<p>No exemplo seguinte, a página <code>contactos.html</code> será procurada na raiz do website e é independente da subpasta que contém o link seguinte.</p>
+<pre><code class="language-html">&lt;a href="/contactos.html"&gt;Contactos&lt;/a&gt;
+</code></pre>
+<p>Em sumário:</p>
+<pre><code class="language-html">&lt;a href="contactos.html"&gt;Contactos&lt;/a&gt; &lt;!-- mesma pasta --&gt;
+&lt;a href="pessoas/contactos.html"&gt;Contactos&lt;/a&gt; &lt;!-- numa subpasta --&gt;
+&lt;a href="../contactos.html"&gt;Contactos&lt;/a&gt; &lt;!-- numa pasta pai --&gt;
+&lt;a href="/contactos.html"&gt;Contactos&lt;/a&gt; &lt;!-- na raiz do website --&gt;
+</code></pre>
+<h3 id="hiperligações-para-fragmentos-do-documento"><a class="header" href="#hiperligações-para-fragmentos-do-documento">Hiperligações para fragmentos do documento</a></h3>
+<p>As âncoras permitem também criar ligações para fragmentos dentro da própria página. Por exemplo, esta página tem um indice no topo cujas hiperligações apontam para os títulos principais do documento.</p>
+<p>Para escrever estas hiperligações a página tem que definir atributos <strong>id</strong> para os objetos que queremos indexar. Por exemplo se tivermos um elemento <code>&lt;h2&gt;</code> com o <strong>“id=morada”</strong> podemos depois escrever uma hiperligação para esta localização:</p>
+<pre><code class="language-html">&lt;h2 id="morada"&gt;Morada da Escola&lt;h2&gt;
+&lt;!-- .... --&gt;
+&lt;a href="#morada"&gt;Ver Morada&lt;/a&gt;
+</code></pre>
+<p>Notar que o atributo <strong>href</strong> contém <strong>#</strong>. O simbolo <strong>#</strong> significa que a palavra seguinte é um <strong>id</strong>, no caso <strong>#morada</strong> indica ao browser para apontar para o elemento com o <strong>id=morada</strong>.</p>
+<h3 id="melhores-práticas"><a class="header" href="#melhores-práticas">Melhores práticas</a></h3>
+<p>Dada a importância das hiperligações é necessário que estas sejam feitas tendo algum cuidado.</p>
+<ul>
+<li>Os leitores de ecrã utilizam os textos das hiperligações para navegar na página.</li>
+<li>Os motores de busca utilizam o texto das hiperligações para definir os conteúdos indexados. Textos fracos são prejudiciais à indexação. Por exemplo um link <strong><code>&lt;a href="..."&gt;Clique aqui&lt;/a&gt;</code></strong> não é descritivo daquilo que é ligado e portanto é uma má hiperligação.</li>
+<li>Quando se criam hiperligações para recursos que não são HTML—por exemplo PDFs, Vídeos—convém indicar que a hiperligação aponta para um tipo de ficheiro que o utilizador pode não estar à espera. Por exemplo <strong><code>&lt;a href="manual-pdf"&gt;Manual de Normas (PDF)&lt;/a&gt;</code></strong> indica no texto que a hiperligação aponta para um PDF.</li>
+</ul>
+<div class="footnote-definition" id="a"><sup class="footnote-definition-label">2</sup>
+<p>O elemento <code>&lt;a&gt;</code> permite ainda uma variedade de atributos para diversas funções mais avançadas que podem ser consultadas na <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a">página do elemento <code>&lt;A&gt;</code> no MDN</a>.</p>
+</div>
+<div class="footnote-definition" id="h1"><sup class="footnote-definition-label">1</sup>
+<p>é possivel utilizar mais do que um <code>&lt;h1&gt;</code> numa página, mas é desaconselhado uma vez que <code>&lt;h1&gt;</code> representa o título da página. Também não devem ser utilizados cabeçalhos de níveis menos importantes sem antes estarem definidos os cabeçalhos pai (por exemplo, não utilizar <code>&lt;h3&gt;</code> sem antes ter utilizado o <code>&lt;h2&gt;</code>). Apesar de haver seis níveis, é raro um documento bem estruturado necessitar mais do que os primeiros 3 níveis.</p>
+</div>
+<h2 id="listas"><a class="header" href="#listas">Listas</a></h2>
+<p>A noção de lista é de particular importância na produção de documentos de qualquer tipo (impresso, livros, online, epubs, etc). O HTML das páginas web suporta dois tipos de listas: listas não ordenadas e listas ordenadas. Para isso é necessário utilizar os elementos HTML <code>&lt;ul&gt;</code> (unordered list) ou <code>&lt;ol&gt;</code> (ordered list).</p>
+<p>Por exemplo, uma lista de compras pode incluir os seguintes itens:</p>
+<pre><code class="language-txt">leite
+ovos
+pão
+farinha
+legumes
+</code></pre>
+<p>esta lista não tem uma ordenação natural (depende da percurso que fizermos dentro do supermercado apenas) pelo que em HTML podemos renderizar a lista utilizando uma lista não ordenada <code>&lt;ul&gt;</code> na qual cada um dos itens é construído com o elemento <code>&lt;li&gt;</code> (list item)</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;leite&lt;/li&gt;
+  &lt;li&gt;ovos&lt;/li&gt;
+  &lt;li&gt;pão&lt;/li&gt;
+  &lt;li&gt;farinha&lt;/li&gt;
+  &lt;li&gt;legumes&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p><img src="230-elementos-html-para-o-body-assets/image-8.png" alt="Lista não ordenada" /></p>
+<p>Por outro lado, podemos ter situações em que a ordem é importante, por exemplo quando seguimos uma receita, ou quando seguimos direções de para um destino numa viagem. Nestes casos utilizamos uma lista ordenada <code>&lt;ol&gt;</code>:</p>
+<pre><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;Caminhar 400m&lt;/li&gt;
+  &lt;li&gt;Virar à esquerda na Escola&lt;/li&gt;
+  &lt;li&gt;Avançar até à Biblioteca&lt;/li&gt;
+  &lt;li&gt;Subir as escadas&lt;/li&gt;
+  &lt;li&gt;Abrir a porta&lt;/li&gt;
+  &lt;li&gt;Procurar um Livro sobre HTML&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p><img src="230-elementos-html-para-o-body-assets/image-9.png" alt="Lista ordenada" /></p>
+<p>A lista ordenada é renderizada com uma numeração árabe automatica. A única diferença entre os dois casos está na definição da lista (<code>&lt;ul&gt;</code> ou <code>&lt;ol&gt;</code>). Os itens que as compõe são <code>&lt;li&gt;</code> em ambos os casos.</p>
+<h2 id="listas-hierarquicas"><a class="header" href="#listas-hierarquicas">Listas hierarquicas</a></h2>
+<p>As listas podem ser colocadas dentro de itens de outras listas criando dessa forma uma hierarquia de listas. Por exemplo, no caso seguinte temos uma lista de tarefas a realizar pela ordem apresentada. No entanto, a tarefa <strong>Ir ao ginásio</strong> obriga a verificar se temos todo o equipamento. Neste caso utilizamos uma lista não ordenada</p>
+<pre><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;Mudar óleo do carro&lt;/li&gt;
+  &lt;li&gt;Ir ao ginásio
+    &lt;ul&gt;
+      &lt;li&gt;Toalha&lt;/li&gt;
+      &lt;li&gt;T-shirt&lt;/li&gt;
+      &lt;li&gt;Calções&lt;/li&gt;
+      &lt;li&gt;Sapatilhas&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Fazer o jantar&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p><img src="230-elementos-html-para-o-body-assets/image-11.png" alt="Listas encadeadas" /></p>
+<h2 id="listas-de-definições"><a class="header" href="#listas-de-definições">Listas de definições</a></h2>
+<p>Para além das listas não ordenadas e ordenadas, há um tipo de listas especial para o caso em que temos definições. Podemos encontrar este tipo de listas em dicionários, ou glossários. Nestes casos temos normalmente um <em>termo</em> a definir e a sua <em>definição</em>. Em HTML é possível marcar o texto como sendo listas <code>&lt;dl&gt;</code> (definition list) e com os elementos <code>&lt;dt&gt;</code> e <code>&lt;dd&gt;</code> para respetivamente o <em>termo</em> e <em>definição</em>.</p>
+<pre><code class="language-html">&lt;dl&gt;
+  &lt;dt&gt;design&lt;/dt&gt;
+  &lt;dd&gt;
+     Disciplina que visa a criação de objectos, ambientes, obras 
+     gráficas, etc., ao mesmo tempo funcionais, estéticos e conformes 
+     aos imperativos de uma produção industrial.
+  &lt;/dd&gt;
+  &lt;dt&gt;pantomima&lt;/dt&gt;
+  &lt;dd&gt;
+    Arte de exprimir os sentimentos, as paixões, as ideias, 
+    por meio de gestos e atitudes, sem recorrer à palavra.
+  &lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+<p><img src="230-elementos-html-para-o-body-assets/image-12.png" alt="Exemplo de Lista de Definições" /></p>
+<p>No exemplo acima cada termo definido <code>&lt;dt&gt;</code> tem uma definição <code>&lt;dd&gt;</code> mas é possível ter mais do que uma definição para um termo, bastando adicionar mais elementos <code>&lt;dd&gt;</code>.</p>
+<pre><code class="language-html">  &lt;dt&gt;pantomima&lt;/dt&gt;
+  &lt;dd&gt;
+    Arte de exprimir os sentimentos, as paixões, as ideias, 
+    por meio de gestos e atitudes, sem recorrer à palavra.
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    Representação teatral em que os actores se exprimem unicamente 
+    por meio do gesto.
+  &lt;/dd&gt;
+</code></pre>
+<h2 id="exercício-prático"><a class="header" href="#exercício-prático">Exercício prático</a></h2>
+<p>Considere a seguinte receita de Húmus e aplique os elementos HTML apropriados para marcar a receita de forma coerente e apropriada.</p>
+<ol>
+<li>Utilize os elementos <strong>h1</strong> e <strong>h2</strong> para marcara o título e as três secções.</li>
+<li>Utilize o elemento <strong>p</strong> para marcar os parágrafos</li>
+<li>Utilize os elementos <strong>ul</strong> e <strong>ol</strong> para marcar as listas</li>
+</ol>
+<pre><code class="language-txt">Receita rápida de húmus
+
+Esta receita faz um húmus rápido e saboroso, sem confusão. 
+Foi adaptada de uma série de receitas diferentes que li ao longo dos anos.
+
+O húmus é uma deliciosa pasta espessa muito utilizada em pratos gregos e 
+do Médio Oriente. É muito saborosa com salada, carnes grelhadas e pães pitta.
+
+Ingredientes
+
+1 lata (400 g) de grão-de-bico
+175 g de tahini
+6 tomates secos ao sol
+Meio pimento vermelho
+Uma pitada de pimenta de caiena
+1 dente de alho
+Um fio de azeite
+
+Modo de utilização
+
+Retire a pele do alho e pique grosseiramente
+Retire todas as sementes e o talo do pimento e pique grosseiramente
+Junte todos os ingredientes num processador de alimentos
+Processe todos os ingredientes até obter uma pasta
+Se quiser um húmus grosseiro, processe-o durante pouco tempo
+Se quiser um húmus suave, processe-o durante mais tempo
+
+Para obter um sabor diferente, pode tentar misturar uma pequena quantidade 
+de limão e coentros, pimenta, lima e chipotle, harissa e hortelã, ou 
+espinafres e queijo feta. Experimente e veja o que resulta para si.
+
+Conservação
+
+Guarde o húmus pronto no frigorífico num recipiente fechado. Deverá poder 
+utilizá-lo durante cerca de uma semana depois de o ter feito. Se começar 
+a ficar efervescente, deve definitivamente deitá-lo fora.
+
+O húmus pode ser congelado; deve descongelá-lo e utilizá-lo no prazo de dois meses.
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="220-anatomia-documento-html.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="especificidade-e-heranca.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="220-anatomia-documento-html.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="especificidade-e-heranca.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
