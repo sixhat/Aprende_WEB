@@ -8,6 +8,9 @@ all:
 mdbook: clean
 	mdbook build
 
+serve:
+	mdbook serve
+
 htmls: clean
 	@echo "Generating HTML files..."
 	find . -iname '*.md' -not -path './chapters/Sebenta.md' -exec ,md2html.sh {} \;

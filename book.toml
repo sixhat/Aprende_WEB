@@ -7,8 +7,9 @@ title = "Sebenta de HTML, CSS e JS para Designers"
 description = "Sebenta de HTML, CSS e JS para Designers do curso TESP de DMD"
 
 [output.html]
-default-theme = "light"
+default-theme = "Light"
 smart-punctuation = true
 git-repository-url = "https://github.com/sixhat/Aprende_WEB"
 
 # [output.pdf]
+
