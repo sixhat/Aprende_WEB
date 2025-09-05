@@ -1,6 +1,6 @@
 # Sebenta de HTML, CSS e JS para Designers
 
-> Este é um documento vivo e está em constante atualização. A versão mais recente pode ser encontrada em: <https://github.com/sixhat/Aprende_WEB>.
+> Este é um documento vivo e está em constante atualização. A versão mais recente pode ser encontrada em: <https://github.com/sixhat/Aprende_WEB/book/>.
 
 Esta sebenta cobre uma introdução elementar ao funcionamento da World Wide Web focando-se na produção de páginas HTML estáticas baseadas em HTML e CSS.
 
