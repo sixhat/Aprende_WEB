@@ -17,7 +17,26 @@ geometry: margin=3cm
 
 # Sebenta de HTML, CSS e JS para Designers
 
-## Tópicos abordados
+Esta sebenta cobre uma introdução elementar ao funcionamento da World Wide Web focando-se na produção de páginas HTML estáticas baseadas em HTML e CSS.
+
+Em momento algum pretende ser uma sebenta enciclopédica sobre os standards das tecnologias Web[^1], mas antes fornecer um texto introdutório para o aluno que pela primeira vez é confrontado com a necessidade de criar com estas tecnologias.
+
+Desta forma, o texto apresentado serve como ponto de partida para a compreensão do funcionamento de um website, não dispensando a exploração e aprendizagem autonoma do aluno. Para tal são sugeridos recursos a consultar ao longo do texto e também nas secção de referências.
+
+## Tópicos:
+
+- Tecnologias Web
+- HTML
+- CSS
+- JavaScript
+- Publicação e Hosting
+
+**Professor**
+David Sousa-Rodrigues
+
+---
+
+[^1]: Estas tecnologias estão em constante evolução com alteração e introdução de novas funcionalidades. Para uma visão completa do HTML deve consultar <https://html.spec.whatwg.org/multipage/> e para o CSS <https://www.w3.org/Style/CSS/>.
 
 ### Introdução às Tecnologias Web
 
@@ -31,9 +50,9 @@ geometry: margin=3cm
 - [Anatomia de um documento HTML](chapters/220-anatomia-documento-html.md)
 - [Elementos HTML para o HEAD](chapters/240-elementos-para-o-head.md)
 - [Elementos HTML para o BODY](chapters/230-elementos-html-para-o-body.md)
-  - Imagens e multimedia
-  - HTML semântico
-  - Layouts.
+- [Imagens e multimedia](chapters/250-imagens-e-media.md)
+- [HTML semântico](chapters/260-semantic-html.md)
+- Layouts.
 - Acessibilidade em HTML
 
 ### Introdução ao CSS
@@ -42,18 +61,18 @@ geometry: margin=3cm
 - Seletores e propriedades CSS
 - [Especificidade e herança de regras CSS](chapters/especificidade-e-heranca.md)
 - Estilos com CSS
-- Layouts para Designs Responsivos
+- [Unidades de medida em CSS]
+- [Layouts para Designs Responsivos](chapters/320-layouts-design-responsivos.md)
   - Media Queries
-  - Unidades de medida em CSS
-  - Imagens e multimedia
+  - Imagens Responsivas
   - Cores e fontes
 - Pensar a página para mobile first
 - Box Model e posicionamento
 - Motion e Animações em CSS
 - Boas práticas de acessibilidade
-- Introdução ao Flexb ox e Grid
+√ - Introdução ao Flex e Grid Layout
 - Formulários e validação
-- [Exercícios práticos de CSS](chapters/exercicios-css.md)
+- [Exercícios práticos de CSS](chapters/390-exercicios-css.md)
 
 ### Introdução ao JavaScript
 

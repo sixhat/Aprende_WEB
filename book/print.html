@@ -156,7 +156,28 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="como-funciona-a-web"><a class="header" href="#como-funciona-a-web">Como funciona a Web?</a></h1>
+                        <h1 id="sebenta-de-html-css-e-js-para-designers"><a class="header" href="#sebenta-de-html-css-e-js-para-designers">Sebenta de HTML, CSS e JS para Designers</a></h1>
+<blockquote>
+<p>Este é um documento vivo e está em constante atualização. A versão mais recente pode ser encontrada em: <a href="https://github.com/sixhat/Aprende_WEB">https://github.com/sixhat/Aprende_WEB</a>.</p>
+</blockquote>
+<p>Esta sebenta cobre uma introdução elementar ao funcionamento da World Wide Web focando-se na produção de páginas HTML estáticas baseadas em HTML e CSS.</p>
+<p>Em momento algum pretende ser uma sebenta enciclopédica sobre os standards das tecnologias Web<sup class="footnote-reference"><a href="#1">1</a></sup>, mas antes fornecer um texto introdutório para o aluno que pela primeira vez é confrontado com a necessidade de criar com estas tecnologias.</p>
+<p>Desta forma, o texto apresentado serve como ponto de partida para a compreensão do funcionamento de um website, não dispensando a exploração e aprendizagem autonoma do aluno. Para tal são sugeridos recursos a consultar ao longo do texto e também nas secção de referências.</p>
+<h2 id="tópicos"><a class="header" href="#tópicos">Tópicos:</a></h2>
+<ul>
+<li>Tecnologias Web</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Publicação e Hosting</li>
+</ul>
+<p><strong>Professor</strong>
+David Sousa-Rodrigues</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Até porque estas tecnologias estão em constante evolução com alteração e introdução de novas funcionalidades. Para uma visão compreensiva do HTML deve-se consultar <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a> e para o CSS <a href="https://www.w3.org/Style/CSS/">https://www.w3.org/Style/CSS/</a></p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="como-funciona-a-web"><a class="header" href="#como-funciona-a-web">Como funciona a Web?</a></h1>
 <ul>
 <li><a href="010-como-funciona-a-web.html#como-funciona-a-web">Como funciona a Web?</a>
 <ul>
@@ -1492,6 +1513,239 @@ O húmus pode ser congelado; deve descongelá-lo e utilizá-lo no prazo de dois 
 </li>
 </ol>
 <p>O domínio dos elementos do head é fundamental para criar websites profissionais, otimizados para motores de busca e com boa experiência de utilizador. Estes elementos, embora invisíveis, são a base técnica de qualquer projeto web bem-sucedido.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="imagens-e-outros-elementos-multimedia"><a class="header" href="#imagens-e-outros-elementos-multimedia">Imagens e outros elementos Multimedia</a></h1>
+<p>No início a web consistia apenas em texto, mas rapidamente foram adicionados elementos gráficos. Imagens, Vídeos, Audio, Realidade Aumentada ou Jogos são hoje elementos comuns nas páginas modernas.</p>
+<ul>
+<li><a href="250-imagens-e-media.html#imagens-e-outros-elementos-multimedia">Imagens e outros elementos Multimedia</a>
+<ul>
+<li><a href="250-imagens-e-media.html#imagens">Imagens</a>
+<ul>
+<li><a href="250-imagens-e-media.html#largura-e-altura">Largura e altura</a></li>
+<li><a href="250-imagens-e-media.html#lazy-loading">Lazy Loading</a></li>
+<li><a href="250-imagens-e-media.html#t%C3%ADtulos">Títulos</a></li>
+<li><a href="250-imagens-e-media.html#figuras-e-legendas">Figuras e Legendas</a></li>
+</ul>
+</li>
+<li><a href="250-imagens-e-media.html#v%C3%ADdeo-e-audio">Vídeo e audio</a>
+<ul>
+<li><a href="250-imagens-e-media.html#multiplos-formatos">Multiplos formatos</a></li>
+<li><a href="250-imagens-e-media.html#outros-atributos">Outros atributos</a></li>
+</ul>
+</li>
+<li><a href="250-imagens-e-media.html#audio">Audio</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="imagens"><a class="header" href="#imagens">Imagens</a></h2>
+<p>O elemento HTML mais simples para colocar imagens é o elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img"><code>&lt;img&gt;</code></a>. Na sua forma mais básica uma imagem pode ser incluida indicando apenas o atributo <strong>src</strong>:</p>
+<p><img src="250-imagens-e-media-assets/dinosaur.png" alt="" /></p>
+<pre><code class="language-html">&lt;img src="dinosaur.png" /&gt;
+</code></pre>
+<p>No entanto esta forma minimalista não deve ser utilizada, uma vez que não inclui o atributo <strong>alt</strong> que deve estar presente em todas as imagens uma vez que <strong>descreve textualmente a imagem</strong> para utilizadores com necessidades especiais ou para situações em que a ligação à internet do utilizador é muito lenta. Uma melhor solução é:</p>
+<pre><code class="language-html">&lt;img src="dinosaur.png" alt="Ilustração de um Tiranossauro Rex" /&gt;
+</code></pre>
+<p>O atributo <strong>alt</strong> deve estar sempre presente, mesmo quando se utilizam imagens apenas decorativas (por exemplo um separador horizontal). Nestes casos o atributo deve existir e estar vazio <strong>alt=“”</strong>. A razão para isto é que caso o atributo não exista, um leitor de ecrã irá informar o utilizador lendo o nome da imagem (algo que não é importante nessa situação) e com a presença de <strong>alt=“”</strong> irá indicar apenas a existência de uma imagem. Outra forma alternativa adicionar o atributo <strong>role=“presentation”</strong> a estas imagens<sup class="footnote-reference"><a href="#role">1</a></sup>.</p>
+<p>O atributo <strong>src</strong> indica o loca onde se encontra a imagem. No exemplo a imagem está na mesma pasta do ficheiro html. No entanto é boa prática organizar os ficheiros em pastas apropriadas. Assim, se utilizarmos uma subpasta chamada <strong>imagens</strong> para guardar todas as imagens o código seria:</p>
+<pre><code class="language-html">&lt;img src="imagens/dinosaur.png" alt="Ilustração de um Tiranossauro Rex" /&gt;
+</code></pre>
+<p>o atributo <strong>src</strong> pode ser também um <strong>URL</strong> completo e até apontar para um servidor exterior. No entanto esta não é uma boa prática uma vez que devemos sempre controlar os conteúdos que publicamos. Utilizando uma ligação exterior não há garantias sobre a disponibilidade futura do recurso.</p>
+<h3 id="largura-e-altura"><a class="header" href="#largura-e-altura">Largura e altura</a></h3>
+<p>Os atributos <strong>width</strong> e <strong>height</strong> podem ser utilizados para definir a largura e altura do elemento <code>&lt;img&gt;</code>. São dois números inteiros sem unidades que representam as medidas em pixeis. Quando os valores utilizados são diferentes do tamanho real da imagem o browser irá redimensionar a imagem para a ajustar às medidas do elemento <code>&lt;img&gt;</code>.</p>
+<pre><code class="language-html">&lt;img src="imagens/dinosaur.png" 
+     alt="Ilustração de um Tiranossauro Rex"
+     width="360"
+     height="360" /&gt;
+</code></pre>
+<p>Neste caso a imagem utilizada é quadrada com 360 pixeis tanto de largura como de altura.</p>
+<p>Deve-se sempre indicar qual a largura e altura das imagens. A principal razão prende-se com o facto de estas medidas permitirem ao browser reservar o espaço necessário para a imagem, mesmo que os conteúdos da imagens ainda não tenham sido carregados. Caso não se coloquem as dimensões da imagem, o browser só saberá as medidas depois de carregar a imagem e obrigará a fazer um <em>reflow</em> da página que entretanto já estava parcialmente carregada provocando movimentação dos elementos de texto. Para evitar isso deve-se indicar sempre as dimensões da imagem.</p>
+<h3 id="lazy-loading"><a class="header" href="#lazy-loading">Lazy Loading</a></h3>
+<p>Uma segunda razão para o fazer tem a ver com a possibilidade de fazer <em>lazy loading</em> das imagens. Os browsers modernos podem adiar o carregamento de uma imagem se ela não aparecer na janela do ecrã (por exemplo numa página web muito longa). Para isso precisam saber qual o espaço ocupado por tudo o que está antes e daí que indicar as dimensões de todas as imagens seja necessário para conseguir aplicar a técnica de carregamento diferido.</p>
+<pre><code class="language-html">&lt;img src="imagens/dinosaur.png" 
+     alt="Ilustração de um Tiranossauro Rex"
+     width="360"
+     height="360" /&gt;
+
+&lt;!-- .... mais HTML --&gt;
+
+&lt;img src="imagens/cat.png" 
+     alt="Ilustração de um Gato Persa"
+     width="200"
+     height="500" 
+     loading="lazy" /&gt;
+</code></pre>
+<p>Ao adicionarmos o atributo <strong>loading=lazy</strong> indicamos ao browser que só deve carregar esta imagem se o utilizador fizer scroll da página e esta for necessária, caso contrário não a deve carregar. Para isso o browser precisa de saber o tamanho de todos os elementos prévios para conseguir calcular a posição da imagem do gato persa. Em alternativa, se quisermos que a imagem seja logo carregada podemos mudar o atributo <strong>loading=“lazy”</strong> para <strong>loading=“eager”</strong><sup class="footnote-reference"><a href="#lazy">2</a></sup></p>
+<h3 id="títulos"><a class="header" href="#títulos">Títulos</a></h3>
+<p>Voltando à nossa imagem do dinossauro. Para além do atributo <strong>alt</strong> também é possível adicionar o atributo <strong>title</strong> (muitas vezes com o mesmo texto do <strong>alt</strong>).</p>
+<pre><code class="language-html">&lt;img src="imagens/dinosaur.png" 
+     alt="Ilustração de um Tiranossauro Rex"
+     width="360"
+     height="360" 
+     title="Ilustração de um Tiranossauro Rex" /&gt;
+</code></pre>
+<p>O elemento <strong>title</strong> permite que os browsers renderizem um <em>tooltip</em> quando se para o rato sobre a imagem (tal como acontece com as hiperligações). No entanto a sua utilização tem vindo a ser <a href="https://www.24a11y.com/2017/the-trials-and-tribulations-of-the-title-attribute/">desencorajada dados os problemas de acessibilidade associados à utilização do <strong>title</strong>⬔</a>.</p>
+<h3 id="figuras-e-legendas"><a class="header" href="#figuras-e-legendas">Figuras e Legendas</a></h3>
+<p>As imagens normalmente tem associadas uma legenda e o HTML fornece dois elementos para o efeito. O elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/figure"><code>&lt;figure&gt;</code></a> e o elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/figcaption"><code>&lt;figcaption&gt;</code></a>. Assim, para definir uma imagem com legenda podemos:</p>
+<pre><code class="language-html">&lt;figure&gt;
+    &lt;img src="imagens/dinosaur.png" 
+        alt="Ilustração de um Tiranossauro Rex"
+        width="360"
+        height="360" /&gt;
+        &lt;figcaption&gt;
+            Ilustração de um Tiranossauro Rex
+        &lt;/figcaption&gt; 
+&lt;/figure&gt;
+</code></pre>
+<p>O elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/figure"><code>&lt;figure&gt;</code></a> engloba a imagem juntamente com a legenda. A legenda é definida pelo texto contido no elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/figcaption"><code>&lt;figcaption&gt;</code></a>.</p>
+<p><img src="250-imagens-e-media-assets/trex-com-legenda.png" alt="" /></p>
+<h2 id="vídeo-e-audio"><a class="header" href="#vídeo-e-audio">Vídeo e audio</a></h2>
+<p>A adição de vídeo a uma página html utiliza o elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video"><code>&lt;video&gt;</code></a>. Este elemento também pode ser utilizado para audio mas o elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio"><code>&lt;audio&gt;</code></a> é mais apropriado para essa situação.</p>
+<pre><code class="language-html">&lt;video src="rabbit320.webm" controls&gt;
+  &lt;p&gt;
+    Your browser doesn't support HTML video. Here is a
+    &lt;a href="rabbit320.webm"&gt;link to the video&lt;/a&gt; instead.
+  &lt;/p&gt;
+&lt;/video&gt;
+</code></pre>
+<p>Tal como no caso das imagens o atributo <strong>src</strong> indica qual o URL do ficheiro vídeo a utilizar. O atributo <strong>controls</strong> ativa os controlos de play, pause, etc do elemento vídeo para que o utilizador o possa controlar. Os elementos internos ao <strong>video</strong>, neste caso o elemento <code>&lt;p&gt;</code>, serão renderizados quando o browser não suportar o elemento <code>&lt;video&gt;</code>. Funcionam como uma mecanismo de segurança.</p>
+<p><img src="250-imagens-e-media-assets/image.png" alt="Vídeo" /></p>
+<h3 id="multiplos-formatos"><a class="header" href="#multiplos-formatos">Multiplos formatos</a></h3>
+<p>Nem todos os formatos de ficheiros vídeo são suportados por todos os browsers pelo que é é possível indicar mais do que um ficheiro vídeo em diferentes formatos utilizando o elemento <code>&lt;source&gt;</code></p>
+<pre><code class="language-html">&lt;video controls&gt;
+  &lt;source src="rabbit320.mp4" type="video/mp4" /&gt;
+  &lt;source src="rabbit320.webm" type="video/webm" /&gt;
+  &lt;p&gt;
+    Your browser doesn't support this video. Here is a
+    &lt;a href="rabbit320.mp4"&gt;link to the video&lt;/a&gt; instead.
+  &lt;/p&gt;
+&lt;/video&gt;
+</code></pre>
+<p>neste exemplo o mesmo ficheiro foi codificado em formato MP4 e WEBM. O browser irá utilizar a primeira <code>&lt;source&gt;</code> cujo <code>type</code> seja compatível com as capacidades do browser.</p>
+<h3 id="outros-atributos"><a class="header" href="#outros-atributos">Outros atributos</a></h3>
+<p>os elementos de vídeo permitem ainda adicionar outros atributos que controlam diversos aspetos do elemento html:</p>
+<pre><code class="language-html">&lt;video
+  controls
+  width="400"
+  height="400"
+  autoplay
+  loop
+  muted
+  preload="auto"
+  poster="poster.png"&gt;
+  &lt;source src="rabbit320.mp4" type="video/mp4" /&gt;
+  &lt;source src="rabbit320.webm" type="video/webm" /&gt;
+  &lt;p&gt;
+    Your browser doesn't support this video. Here is a
+    &lt;a href="rabbit320.mp4"&gt;link to the video&lt;/a&gt; instead.
+  &lt;/p&gt;
+&lt;/video&gt;
+</code></pre>
+<p><strong>width e height</strong>: controlam o aspeto da janela de visualização do vídeo</p>
+<p><strong>autoplay</strong>: define que o vídeo começa a reproduzir assim que a página é carregada. Se o vídeo tiver uma pista de áudio, o vídeo tem que ser iniciado manualmente pelo que o autoplay não funcionará.</p>
+<p><strong>loop</strong>: obriga o vídeo a reiniciar continuamente quando chega ao fim</p>
+<p><strong>muted</strong>: inicializa o vídeo com o som desligado</p>
+<p><strong>poster</strong>: define uma imagem poster para mostrar enquanto o vídeo não estiver a ser reproduzido</p>
+<p><strong>preload</strong>: permite definir o que carregar inicialmente quando temos ficheiros muito grandes. Pode ter o valor de <strong>none</strong>, <strong>auto</strong> e <strong>metadata</strong> para não carregar nada, tudo ou apenas os metadados, respetivamente.</p>
+<p>O elemento vídeo suporta ainda outros atributos como <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/track">legendas</a>.</p>
+<h2 id="audio"><a class="header" href="#audio">Audio</a></h2>
+<p>O elemento <code>&lt;audio&gt;</code> funciona de forma muito semelhante ao elemento <code>&lt;video&gt;</code></p>
+<pre><code class="language-html">&lt;audio controls&gt;
+  &lt;source src="viper.mp3" type="audio/mp3" /&gt;
+  &lt;source src="viper.ogg" type="audio/ogg" /&gt;
+  &lt;p&gt;
+    Your browser doesn't support this audio file. Here is a
+    &lt;a href="viper.mp3"&gt;link to the audio&lt;/a&gt; instead.
+  &lt;/p&gt;
+&lt;/audio&gt;
+</code></pre>
+<p>A principal diferença é que o tipo de ficheiros carreagados estão em contentores típicos de audio (mp3, ogg, m4a, etc…).</p>
+<p>O elemento <code>&lt;audio&gt;</code> não suporta os atributos <strong>width</strong>, <strong>height</strong> ou <strong>poster</strong> por não fazerem sentido neste contexto.</p>
+<hr />
+<div class="footnote-definition" id="role"><sup class="footnote-definition-label">1</sup>
+<p>Os atributos como <strong>role</strong> fazem parte da especificação de acessibilidade ARIA com mais detalhes em página própria.</p>
+</div>
+<div class="footnote-definition" id="lazy"><sup class="footnote-definition-label">2</sup>
+<p>Ver mais detalhes sobre optimização do <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Lazy_loading">carregamento diferido no MDN⬔</a>.</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="html-semântico"><a class="header" href="#html-semântico">HTML Semântico</a></h1>
+<p>HTML semântico é o uso de elementos HTML que transmitem o significado da informação que contêm, em vez de apenas definir sua aparência. Os elementos semânticos descrevem claramente o seu propósito tanto para o browsers como para o utilizador.</p>
+<p>Por exemplo, <code>&lt;h1&gt;</code> é um elemento semântico, que indica que o seu texto é o cabeçalho principal da página. Usar <code>&lt;h1&gt;</code> é melhor do que usar <code>&lt;p style="font-size: 24px; font-weight: bold;"&gt;</code>, pois o <code>&lt;h1&gt;</code> possui um significado semântico que o <code>&lt;p&gt;</code> com estilos não possui.</p>
+<h2 id="por-que-usar-html-semântico"><a class="header" href="#por-que-usar-html-semântico">Por que usar HTML Semântico?</a></h2>
+<p>O uso de HTML semântico tem várias vantagens:</p>
+<ul>
+<li><strong>Acessibilidade:</strong> Leitores de ecrã e outras tecnologias assistivas usam a semântica do HTML para interpretar o conteúdo da página para utilizadores com necessidadse. Um HTML bem estruturado e semântico torna a navegação mais fácil para estes utilizadores.</li>
+<li><strong>SEO (Search Engine Optimization):</strong> Motores de busca como o Google usam a estrutura semântica para entender o conteúdo da página, o que melhora o ranking nos resultados de busca.</li>
+<li><strong>Manutenibilidade:</strong> O código torna-se mais fácil de ler e entender para outros utilizadores. É mais fácil de manter e atualizar um código que descreve seu próprio significado.</li>
+<li><strong>Consistência:</strong> Ajuda a criar uma estrutura de página mais consistente e lógica.</li>
+</ul>
+<h2 id="exemplos-de-elementos-semânticos"><a class="header" href="#exemplos-de-elementos-semânticos">Exemplos de Elementos Semânticos</a></h2>
+<p>Aqui estão alguns dos elementos HTML semânticos mais comuns e como eles são usados para estruturar uma página:</p>
+<ul>
+<li><code>&lt;header&gt;</code>: Define o cabeçalho de um documento ou de uma seção. Geralmente contém o logotipo, o título principal e a navegação.</li>
+<li><code>&lt;nav&gt;</code>: Define um conjunto de links de navegação.</li>
+<li><code>&lt;main&gt;</code>: Especifica o conteúdo principal e único de um documento. O conteúdo dentro do <code>&lt;main&gt;</code> deve ser único para o documento, excluindo-se conteúdo que se repete em outras páginas, como barras laterais, navegação, etc.</li>
+<li><code>&lt;article&gt;</code>: Define um conteúdo independente e autocontido. Um <code>article</code> deve fazer sentido por si só e deve ser possível distribuí-lo independentemente do resto do site. Exemplos incluem um post de blog, um artigo de notícias ou um comentário de fórum.</li>
+<li><code>&lt;section&gt;</code>: Define uma seção em um documento. É um agrupamento temático de conteúdo, geralmente com um cabeçalho.</li>
+<li><code>&lt;aside&gt;</code>: Define um conteúdo à parte do conteúdo principal, como uma barra lateral (sidebar).</li>
+<li><code>&lt;footer&gt;</code>: Define o rodapé de um documento ou de uma seção. Geralmente contém informações de autoria, direitos de autor, links para informações de contato, etc.</li>
+<li><code>&lt;figure&gt;</code> e <code>&lt;figcaption&gt;</code>: <code>&lt;figure&gt;</code> é usado para agrupar conteúdo de media, como imagens, diagramas, etc., e <code>&lt;figcaption&gt;</code> fornece uma legenda para o <code>&lt;figure&gt;</code>.</li>
+</ul>
+<h2 id="exemplo-de-estrutura-de-página-com-html-semântico"><a class="header" href="#exemplo-de-estrutura-de-página-com-html-semântico">Exemplo de Estrutura de Página com HTML Semântico</a></h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-PT"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Exemplo de HTML Semântico&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;O Meu Blog&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/sobre"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/contato"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;h2&gt;O que é HTML Semântico?&lt;/h2&gt;
+            &lt;p&gt;HTML semântico é o uso de tags HTML que transmitem o significado...&lt;/p&gt;
+        &lt;/article&gt;
+
+        &lt;section&gt;
+            &lt;h3&gt;Comentários&lt;/h3&gt;
+            &lt;article&gt;
+                &lt;h4&gt;João disse:&lt;/h4&gt;
+                &lt;p&gt;Ótimo artigo!&lt;/p&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;aside&gt;
+        &lt;h3&gt;Posts Recentes&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Post 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Post 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/aside&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2025 Meu Blog. Todos os direitos reservados.&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="elementos-não-semânticos"><a class="header" href="#elementos-não-semânticos">Elementos não semânticos</a></h2>
+<p>Elementos como <code>&lt;div&gt;</code> e <code>&lt;span&gt;</code> são exemplos de elementos não semânticos. Eles não dizem nada sobre o seu conteúdo.</p>
+<ul>
+<li><code>&lt;div&gt;</code>: É um contentor genérico para outros elementos, usado para agrupar elementos para fins de estilização (com CSS) ou para manipulação com JavaScript.</li>
+<li><code>&lt;span&gt;</code>: É um contentor genérico para texto, usado para agrupar uma parte do texto para estilização ou para outros fins.</li>
+</ul>
+<p>Embora sejam úteis, o uso excessivo de <code>&lt;div&gt;</code>s (às vezes chamado de “div-itis”) pode levar a um código HTML menos semântico e mais difícil de entender. Prefira sempre utilizar um elemento semântico quando houver um que se encaixe no propósito do seu conteúdo.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introdução-ao-css"><a class="header" href="#introdução-ao-css">Introdução ao CSS</a></h1>
 <ul>
 <li><a href="300-introducao-ao-css.html#introdu%C3%A7%C3%A3o-ao-css">Introdução ao CSS</a>
@@ -1512,6 +1766,7 @@ O húmus pode ser congelado; deve descongelá-lo e utilizá-lo no prazo de dois 
 <li><a href="300-introducao-ao-css.html#seletor-de-classe">Seletor de classe</a></li>
 <li><a href="300-introducao-ao-css.html#seletor-de-id">Seletor de ID</a></li>
 <li><a href="300-introducao-ao-css.html#seletores-combinados">Seletores combinados</a></li>
+<li><a href="300-introducao-ao-css.html#seletores-de-atributos">Seletores de atributos</a></li>
 </ul>
 </li>
 <li><a href="300-introducao-ao-css.html#propriedades-css-b%C3%A1sicas">Propriedades CSS básicas</a>
@@ -1526,12 +1781,12 @@ O húmus pode ser congelado; deve descongelá-lo e utilizá-lo no prazo de dois 
 </ul>
 </li>
 </ul>
-<p>CSS (Cascading Style Sheets) é a linguagem utilizada para definir a apresentação visual de documentos HTML. Enquanto o HTML define a estrutura e o conteúdo de uma página web, o CSS é responsável por controlar a aparência, layout, cores, tipografia e todos os aspectos visuais da página.</p>
-<p>O termo “Cascading” (em cascata) refere-se ao facto de as regras CSS poderem ser aplicadas em camadas, onde estilos mais específicos sobrepõem estilos mais gerais, criando um sistema hierárquico de aplicação de estilos.</p>
+<p>CSS (Cascading Style Sheets) é a linguagem utilizada para definir a apresentação visual de documentos HTML. Enquanto o HTML define a estrutura e o conteúdo de uma página web, o CSS é responsável por controlar a aparência, layout, cores, tipografia e todos os aspetos visuais da página.</p>
+<p>O termo “Cascading” (em cascata) refere-se ao facto de as regras CSS poderem ser aplicadas em camadas, onde estilos mais específicos sobrepõem-se a estilos mais gerais, criando um sistema hierárquico de aplicação de estilos.</p>
 <h2 id="o-que-é-css"><a class="header" href="#o-que-é-css">O que é CSS?</a></h2>
 <p>CSS permite separar completamente o conteúdo (HTML) da apresentação (CSS), seguindo o princípio da separação de responsabilidades. Esta separação traz várias vantagens:</p>
 <ul>
-<li><strong>Manutenibilidade</strong>: Alterações visuais podem ser feitas sem modificar o HTML</li>
+<li><strong>Manutenção</strong>: Alterações visuais podem ser feitas sem modificar o HTML</li>
 <li><strong>Reutilização</strong>: O mesmo CSS pode ser aplicado a múltiplas páginas</li>
 <li><strong>Consistência</strong>: Garantia de aparência uniforme em todo o website</li>
 <li><strong>Eficiência</strong>: Redução do tamanho dos ficheiros HTML</li>
@@ -1541,7 +1796,8 @@ O húmus pode ser congelado; deve descongelá-lo e utilizá-lo no prazo de dois 
 <p>Existem três formas principais de incluir CSS num documento HTML:</p>
 <h3 id="css-inline"><a class="header" href="#css-inline">CSS Inline</a></h3>
 <p>O CSS inline é aplicado diretamente no elemento HTML através do atributo <code>style</code>:</p>
-<pre><code class="language-html">&lt;p style="color: red; font-size: 16px;"&gt;Este texto é vermelho e tem 16px de tamanho.&lt;/p&gt;
+<pre><code class="language-html">&lt;p style="color: red; font-size: 16px;"&gt;
+    Este texto é vermelho e tem 16px de tamanho.&lt;/p&gt;
 </code></pre>
 <p><strong>Vantagens:</strong></p>
 <ul>
@@ -1606,13 +1862,14 @@ O húmus pode ser congelado; deve descongelá-lo e utilizá-lo no prazo de dois 
 <ul>
 <li>Separação completa entre conteúdo e apresentação</li>
 <li>Reutilização entre múltiplas páginas</li>
+<li>Permite criar um <strong>sistema de design</strong></li>
 <li>Facilita a manutenção</li>
 <li>Melhor organização do projeto</li>
 <li>Cache do browser (carregamento mais rápido em visitas subsequentes)</li>
 </ul>
 <p><strong>Desvantagens:</strong></p>
 <ul>
-<li>Requer um pedido HTTP adicional</li>
+<li>Requer um pedido HTTP adicional (embora seja cachable)</li>
 <li>Dependência de ficheiro externo</li>
 </ul>
 <blockquote>
@@ -1625,7 +1882,10 @@ O húmus pode ser congelado; deve descongelá-lo e utilizá-lo no prazo de dois 
     propriedade: valor;
 }
 </code></pre>
-<p><img src="introducao-ao-css-assets/regra-css.png" alt="Estrutura de uma regra CSS" /></p>
+<ul>
+<li><strong>seletor</strong>: é a regra que o browser vai procurar no documento para identifica a quem aplicar o estilos.</li>
+<li><strong>propriedade: valor;</strong> os conjuntos propriedade: valor; (separados por <em>dois pontos</em> e terminados por <em>ponto e virgula</em>) indicam quais as propriedades do <strong>seletor</strong> que o browser deve alterar e qual o seu valor.</li>
+</ul>
 <p><strong>Exemplo prático:</strong></p>
 <pre><code class="language-css">p {
     color: red;
@@ -1737,6 +1997,27 @@ p.especial {
     color: white;
 }
 </code></pre>
+<h3 id="seletores-de-atributos"><a class="header" href="#seletores-de-atributos">Seletores de atributos</a></h3>
+<p>Este tipo de seletores permite selecionar elementos com base nos seus atributos. Utiliza <strong>[]</strong> para definir que atributo procurar.</p>
+<p>Exemplos:</p>
+<pre><code class="language-css">/* Seleciona todos os links com o atributo href */
+a[href] {
+    color: purple;
+}
+
+/* Seleciona todos os links com o atributo href = https://example.com */
+a[href="https://example.com"] {
+    color: green;
+}
+
+/* Seleciona todos os paragrafos cuja classe contém a palavra `alerta` */
+p[class~="alerta"] {
+    color: red;
+}
+</code></pre>
+<blockquote>
+<p><strong>EXTRA</strong> Para mais detalhes sobre seletores de atributos, consulte a <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors">documentação da MDN</a> sobre <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors">seletores de atributos</a>.</p>
+</blockquote>
 <h2 id="propriedades-css-básicas"><a class="header" href="#propriedades-css-básicas">Propriedades CSS básicas</a></h2>
 <h3 id="cores"><a class="header" href="#cores">Cores</a></h3>
 <pre><code class="language-css">/* Cores por nome */
@@ -1921,6 +2202,379 @@ p {
 </code></pre>
 <p><img src="especificidade-e-heranca-assets/image.png" alt="" /></p>
 <p>A cor e a fonte utilizadas na regra vão ser herdadas pelo elemento <code>em</code>. Já a linha do rebordo não será herdada. <a href="https://codepen.io/sixhat/pen/YPXoeqa">Ver exemplo online</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="seletores-avançados-do-css"><a class="header" href="#seletores-avançados-do-css">Seletores avançados do CSS</a></h1>
+<p>Os seletores avançados de CSS permitem uma maior precisão e flexibilidade na aplicação de estilos aos elementos de uma página web. Entre os seletores mais utilizados estão os combinadores de irmãos (siblings), filhos (children) e os pseudo-elementos.</p>
+<ul>
+<li><a href="310-seletores-avancados-css.html#seletores-avan%C3%A7ados-do-css">Seletores avançados do CSS</a>
+<ul>
+<li><a href="310-seletores-avancados-css.html#combinadores-de-filhos-children">Combinadores de filhos (children)</a></li>
+<li><a href="310-seletores-avancados-css.html#combinadores-de-irm%C3%A3os-siblings">Combinadores de irmãos (siblings)</a></li>
+<li><a href="310-seletores-avancados-css.html#pseudo-elementos">Pseudo-elementos</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="combinadores-de-filhos-children"><a class="header" href="#combinadores-de-filhos-children">Combinadores de filhos (children)</a></h2>
+<p>O combinador de filhos (<code>&gt;</code>) seleciona apenas os elementos que são filhos diretos de um determinado elemento. Por exemplo:</p>
+<pre><code class="language-css">div &gt; p {
+  color: blue;
+}
+</code></pre>
+<p>Neste exemplo, apenas os parágrafos (<code>&lt;p&gt;</code>) que são filhos diretos de um <code>&lt;div&gt;</code> terão o texto azul.</p>
+<h2 id="combinadores-de-irmãos-siblings"><a class="header" href="#combinadores-de-irmãos-siblings">Combinadores de irmãos (siblings)</a></h2>
+<p>Existem dois tipos principais de combinadores de irmãos:</p>
+<ul>
+<li>
+<p><strong>Irmão adjacente (<code>+</code>)</strong>: Seleciona o elemento imediatamente a seguir ao elemento de referência.</p>
+<pre><code class="language-css">h2 + p {
+  margin-top: 0;
+}
+</code></pre>
+<p>Neste caso, apenas o primeiro <code>&lt;p&gt;</code> imediatamente a seguir a um <code>&lt;h2&gt;</code> será afetado.</p>
+</li>
+<li>
+<p><strong>Irmão geral (<code>~</code>)</strong>: Seleciona todos os elementos irmãos que seguem o elemento de referência, não apenas o primeiro.</p>
+<pre><code class="language-css">h2 ~ p {
+  color: green;
+}
+</code></pre>
+<p>Aqui, todos os <code>&lt;p&gt;</code> que seguem um <code>&lt;h2&gt;</code> como irmãos terão o texto verde.</p>
+</li>
+<li>
+<p><strong>Irmão de qualquer tipo (<code>*</code>)</strong>: Seleciona todos os irmãos, independentemente do tipo de elemento.</p>
+<pre><code class="language-css">h2 ~ * {
+  margin-bottom: 10px;
+}
+</code></pre>
+<p>Neste exemplo, todos os elementos irmãos de <code>&lt;h2&gt;</code> terão uma margem inferior de 10 pixels.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>EXPERIMENTE</strong> online no <a href="https://codepen.io/sixhat/pen/yyYXjYy?editors=1100">CodePen</a> os diferentes tipos de seletores anteriores.</p>
+</blockquote>
+<h2 id="pseudo-elementos"><a class="header" href="#pseudo-elementos">Pseudo-elementos</a></h2>
+<p>Os pseudo-elementos permitem estilizar partes específicas de um elemento, como a primeira letra ou linha de um texto, ou inserir conteúdo antes ou depois do elemento.</p>
+<p>Exemplos comuns:</p>
+<ul>
+<li><code>::first-line</code>: Seleciona a primeira linha de um bloco de texto.
+<pre><code class="language-css">p::first-line {
+  font-weight: bold;
+}
+</code></pre>
+</li>
+<li><code>::first-letter</code>: Seleciona a primeira letra de um bloco de texto.
+<pre><code class="language-css">p::first-letter {
+  font-size: 200%;
+}
+</code></pre>
+</li>
+<li><code>::before</code> e <code>::after</code>: Permitem inserir conteúdo antes ou depois do conteúdo real do elemento.
+<pre><code class="language-css">h1::before {
+  content: "★ ";
+  color: gold;
+}
+</code></pre>
+</li>
+</ul>
+<p>Estes seletores avançados são essenciais para criar layouts e estilos mais sofisticados e dinâmicos, tornando o CSS uma ferramenta poderosa para o design web.</p>
+<blockquote>
+<p><strong>EXPERIMENTE</strong> online no <a href="https://codepen.io/sixhat/pen/azvwGNJ?editors=1100">CodePen</a> os pseudo-elementos mencionados.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unidades-de-medida-em-css"><a class="header" href="#unidades-de-medida-em-css">Unidades de Medida em CSS</a></h1>
+<p>Em CSS, as unidades de medida são cruciais para definir o tamanho e o espaçamento dos elementos. Elas são divididas em duas categorias principais: absolutas e relativas.</p>
+<h2 id="unidades-absolutas"><a class="header" href="#unidades-absolutas">Unidades Absolutas</a></h2>
+<p>As unidades absolutas são fixas e não mudam de tamanho com base em outros elementos ou no tamanho do ecrã. São mais adequadas para media de impressão, onde as dimensões físicas são conhecidas.</p>
+<ul>
+<li><strong><code>px</code> (Píxeis):</strong> A unidade absoluta mais comum para ecrã. Um píxel é o menor ponto de um ecrã de exibição que se pode manipular.</li>
+<li><strong><code>pt</code> (Pontos):</strong> Usada tradicionalmente em tipografia para impressão (1pt = 1/72 de polegada).</li>
+<li><strong><code>pc</code> (Paicas):</strong> Também de uso tipográfico (1 paica = 12 pontos).</li>
+<li><strong><code>cm</code> (Centímetros):</strong> Unidade do sistema métrico.</li>
+<li><strong><code>mm</code> (Milímetros):</strong> Unidade do sistema métrico.</li>
+<li><strong><code>in</code> (Polegadas):</strong> Onde 1 polegada equivale a 2,54cm.</li>
+</ul>
+<h2 id="unidades-relativas"><a class="header" href="#unidades-relativas">Unidades Relativas</a></h2>
+<p>As unidades relativas são mais flexíveis e seu valor é calculado com base noutra medida, como o tamanho da fonte do elemento pai ou as dimensões da janela do navegador (viewport). Elas são ideais para criar designs responsivos e escaláveis.</p>
+<ul>
+<li><strong><code>em</code>:</strong> Relativa ao tamanho da fonte do próprio elemento (para propriedades como <code>width</code>) ou do elemento pai (para <code>font-size</code>).</li>
+<li><strong><code>rem</code> (root em):</strong> Relativa ao tamanho da fonte do elemento raiz (<code>&lt;html&gt;</code>) do documento. Isso permite um escalonamento mais previsível em toda a página.</li>
+<li><strong><code>%</code> (Percentagem):</strong> Relativa ao tamanho do elemento pai.</li>
+<li><strong><code>vw</code> (Viewport Width):</strong> Uma percentagem da largura da janela de visualização do navegador. Por exemplo, <code>10vw</code> equivale a 10% da largura da viewport.</li>
+<li><strong><code>vh</code> (Viewport Height):</strong> Uma percentagem da altura da janela de visualização do navegador.</li>
+<li><strong><code>vmin</code>:</strong> Uma percentagem da menor dimensão da viewport (seja altura ou largura).</li>
+<li><strong><code>vmax</code>:</strong> Uma percentagem da maior dimensão da viewport.</li>
+</ul>
+<p>Um exemplo de uso de unidades relativas:</p>
+<pre><code class="language-css">body {
+  font-size: 16px; /* Tamanho base da fonte */
+}
+h1 {
+  font-size: 2rem; /* 2 vezes o tamanho da fonte base, ou 32px */
+}
+p {
+  font-size: 1.5em; /* 1.5 vezes o tamanho da fonte do elemento pai */
+  width: 50%; /* 50% da largura do elemento pai */
+}
+.container {
+  width: 80vw; /* 80% da largura da viewport */
+  height: 50vh; /* 50% da altura da viewport */
+}
+</code></pre>
+<blockquote>
+<p><strong>EXTRA:</strong> Mais informações sobre unidades de medida podem ser encontradas online em <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units">MDN Web Docs</a>.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="layouts-para-designs-responsivos"><a class="header" href="#layouts-para-designs-responsivos">Layouts para Designs Responsivos</a></h1>
+<p>Criar layouts que se adaptam a diferentes tamanhos de ecrã é uma habilidade essencial para o desenvolvimento web moderno. Um design responsivo garante que o website ofereça uma boa experiência de utilizador em desktops, tablets e telemóveis.</p>
+<ul>
+<li><a href="320-layouts-design-responsivos.html#layouts-para-designs-responsivos">Layouts para Designs Responsivos</a>
+<ul>
+<li><a href="320-layouts-design-responsivos.html#princ%C3%ADpios-fundamentais">Princípios Fundamentais</a></li>
+<li><a href="320-layouts-design-responsivos.html#tecnologias-css-para-layouts-responsivos">Tecnologias CSS para Layouts Responsivos</a>
+<ul>
+<li><a href="320-layouts-design-responsivos.html#media-queries">Media Queries</a></li>
+<li><a href="320-layouts-design-responsivos.html#flexbox">Flexbox</a></li>
+<li><a href="320-layouts-design-responsivos.html#css-grid">CSS Grid</a></li>
+<li><a href="320-layouts-design-responsivos.html#flexbox-vs-grid">Flexbox vs. Grid</a></li>
+</ul>
+</li>
+<li><a href="320-layouts-design-responsivos.html#frameworks-para-design-responsivo">Frameworks para Design Responsivo</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="princípios-fundamentais"><a class="header" href="#princípios-fundamentais">Princípios Fundamentais</a></h2>
+<ul>
+<li><strong>Mobile-First:</strong> Comece o design e o desenvolvimento para dispositivos móveis e, em seguida, aprimore progressivamente para ecrãs maiores.</li>
+<li><strong>Grids Flexíveis:</strong> Use sistemas de grid que se ajustam dinamicamente ao tamanho do ecrã, em vez de layouts com pixels fixos.</li>
+<li><strong>Unidades Relativas:</strong> Utilize unidades como <code>%</code>, <code>em</code>, <code>rem</code>, <code>vw</code> e <code>vh</code> para larguras, margens e tamanhos de fonte, permitindo que os elementos se ajustem proporcionalmente.</li>
+<li><strong>Imagens Flexíveis:</strong> Garanta que as imagens não ultrapassem seus contentores usando <code>max-width: 100%;</code> e <code>height: auto;</code>.</li>
+</ul>
+<h2 id="tecnologias-css-para-layouts-responsivos"><a class="header" href="#tecnologias-css-para-layouts-responsivos">Tecnologias CSS para Layouts Responsivos</a></h2>
+<h3 id="media-queries"><a class="header" href="#media-queries">Media Queries</a></h3>
+<p>As Media Queries são a base do design responsivo, permitindo aplicar estilos CSS específicos com base nas características do dispositivo, como a largura dos ecrã.</p>
+<pre><code class="language-css">/* Estilos para telas maiores */
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* Em telas com 600px de largura ou menos, o layout torna-se fluido */
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}
+</code></pre>
+<h3 id="flexbox"><a class="header" href="#flexbox">Flexbox</a></h3>
+<p>O CSS Flexbox é um modelo de layout unidimensional ideal para alinhar e distribuir itens em uma linha ou coluna. É perfeito para componentes de interface como barras de navegação.</p>
+<h3 id="css-grid"><a class="header" href="#css-grid">CSS Grid</a></h3>
+<p>O CSS Grid é um sistema de layout bidimensional que permite controlar linhas e colunas simultaneamente. É a ferramenta mais poderosa para criar layouts de página complexos.</p>
+<h3 id="flexbox-vs-grid"><a class="header" href="#flexbox-vs-grid">Flexbox vs. Grid</a></h3>
+<ul>
+<li><strong>Use Flexbox</strong> para controle de layout numa única dimensão (linha <strong>ou</strong> coluna).</li>
+<li><strong>Use CSS Grid</strong> quando precisar de controlo sobre as duas dimensões (linha <strong>e</strong> coluna).</li>
+</ul>
+<p>Muitas vezes, a melhor abordagem é combinar os dois: usar o Grid para o layout geral da página e o Flexbox para alinhar os itens dentro dos componentes individuais.</p>
+<h2 id="frameworks-para-design-responsivo"><a class="header" href="#frameworks-para-design-responsivo">Frameworks para Design Responsivo</a></h2>
+<p>Para acelerar o desenvolvimento, diversos frameworks oferecem componentes e sistemas de grid pré-construídos:</p>
+<ul>
+<li><strong>Bootstrap:</strong> Um dos frameworks mais populares, com um vasto ecossistema de componentes.</li>
+<li><strong>Tailwind CSS:</strong> Um framework “utility-first” que fornece classes de baixo nível para construir designs personalizados.</li>
+<li><strong>Foundation:</strong> Um framework front-end responsivo com uma variedade de componentes de interface.</li>
+<li><strong>Bulma:</strong> Um framework CSS moderno baseado em Flexbox.</li>
+<li><strong>Materialize CSS e Material UI:</strong> Frameworks que implementam os princípios do Material Design do Google.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="layouts-com-flexbox-e-gridbox-em-css"><a class="header" href="#layouts-com-flexbox-e-gridbox-em-css">Layouts com Flexbox e Gridbox em CSS</a></h1>
+<p>Até agora, vimos como estilizar elementos individualmente. Mas como organizamos esses elementos numa página? Antigamente, os designers usavam <code>float</code>, <code>position</code> e <code>table</code> para criar layouts, muitas vezes com resultados imprevisíveis e pouco flexíveis.</p>
+<ul>
+<li><a href="330-layouts-flexbox-gribox-css.html#layouts-com-flexbox-e-gridbox-em-css">Layouts com Flexbox e Gridbox em CSS</a>
+<ul>
+<li><a href="330-layouts-flexbox-gribox-css.html#flexbox-flexible-box-layout">Flexbox (Flexible Box Layout)</a>
+<ul>
+<li><a href="330-layouts-flexbox-gribox-css.html#conceitos-fundamentais">Conceitos Fundamentais</a></li>
+<li><a href="330-layouts-flexbox-gribox-css.html#propriedades-do-flex-container">Propriedades do Flex Container</a></li>
+<li><a href="330-layouts-flexbox-gribox-css.html#propriedades-dos-flex-items">Propriedades dos Flex Items</a></li>
+</ul>
+</li>
+<li><a href="330-layouts-flexbox-gribox-css.html#grid-layout">Grid Layout</a>
+<ul>
+<li><a href="330-layouts-flexbox-gribox-css.html#conceitos-fundamentais-1">Conceitos Fundamentais</a></li>
+<li><a href="330-layouts-flexbox-gribox-css.html#propriedades-do-grid-container">Propriedades do Grid Container</a></li>
+<li><a href="330-layouts-flexbox-gribox-css.html#propriedades-dos-grid-items">Propriedades dos Grid Items</a></li>
+</ul>
+</li>
+<li><a href="330-layouts-flexbox-gribox-css.html#flexbox-vs-grid-quando-usar-cada-um">Flexbox vs. Grid: Quando usar cada um?</a></li>
+<li><a href="330-layouts-flexbox-gribox-css.html#exerc%C3%ADcio-pr%C3%A1tico-de-grid-e-flexbox">Exercício prático de Grid e Flexbox</a></li>
+</ul>
+</li>
+</ul>
+<p>Felizmente, o CSS moderno oferece duas ferramentas poderosas para a criação de layouts complexos e responsivos: <strong>Flexbox</strong> e <strong>Grid</strong>.</p>
+<h2 id="flexbox-flexible-box-layout"><a class="header" href="#flexbox-flexible-box-layout">Flexbox (Flexible Box Layout)</a></h2>
+<p>O Flexbox é um modelo de layout unidimensional. Isto significa que ele organiza os elementos numa única direção: ou como uma linha (horizontal) ou como uma coluna (vertical). É ideal para alinhar itens dentro de um contentor, como botões numa barra de navegação, ou para distribuir espaço entre elementos de um componente.</p>
+<h3 id="conceitos-fundamentais"><a class="header" href="#conceitos-fundamentais">Conceitos Fundamentais</a></h3>
+<p>Para usar o Flexbox, precisa de dois componentes principais:</p>
+<ol>
+<li><strong>Flex Container</strong>: O elemento pai que contém os itens. Ativa-se o Flexbox aplicando <code>display: flex;</code> a este elemento.</li>
+<li><strong>Flex Items</strong>: Os elementos filhos diretos do <em>flex container</em>.</li>
+</ol>
+<pre><code class="language-html">&lt;div class="flex-container"&gt;
+  &lt;div class="flex-item"&gt;1&lt;/div&gt;
+  &lt;div class="flex-item"&gt;2&lt;/div&gt;
+  &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="propriedades-do-flex-container"><a class="header" href="#propriedades-do-flex-container">Propriedades do Flex Container</a></h3>
+<p>Estas propriedades são aplicadas ao elemento pai (<code>.flex-container</code>).</p>
+<ul>
+<li><code>display: flex;</code>: Ativa o contexto de formatação flex.</li>
+<li><code>flex-direction</code>: Define a direção do eixo principal.
+<ul>
+<li><code>row</code> (padrão): Da esquerda para a direita.</li>
+<li><code>row-reverse</code>: Da direita para a esquerda.</li>
+<li><code>column</code>: De cima para baixo.</li>
+<li><code>column-reverse</code>: De baixo para cima.</li>
+</ul>
+</li>
+<li><code>justify-content</code>: Alinha os itens ao longo do eixo principal.
+<ul>
+<li><code>flex-start</code>: Agrupa os itens no início.</li>
+<li><code>flex-end</code>: Agrupa os itens no fim.</li>
+<li><code>center</code>: Centraliza os itens.</li>
+<li><code>space-between</code>: Distribui os itens uniformemente, com o primeiro no início e o último no fim.</li>
+<li><code>space-around</code>: Distribui os itens uniformemente com espaçamento igual à volta de cada um.</li>
+<li><code>space-evenly</code>: Distribui os itens uniformemente, com espaçamento igual entre todos.</li>
+</ul>
+</li>
+<li><code>align-items</code>: Alinha os itens ao longo do eixo transversal (o eixo perpendicular ao principal).
+<ul>
+<li><code>stretch</code> (padrão): Estica os itens para preencher o contentor.</li>
+<li><code>flex-start</code>: Alinha os itens no início do eixo transversal.</li>
+<li><code>flex-end</code>: Alinha os itens no fim do eixo transversal.</li>
+<li><code>center</code>: Centraliza os itens no eixo transversal.</li>
+</ul>
+</li>
+<li><code>flex-wrap</code>: Permite que os itens quebrem para a linha seguinte se não houver espaço.
+<ul>
+<li><code>nowrap</code> (padrão): Todos os itens ficam na mesma linha.</li>
+<li><code>wrap</code>: Os itens quebram para linhas adicionais.</li>
+</ul>
+</li>
+<li><code>gap</code>: Define o espaçamento entre os itens.</li>
+</ul>
+<p>Se aplicarmos ao exemplo acima o seguinte CSS:</p>
+<pre><code class="language-css">.flex-container {
+	background: #def;
+	display: flex;
+	justify-content: space-evenly;
+}
+.flex-item {
+	padding: 1rem;
+	background-color: tomato;
+}
+</code></pre>
+<p>obteremos três itens distribuídos uniformemente ao longo do contentor, com um fundo azul claro para o contentor e um fundo vermelho para os itens.</p>
+<p><img src="330-layouts-flexbox-gribox-css-assets/flex-box-evenely.png" alt="" /></p>
+<h3 id="propriedades-dos-flex-items"><a class="header" href="#propriedades-dos-flex-items">Propriedades dos Flex Items</a></h3>
+<p>Estas propriedades são aplicadas aos elementos filhos (<code>.flex-item</code>).</p>
+<ul>
+<li><code>flex-grow</code>: Define a capacidade de um item crescer se houver espaço extra. Um valor de <code>1</code> significa que ele ocupará o espaço disponível de forma proporcional.</li>
+<li><code>flex-shrink</code>: Define a capacidade de um item encolher se não houver espaço suficiente.</li>
+<li><code>flex-basis</code>: Define o tamanho inicial de um item antes que o espaço restante seja distribuído.</li>
+<li><code>flex</code>: É um atalho para <code>flex-grow</code>, <code>flex-shrink</code> e <code>flex-basis</code>. Ex: <code>flex: 0 1 auto;</code>.</li>
+<li><code>order</code>: Altera a ordem visual dos itens, sem alterar o HTML. O valor padrão é <code>0</code>.</li>
+<li><code>align-self</code>: Permite que um item individual anule o <code>align-items</code> do contentor.</li>
+</ul>
+<h2 id="grid-layout"><a class="header" href="#grid-layout">Grid Layout</a></h2>
+<p>O Grid é um modelo de layout bidimensional. Ele permite organizar conteúdo em linhas e colunas simultaneamente, como uma tabela ou uma grelha. É perfeito para o layout geral da página, como cabeçalhos, barras laterais, conteúdo principal e rodapés.</p>
+<h3 id="conceitos-fundamentais-1"><a class="header" href="#conceitos-fundamentais-1">Conceitos Fundamentais</a></h3>
+<p>Assim como o Flexbox, o Grid tem um <strong>Grid Container</strong> e <strong>Grid Items</strong>.</p>
+<ol>
+<li><strong>Grid Container</strong>: O elemento pai, ativado com <code>display: grid;</code>.</li>
+<li><strong>Grid Items</strong>: Os filhos diretos do <em>grid container</em>.</li>
+</ol>
+<pre><code class="language-html">&lt;div class="grid-container"&gt;
+  &lt;header class="grid-item"&gt;Header&lt;/header&gt;
+  &lt;nav    class="grid-item"&gt;Sidebar&lt;/nav&gt;
+  &lt;main   class="grid-item"&gt;Main&lt;/main&gt;
+  &lt;footer class="grid-item"&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="propriedades-do-grid-container"><a class="header" href="#propriedades-do-grid-container">Propriedades do Grid Container</a></h3>
+<ul>
+<li><code>display: grid;</code>: Ativa o contexto de formatação grid.</li>
+<li><code>grid-template-columns</code>: Define o número e o tamanho das colunas da grelha.
+<ul>
+<li>Ex: <code>grid-template-columns: 100px 1fr 2fr;</code> (três colunas, a primeira com 100px, a segunda com uma fração do espaço e a terceira com duas frações).</li>
+<li>A unidade <code>fr</code> (fração) é muito útil para distribuir o espaço restante.</li>
+</ul>
+</li>
+<li><code>grid-template-rows</code>: Define o número e o tamanho das linhas.</li>
+<li><code>grid-gap</code> (ou <code>gap</code>): Define o espaçamento entre as linhas e colunas.
+<ul>
+<li><code>gap: 20px;</code> (espaçamento de 20px para linhas e colunas).</li>
+<li><code>row-gap: 10px;</code></li>
+<li><code>column-gap: 15px;</code></li>
+</ul>
+</li>
+<li><code>grid-template-areas</code>: Permite nomear áreas da grelha para posicionar itens de forma mais semântica.</li>
+</ul>
+<pre><code class="language-css">.grid-container {
+	background: #def;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas:
+		"header header"
+		"sidebar main"
+		"footer footer";
+}
+.grid-item {
+	background: tomato;
+	margin: 0.5rem;
+}
+div.grid-container header {
+	grid-area: header;
+}
+div.grid-container nav {
+	grid-area: sidebar;
+}
+div.grid-container main {
+	grid-area: main;
+}
+div.grid-container footer {
+	grid-area: footer;
+}
+</code></pre>
+<p><img src="330-layouts-flexbox-gribox-css-assets/grid-layout.png" alt="" /></p>
+<h3 id="propriedades-dos-grid-items"><a class="header" href="#propriedades-dos-grid-items">Propriedades dos Grid Items</a></h3>
+<ul>
+<li><code>grid-column-start</code> / <code>grid-column-end</code>: Define em que linha de grelha a coluna do item começa e termina.</li>
+<li><code>grid-row-start</code> / <code>grid-row-end</code>: Define em que linha de grelha a linha do item começa e termina.</li>
+<li><code>grid-column</code>: Atalho para <code>grid-column-start</code> / <code>grid-column-end</code>. Ex: <code>grid-column: 1 / 3;</code> (ocupa da linha 1 à 3).</li>
+<li><code>grid-row</code>: Atalho para <code>grid-row-start</code> / <code>grid-row-end</code>.</li>
+<li><code>grid-area</code>: Associa um item a uma área nomeada em <code>grid-template-areas</code>.</li>
+</ul>
+<pre><code class="language-css">.header-item {
+  grid-area: header;
+}
+.sidebar-item {
+  grid-area: sidebar;
+}
+</code></pre>
+<h2 id="flexbox-vs-grid-quando-usar-cada-um"><a class="header" href="#flexbox-vs-grid-quando-usar-cada-um">Flexbox vs. Grid: Quando usar cada um?</a></h2>
+<p>A regra geral é:</p>
+<ul>
+<li><strong>Flexbox para componentes e alinhamento unidimensional</strong>: Use-o para barras de navegação, listas de cartões, ou qualquer coisa que precise ser alinhada numa única direção (linha ou coluna).</li>
+<li><strong>Grid para o layout geral da página e alinhamento bidimensional</strong>: Use-o para a estrutura principal da sua página, onde precisa de controlar tanto as colunas como as linhas.</li>
+</ul>
+<p>A melhor parte é que eles podem ser usados em conjunto. É comum ter um layout de página feito com Grid, e dentro de uma das áreas da grelha, usar Flexbox para alinhar os itens de um componente.</p>
+<h2 id="exercício-prático-de-grid-e-flexbox"><a class="header" href="#exercício-prático-de-grid-e-flexbox">Exercício prático de Grid e Flexbox</a></h2>
+<p>Para praticar o que aprendeu, crie um layout simples de página usando Grid para a estrutura principal e Flexbox para alinhar os itens dentro de uma barra de navegação. Tente incluir:</p>
+<ul>
+<li>Um cabeçalho com o título do site.</li>
+<li>Uma barra de navegação com links.</li>
+<li>Um conteúdo principal com dois artigos lado a lado.</li>
+<li>Um rodapé com informações de copyright.</li>
+<li>Use Flexbox para alinhar os links da barra de navegação horizontalmente e Grid para organizar o cabeçalho, a barra de navegação, o conteúdo principal e o rodapé.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="exercícios-práticos-de-css"><a class="header" href="#exercícios-práticos-de-css">Exercícios práticos de CSS</a></h1>
 <p>Aqui pode encontrar um conjunto de exercícios práticos para praticar os seus conhecimentos de CSS. Alguns são feitos em papel, enquanto outros são exercícios online.</p>
 <h2 id="exercícios-online"><a class="header" href="#exercícios-online">Exercícios online</a></h2>

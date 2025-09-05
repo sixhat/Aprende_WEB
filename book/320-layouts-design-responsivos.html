@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introdução - Sebenta de HTML, CSS e JS para Designers</title>
+        <title>Layouts para Designs Responsivos - Sebenta de HTML, CSS e JS para Designers</title>
 
 
         <!-- Custom HTML head -->
@@ -155,34 +155,76 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="sebenta-de-html-css-e-js-para-designers"><a class="header" href="#sebenta-de-html-css-e-js-para-designers">Sebenta de HTML, CSS e JS para Designers</a></h1>
-<blockquote>
-<p>Este é um documento vivo e está em constante atualização. A versão mais recente pode ser encontrada em: <a href="https://github.com/sixhat/Aprende_WEB">https://github.com/sixhat/Aprende_WEB</a>.</p>
-</blockquote>
-<p>Esta sebenta cobre uma introdução elementar ao funcionamento da World Wide Web focando-se na produção de páginas HTML estáticas baseadas em HTML e CSS.</p>
-<p>Em momento algum pretende ser uma sebenta enciclopédica sobre os standards das tecnologias Web<sup class="footnote-reference"><a href="#1">1</a></sup>, mas antes fornecer um texto introdutório para o aluno que pela primeira vez é confrontado com a necessidade de criar com estas tecnologias.</p>
-<p>Desta forma, o texto apresentado serve como ponto de partida para a compreensão do funcionamento de um website, não dispensando a exploração e aprendizagem autonoma do aluno. Para tal são sugeridos recursos a consultar ao longo do texto e também nas secção de referências.</p>
-<h2 id="tópicos"><a class="header" href="#tópicos">Tópicos:</a></h2>
+                        <h1 id="layouts-para-designs-responsivos"><a class="header" href="#layouts-para-designs-responsivos">Layouts para Designs Responsivos</a></h1>
+<p>Criar layouts que se adaptam a diferentes tamanhos de ecrã é uma habilidade essencial para o desenvolvimento web moderno. Um design responsivo garante que o website ofereça uma boa experiência de utilizador em desktops, tablets e telemóveis.</p>
 <ul>
-<li>Tecnologias Web</li>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-<li>Publicação e Hosting</li>
+<li><a href="#layouts-para-designs-responsivos">Layouts para Designs Responsivos</a>
+<ul>
+<li><a href="#princ%C3%ADpios-fundamentais">Princípios Fundamentais</a></li>
+<li><a href="#tecnologias-css-para-layouts-responsivos">Tecnologias CSS para Layouts Responsivos</a>
+<ul>
+<li><a href="#media-queries">Media Queries</a></li>
+<li><a href="#flexbox">Flexbox</a></li>
+<li><a href="#css-grid">CSS Grid</a></li>
+<li><a href="#flexbox-vs-grid">Flexbox vs. Grid</a></li>
 </ul>
-<p><strong>Professor</strong>
-David Sousa-Rodrigues</p>
-<hr />
-<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>Até porque estas tecnologias estão em constante evolução com alteração e introdução de novas funcionalidades. Para uma visão compreensiva do HTML deve-se consultar <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a> e para o CSS <a href="https://www.w3.org/Style/CSS/">https://www.w3.org/Style/CSS/</a></p>
-</div>
+</li>
+<li><a href="#frameworks-para-design-responsivo">Frameworks para Design Responsivo</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="princípios-fundamentais"><a class="header" href="#princípios-fundamentais">Princípios Fundamentais</a></h2>
+<ul>
+<li><strong>Mobile-First:</strong> Comece o design e o desenvolvimento para dispositivos móveis e, em seguida, aprimore progressivamente para ecrãs maiores.</li>
+<li><strong>Grids Flexíveis:</strong> Use sistemas de grid que se ajustam dinamicamente ao tamanho do ecrã, em vez de layouts com pixels fixos.</li>
+<li><strong>Unidades Relativas:</strong> Utilize unidades como <code>%</code>, <code>em</code>, <code>rem</code>, <code>vw</code> e <code>vh</code> para larguras, margens e tamanhos de fonte, permitindo que os elementos se ajustem proporcionalmente.</li>
+<li><strong>Imagens Flexíveis:</strong> Garanta que as imagens não ultrapassem seus contentores usando <code>max-width: 100%;</code> e <code>height: auto;</code>.</li>
+</ul>
+<h2 id="tecnologias-css-para-layouts-responsivos"><a class="header" href="#tecnologias-css-para-layouts-responsivos">Tecnologias CSS para Layouts Responsivos</a></h2>
+<h3 id="media-queries"><a class="header" href="#media-queries">Media Queries</a></h3>
+<p>As Media Queries são a base do design responsivo, permitindo aplicar estilos CSS específicos com base nas características do dispositivo, como a largura dos ecrã.</p>
+<pre><code class="language-css">/* Estilos para telas maiores */
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* Em telas com 600px de largura ou menos, o layout torna-se fluido */
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}
+</code></pre>
+<h3 id="flexbox"><a class="header" href="#flexbox">Flexbox</a></h3>
+<p>O CSS Flexbox é um modelo de layout unidimensional ideal para alinhar e distribuir itens em uma linha ou coluna. É perfeito para componentes de interface como barras de navegação.</p>
+<h3 id="css-grid"><a class="header" href="#css-grid">CSS Grid</a></h3>
+<p>O CSS Grid é um sistema de layout bidimensional que permite controlar linhas e colunas simultaneamente. É a ferramenta mais poderosa para criar layouts de página complexos.</p>
+<h3 id="flexbox-vs-grid"><a class="header" href="#flexbox-vs-grid">Flexbox vs. Grid</a></h3>
+<ul>
+<li><strong>Use Flexbox</strong> para controle de layout numa única dimensão (linha <strong>ou</strong> coluna).</li>
+<li><strong>Use CSS Grid</strong> quando precisar de controlo sobre as duas dimensões (linha <strong>e</strong> coluna).</li>
+</ul>
+<p>Muitas vezes, a melhor abordagem é combinar os dois: usar o Grid para o layout geral da página e o Flexbox para alinhar os itens dentro dos componentes individuais.</p>
+<h2 id="frameworks-para-design-responsivo"><a class="header" href="#frameworks-para-design-responsivo">Frameworks para Design Responsivo</a></h2>
+<p>Para acelerar o desenvolvimento, diversos frameworks oferecem componentes e sistemas de grid pré-construídos:</p>
+<ul>
+<li><strong>Bootstrap:</strong> Um dos frameworks mais populares, com um vasto ecossistema de componentes.</li>
+<li><strong>Tailwind CSS:</strong> Um framework “utility-first” que fornece classes de baixo nível para construir designs personalizados.</li>
+<li><strong>Foundation:</strong> Um framework front-end responsivo com uma variedade de componentes de interface.</li>
+<li><strong>Bulma:</strong> Um framework CSS moderno baseado em Flexbox.</li>
+<li><strong>Materialize CSS e Material UI:</strong> Frameworks que implementam os princípios do Material Design do Google.</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="330-unidades-de-medida-css.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="010-como-funciona-a-web.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="330-layouts-flexbox-gribox-css.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -192,8 +234,11 @@ David Sousa-Rodrigues</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="330-unidades-de-medida-css.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="010-como-funciona-a-web.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="330-layouts-flexbox-gribox-css.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

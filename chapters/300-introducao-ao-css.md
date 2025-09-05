@@ -13,6 +13,7 @@
     - [Seletor de classe](#seletor-de-classe)
     - [Seletor de ID](#seletor-de-id)
     - [Seletores combinados](#seletores-combinados)
+    - [Seletores de atributos](#seletores-de-atributos)
   - [Propriedades CSS básicas](#propriedades-css-básicas)
     - [Cores](#cores)
     - [Tipografia](#tipografia)
@@ -20,15 +21,15 @@
   - [Comentários em CSS](#comentários-em-css)
   - [Exercício Prático](#exercício-prático)
 
-CSS (Cascading Style Sheets) é a linguagem utilizada para definir a apresentação visual de documentos HTML. Enquanto o HTML define a estrutura e o conteúdo de uma página web, o CSS é responsável por controlar a aparência, layout, cores, tipografia e todos os aspectos visuais da página.
+CSS (Cascading Style Sheets) é a linguagem utilizada para definir a apresentação visual de documentos HTML. Enquanto o HTML define a estrutura e o conteúdo de uma página web, o CSS é responsável por controlar a aparência, layout, cores, tipografia e todos os aspetos visuais da página.
 
-O termo "Cascading" (em cascata) refere-se ao facto de as regras CSS poderem ser aplicadas em camadas, onde estilos mais específicos sobrepõem estilos mais gerais, criando um sistema hierárquico de aplicação de estilos.
+O termo "Cascading" (em cascata) refere-se ao facto de as regras CSS poderem ser aplicadas em camadas, onde estilos mais específicos sobrepõem-se a estilos mais gerais, criando um sistema hierárquico de aplicação de estilos.
 
 ## O que é CSS?
 
 CSS permite separar completamente o conteúdo (HTML) da apresentação (CSS), seguindo o princípio da separação de responsabilidades. Esta separação traz várias vantagens:
 
-- **Manutenibilidade**: Alterações visuais podem ser feitas sem modificar o HTML
+- **Manutenção**: Alterações visuais podem ser feitas sem modificar o HTML
 - **Reutilização**: O mesmo CSS pode ser aplicado a múltiplas páginas
 - **Consistência**: Garantia de aparência uniforme em todo o website
 - **Eficiência**: Redução do tamanho dos ficheiros HTML
@@ -43,7 +44,8 @@ Existem três formas principais de incluir CSS num documento HTML:
 O CSS inline é aplicado diretamente no elemento HTML através do atributo `style`:
 
 ```html
-<p style="color: red; font-size: 16px;">Este texto é vermelho e tem 16px de tamanho.</p>
+<p style="color: red; font-size: 16px;">
+    Este texto é vermelho e tem 16px de tamanho.</p>
 ```
 
 **Vantagens:**
@@ -113,13 +115,14 @@ p {
 
 **Vantagens:**
 - Separação completa entre conteúdo e apresentação
-- Reutilização entre múltiplas páginas
+- Reutilização entre múltiplas páginas 
+- Permite criar um **sistema de design**
 - Facilita a manutenção
 - Melhor organização do projeto
 - Cache do browser (carregamento mais rápido em visitas subsequentes)
 
 **Desvantagens:**
-- Requer um pedido HTTP adicional
+- Requer um pedido HTTP adicional (embora seja cachable)
 - Dependência de ficheiro externo
 
 > **RECOMENDAÇÃO**: Para projetos web, utilize sempre CSS externo. Esta é a abordagem mais profissional e mantível.
@@ -135,7 +138,8 @@ seletor {
 }
 ```
 
-![Estrutura de uma regra CSS](introducao-ao-css-assets/regra-css.png)
+- **seletor**: é a regra que o browser vai procurar no documento para identifica a quem aplicar o estilos.
+- **propriedade: valor;** os conjuntos propriedade: valor; (separados por _dois pontos_ e terminados por _ponto e virgula_) indicam quais as propriedades do **seletor** que o browser deve alterar e qual o seu valor.
 
 **Exemplo prático:**
 ```css
@@ -271,6 +275,33 @@ p.especial {
     color: white;
 }
 ```
+
+### Seletores de atributos
+
+Este tipo de seletores permite selecionar elementos com base nos seus atributos. Utiliza **[]** para definir que atributo procurar.
+
+Exemplos:
+
+```css
+/* Seleciona todos os links com o atributo href */
+a[href] {
+    color: purple;
+}
+
+/* Seleciona todos os links com o atributo href = https://example.com */
+a[href="https://example.com"] {
+    color: green;
+}
+
+/* Seleciona todos os paragrafos cuja classe contém a palavra `alerta` */
+p[class~="alerta"] {
+    color: red;
+}
+```
+
+> **EXTRA** Para mais detalhes sobre seletores de atributos, consulte a [documentação da MDN](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors) sobre [seletores de atributos][atributos].
+
+[atributos]: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors
 
 ## Propriedades CSS básicas
 

@@ -1,5 +1,7 @@
 # Sebenta de HTML, CSS e JS para Designers
 
+- [Introdução](000-introducao.md)
+
 # Introdução às Tecnologias Web
 
 - [Como funciona a web](010-como-funciona-a-web.md)
@@ -12,12 +14,18 @@
 - [Anatomia de um documento HTML](220-anatomia-documento-html.md)
 - [Elementos HTML para o BODY](230-elementos-html-para-o-body.md)
 - [Elementos HTML para o HEAD](240-elementos-para-o-head.md)
+- [Imagens e multimedia](250-imagens-e-media.md)
+- [HTML semântico](260-semantic-html.md)
 
 # Introdução ao CSS
 
 - [Introdução ao CSS](300-introducao-ao-css.md)
 - [Especificidade e herança de regras CSS](especificidade-e-heranca.md)
-- [Exercícios práticos de CSS](exercicios-css.md)
+- [Seletores avançados do CSS](310-seletores-avancados-css.md)
+- [Unidades de medida em CSS](330-unidades-de-medida-css.md)
+- [Layouts para Designs Responsivos](320-layouts-design-responsivos.md)
+- [Layouts com Flexbox e Gridbox em CSS](330-layouts-flexbox-gribox-css.md)
+- [Exercícios práticos de CSS](390-exercicios-css.md)
 
 # Introdução ao JavaScript
 

@@ -175,6 +175,7 @@
 <li><a href="#seletor-de-classe">Seletor de classe</a></li>
 <li><a href="#seletor-de-id">Seletor de ID</a></li>
 <li><a href="#seletores-combinados">Seletores combinados</a></li>
+<li><a href="#seletores-de-atributos">Seletores de atributos</a></li>
 </ul>
 </li>
 <li><a href="#propriedades-css-b%C3%A1sicas">Propriedades CSS básicas</a>
@@ -189,12 +190,12 @@
 </ul>
 </li>
 </ul>
-<p>CSS (Cascading Style Sheets) é a linguagem utilizada para definir a apresentação visual de documentos HTML. Enquanto o HTML define a estrutura e o conteúdo de uma página web, o CSS é responsável por controlar a aparência, layout, cores, tipografia e todos os aspectos visuais da página.</p>
-<p>O termo “Cascading” (em cascata) refere-se ao facto de as regras CSS poderem ser aplicadas em camadas, onde estilos mais específicos sobrepõem estilos mais gerais, criando um sistema hierárquico de aplicação de estilos.</p>
+<p>CSS (Cascading Style Sheets) é a linguagem utilizada para definir a apresentação visual de documentos HTML. Enquanto o HTML define a estrutura e o conteúdo de uma página web, o CSS é responsável por controlar a aparência, layout, cores, tipografia e todos os aspetos visuais da página.</p>
+<p>O termo “Cascading” (em cascata) refere-se ao facto de as regras CSS poderem ser aplicadas em camadas, onde estilos mais específicos sobrepõem-se a estilos mais gerais, criando um sistema hierárquico de aplicação de estilos.</p>
 <h2 id="o-que-é-css"><a class="header" href="#o-que-é-css">O que é CSS?</a></h2>
 <p>CSS permite separar completamente o conteúdo (HTML) da apresentação (CSS), seguindo o princípio da separação de responsabilidades. Esta separação traz várias vantagens:</p>
 <ul>
-<li><strong>Manutenibilidade</strong>: Alterações visuais podem ser feitas sem modificar o HTML</li>
+<li><strong>Manutenção</strong>: Alterações visuais podem ser feitas sem modificar o HTML</li>
 <li><strong>Reutilização</strong>: O mesmo CSS pode ser aplicado a múltiplas páginas</li>
 <li><strong>Consistência</strong>: Garantia de aparência uniforme em todo o website</li>
 <li><strong>Eficiência</strong>: Redução do tamanho dos ficheiros HTML</li>
@@ -204,7 +205,8 @@
 <p>Existem três formas principais de incluir CSS num documento HTML:</p>
 <h3 id="css-inline"><a class="header" href="#css-inline">CSS Inline</a></h3>
 <p>O CSS inline é aplicado diretamente no elemento HTML através do atributo <code>style</code>:</p>
-<pre><code class="language-html">&lt;p style="color: red; font-size: 16px;"&gt;Este texto é vermelho e tem 16px de tamanho.&lt;/p&gt;
+<pre><code class="language-html">&lt;p style="color: red; font-size: 16px;"&gt;
+    Este texto é vermelho e tem 16px de tamanho.&lt;/p&gt;
 </code></pre>
 <p><strong>Vantagens:</strong></p>
 <ul>
@@ -269,13 +271,14 @@
 <ul>
 <li>Separação completa entre conteúdo e apresentação</li>
 <li>Reutilização entre múltiplas páginas</li>
+<li>Permite criar um <strong>sistema de design</strong></li>
 <li>Facilita a manutenção</li>
 <li>Melhor organização do projeto</li>
 <li>Cache do browser (carregamento mais rápido em visitas subsequentes)</li>
 </ul>
 <p><strong>Desvantagens:</strong></p>
 <ul>
-<li>Requer um pedido HTTP adicional</li>
+<li>Requer um pedido HTTP adicional (embora seja cachable)</li>
 <li>Dependência de ficheiro externo</li>
 </ul>
 <blockquote>
@@ -288,7 +291,10 @@
     propriedade: valor;
 }
 </code></pre>
-<p><img src="introducao-ao-css-assets/regra-css.png" alt="Estrutura de uma regra CSS" /></p>
+<ul>
+<li><strong>seletor</strong>: é a regra que o browser vai procurar no documento para identifica a quem aplicar o estilos.</li>
+<li><strong>propriedade: valor;</strong> os conjuntos propriedade: valor; (separados por <em>dois pontos</em> e terminados por <em>ponto e virgula</em>) indicam quais as propriedades do <strong>seletor</strong> que o browser deve alterar e qual o seu valor.</li>
+</ul>
 <p><strong>Exemplo prático:</strong></p>
 <pre><code class="language-css">p {
     color: red;
@@ -400,6 +406,27 @@ p.especial {
     color: white;
 }
 </code></pre>
+<h3 id="seletores-de-atributos"><a class="header" href="#seletores-de-atributos">Seletores de atributos</a></h3>
+<p>Este tipo de seletores permite selecionar elementos com base nos seus atributos. Utiliza <strong>[]</strong> para definir que atributo procurar.</p>
+<p>Exemplos:</p>
+<pre><code class="language-css">/* Seleciona todos os links com o atributo href */
+a[href] {
+    color: purple;
+}
+
+/* Seleciona todos os links com o atributo href = https://example.com */
+a[href="https://example.com"] {
+    color: green;
+}
+
+/* Seleciona todos os paragrafos cuja classe contém a palavra `alerta` */
+p[class~="alerta"] {
+    color: red;
+}
+</code></pre>
+<blockquote>
+<p><strong>EXTRA</strong> Para mais detalhes sobre seletores de atributos, consulte a <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors">documentação da MDN</a> sobre <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors">seletores de atributos</a>.</p>
+</blockquote>
 <h2 id="propriedades-css-básicas"><a class="header" href="#propriedades-css-básicas">Propriedades CSS básicas</a></h2>
 <h3 id="cores"><a class="header" href="#cores">Cores</a></h3>
 <pre><code class="language-css">/* Cores por nome */
@@ -524,7 +551,7 @@ p {
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="240-elementos-para-o-head.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="260-semantic-html.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
@@ -538,7 +565,7 @@ p {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="240-elementos-para-o-head.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="260-semantic-html.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
