@@ -157,7 +157,7 @@
                     <main>
                         <h1 id="sebenta-de-html-css-e-js-para-designers"><a class="header" href="#sebenta-de-html-css-e-js-para-designers">Sebenta de HTML, CSS e JS para Designers</a></h1>
 <blockquote>
-<p>Este é um documento vivo e está em constante atualização. A versão mais recente pode ser encontrada em: <a href="https://github.com/sixhat/Aprende_WEB">https://github.com/sixhat/Aprende_WEB</a>.</p>
+<p>Este é um documento vivo e está em constante atualização. A versão mais recente pode ser encontrada em: <a href="https://github.com/sixhat/Aprende_WEB/book/">https://github.com/sixhat/Aprende_WEB/book/</a>.</p>
 </blockquote>
 <p>Esta sebenta cobre uma introdução elementar ao funcionamento da World Wide Web focando-se na produção de páginas HTML estáticas baseadas em HTML e CSS.</p>
 <p>Em momento algum pretende ser uma sebenta enciclopédica sobre os standards das tecnologias Web<sup class="footnote-reference"><a href="#1">1</a></sup>, mas antes fornecer um texto introdutório para o aluno que pela primeira vez é confrontado com a necessidade de criar com estas tecnologias.</p>
@@ -200,22 +200,6 @@ David Sousa-Rodrigues</p>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
